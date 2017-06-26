@@ -38,7 +38,7 @@
     
     self.titleLabel.left = 0;
     self.titleLabel.width = self.width;
-    self.titleLabel.height = SNRealValue(22);
+    self.titleLabel.height = KRealValue(22);
     self.titleLabel.top = self.height - self.titleLabel.height;
     
     self.imageView.width = self.currentImage.size.width;

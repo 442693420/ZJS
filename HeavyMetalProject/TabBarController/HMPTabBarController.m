@@ -72,7 +72,7 @@
     LBar.items = self.items;
     LBar.delegate = self;
     LBar.backgroundColor=[UIColor whiteColor];
-    LBar.frame=CGRectMake(0, self.view.frame.size.height-HMPTabbarHeight, SNRealValue(375), HMPTabbarHeight);
+    LBar.frame=CGRectMake(0, self.view.frame.size.height-HMPTabbarHeight,KRealValue(375), HMPTabbarHeight);
     [self.view addSubview:LBar];
     self.mytabbar=LBar;
     
@@ -130,7 +130,7 @@
         [_mytabbar removeFromSuperview];
         
         //_mytabbar添加dock到HomeViewController
-        _mytabbar.frame = CGRectMake(0, self.view.frame.size.height-HMPTabbarHeight, SNRealValue(375), HMPTabbarHeight);
+        _mytabbar.frame = CGRectMake(0, self.view.frame.size.height-HMPTabbarHeight, KRealValue(375), HMPTabbarHeight);
         [self.view addSubview:_mytabbar];
     }
 }

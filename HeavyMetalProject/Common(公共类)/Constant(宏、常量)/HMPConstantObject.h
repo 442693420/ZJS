@@ -210,7 +210,7 @@ UIKIT_EXTERN NSString *const kWXMCH_ID;//商户号，填写商户对应参数
 //tabar高度
 #define HMPTabbarHeight 83
 /* 屏幕尺寸等比计算 */
-#define SNRealValue(value) ((value)/375.0f*[UIScreen mainScreen].bounds.size.width)
+#define KRealValue(value) ((value)/375.0f*[UIScreen mainScreen].bounds.size.width)
 #define KScreenHeight [UIScreen mainScreen].bounds.size.height
 #define KScreenWidth  [UIScreen mainScreen].bounds.size.width
 @end
