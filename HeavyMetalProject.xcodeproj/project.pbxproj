@@ -1,0 +1,618 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		61EEC2B81F00A6E40014E44C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EEC2B71F00A6E40014E44C /* main.m */; };
+		61EEC2BB1F00A6E40014E44C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EEC2BA1F00A6E40014E44C /* AppDelegate.m */; };
+		61EEC2BE1F00A6E40014E44C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EEC2BD1F00A6E40014E44C /* ViewController.m */; };
+		61EEC2C11F00A6E40014E44C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61EEC2BF1F00A6E40014E44C /* Main.storyboard */; };
+		61EEC2C31F00A6E40014E44C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61EEC2C21F00A6E40014E44C /* Assets.xcassets */; };
+		61EEC2C61F00A6E40014E44C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61EEC2C41F00A6E40014E44C /* LaunchScreen.storyboard */; };
+		61EEC2D11F00A6E40014E44C /* HeavyMetalProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EEC2D01F00A6E40014E44C /* HeavyMetalProjectTests.m */; };
+		61EEC2DC1F00A6E40014E44C /* HeavyMetalProjectUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EEC2DB1F00A6E40014E44C /* HeavyMetalProjectUITests.m */; };
+		7613B99E8CDDB9EEDC153012 /* libPods-HeavyMetalProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 685A38C20A280189ADB86BD9 /* libPods-HeavyMetalProject.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		61EEC2CD1F00A6E40014E44C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 61EEC2AB1F00A6E40014E44C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 61EEC2B21F00A6E40014E44C;
+			remoteInfo = HeavyMetalProject;
+		};
+		61EEC2D81F00A6E40014E44C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 61EEC2AB1F00A6E40014E44C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 61EEC2B21F00A6E40014E44C;
+			remoteInfo = HeavyMetalProject;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		61EEC2B31F00A6E40014E44C /* HeavyMetalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeavyMetalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		61EEC2B71F00A6E40014E44C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		61EEC2B91F00A6E40014E44C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		61EEC2BA1F00A6E40014E44C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		61EEC2BC1F00A6E40014E44C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		61EEC2BD1F00A6E40014E44C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		61EEC2C01F00A6E40014E44C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		61EEC2C21F00A6E40014E44C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		61EEC2C51F00A6E40014E44C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		61EEC2C71F00A6E40014E44C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		61EEC2CC1F00A6E40014E44C /* HeavyMetalProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HeavyMetalProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		61EEC2D01F00A6E40014E44C /* HeavyMetalProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeavyMetalProjectTests.m; sourceTree = "<group>"; };
+		61EEC2D21F00A6E40014E44C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		61EEC2D71F00A6E40014E44C /* HeavyMetalProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HeavyMetalProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		61EEC2DB1F00A6E40014E44C /* HeavyMetalProjectUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeavyMetalProjectUITests.m; sourceTree = "<group>"; };
+		61EEC2DD1F00A6E40014E44C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		685A38C20A280189ADB86BD9 /* libPods-HeavyMetalProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HeavyMetalProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9D260F7D9EFC1E3656EE5E5 /* Pods-HeavyMetalProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeavyMetalProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HeavyMetalProject/Pods-HeavyMetalProject.debug.xcconfig"; sourceTree = "<group>"; };
+		F59F22E901DFB454D863CC86 /* Pods-HeavyMetalProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeavyMetalProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-HeavyMetalProject/Pods-HeavyMetalProject.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		61EEC2B01F00A6E40014E44C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7613B99E8CDDB9EEDC153012 /* libPods-HeavyMetalProject.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		61EEC2C91F00A6E40014E44C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		61EEC2D41F00A6E40014E44C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3593908F5FB9A7E9E5DB1CA1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				685A38C20A280189ADB86BD9 /* libPods-HeavyMetalProject.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		61EEC2AA1F00A6E40014E44C = {
+			isa = PBXGroup;
+			children = (
+				61EEC2B51F00A6E40014E44C /* HeavyMetalProject */,
+				61EEC2CF1F00A6E40014E44C /* HeavyMetalProjectTests */,
+				61EEC2DA1F00A6E40014E44C /* HeavyMetalProjectUITests */,
+				61EEC2B41F00A6E40014E44C /* Products */,
+				7520DB656E8AC4605944D187 /* Pods */,
+				3593908F5FB9A7E9E5DB1CA1 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		61EEC2B41F00A6E40014E44C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				61EEC2B31F00A6E40014E44C /* HeavyMetalProject.app */,
+				61EEC2CC1F00A6E40014E44C /* HeavyMetalProjectTests.xctest */,
+				61EEC2D71F00A6E40014E44C /* HeavyMetalProjectUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		61EEC2B51F00A6E40014E44C /* HeavyMetalProject */ = {
+			isa = PBXGroup;
+			children = (
+				61EEC2B91F00A6E40014E44C /* AppDelegate.h */,
+				61EEC2BA1F00A6E40014E44C /* AppDelegate.m */,
+				61EEC2BC1F00A6E40014E44C /* ViewController.h */,
+				61EEC2BD1F00A6E40014E44C /* ViewController.m */,
+				61EEC2BF1F00A6E40014E44C /* Main.storyboard */,
+				61EEC2C21F00A6E40014E44C /* Assets.xcassets */,
+				61EEC2C41F00A6E40014E44C /* LaunchScreen.storyboard */,
+				61EEC2C71F00A6E40014E44C /* Info.plist */,
+				61EEC2B61F00A6E40014E44C /* Supporting Files */,
+			);
+			path = HeavyMetalProject;
+			sourceTree = "<group>";
+		};
+		61EEC2B61F00A6E40014E44C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				61EEC2B71F00A6E40014E44C /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		61EEC2CF1F00A6E40014E44C /* HeavyMetalProjectTests */ = {
+			isa = PBXGroup;
+			children = (
+				61EEC2D01F00A6E40014E44C /* HeavyMetalProjectTests.m */,
+				61EEC2D21F00A6E40014E44C /* Info.plist */,
+			);
+			path = HeavyMetalProjectTests;
+			sourceTree = "<group>";
+		};
+		61EEC2DA1F00A6E40014E44C /* HeavyMetalProjectUITests */ = {
+			isa = PBXGroup;
+			children = (
+				61EEC2DB1F00A6E40014E44C /* HeavyMetalProjectUITests.m */,
+				61EEC2DD1F00A6E40014E44C /* Info.plist */,
+			);
+			path = HeavyMetalProjectUITests;
+			sourceTree = "<group>";
+		};
+		7520DB656E8AC4605944D187 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C9D260F7D9EFC1E3656EE5E5 /* Pods-HeavyMetalProject.debug.xcconfig */,
+				F59F22E901DFB454D863CC86 /* Pods-HeavyMetalProject.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		61EEC2B21F00A6E40014E44C /* HeavyMetalProject */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 61EEC2E01F00A6E40014E44C /* Build configuration list for PBXNativeTarget "HeavyMetalProject" */;
+			buildPhases = (
+				010D1F6DB40E129662F0C309 /* [CP] Check Pods Manifest.lock */,
+				61EEC2AF1F00A6E40014E44C /* Sources */,
+				61EEC2B01F00A6E40014E44C /* Frameworks */,
+				61EEC2B11F00A6E40014E44C /* Resources */,
+				538FA184E35E4216332D262C /* [CP] Embed Pods Frameworks */,
+				67A5F65C59CCC45171C233DD /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HeavyMetalProject;
+			productName = HeavyMetalProject;
+			productReference = 61EEC2B31F00A6E40014E44C /* HeavyMetalProject.app */;
+			productType = "com.apple.product-type.application";
+		};
+		61EEC2CB1F00A6E40014E44C /* HeavyMetalProjectTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 61EEC2E31F00A6E40014E44C /* Build configuration list for PBXNativeTarget "HeavyMetalProjectTests" */;
+			buildPhases = (
+				61EEC2C81F00A6E40014E44C /* Sources */,
+				61EEC2C91F00A6E40014E44C /* Frameworks */,
+				61EEC2CA1F00A6E40014E44C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				61EEC2CE1F00A6E40014E44C /* PBXTargetDependency */,
+			);
+			name = HeavyMetalProjectTests;
+			productName = HeavyMetalProjectTests;
+			productReference = 61EEC2CC1F00A6E40014E44C /* HeavyMetalProjectTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		61EEC2D61F00A6E40014E44C /* HeavyMetalProjectUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 61EEC2E61F00A6E40014E44C /* Build configuration list for PBXNativeTarget "HeavyMetalProjectUITests" */;
+			buildPhases = (
+				61EEC2D31F00A6E40014E44C /* Sources */,
+				61EEC2D41F00A6E40014E44C /* Frameworks */,
+				61EEC2D51F00A6E40014E44C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				61EEC2D91F00A6E40014E44C /* PBXTargetDependency */,
+			);
+			name = HeavyMetalProjectUITests;
+			productName = HeavyMetalProjectUITests;
+			productReference = 61EEC2D71F00A6E40014E44C /* HeavyMetalProjectUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		61EEC2AB1F00A6E40014E44C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "张浩";
+				TargetAttributes = {
+					61EEC2B21F00A6E40014E44C = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = LTJT8NRPS6;
+						ProvisioningStyle = Automatic;
+					};
+					61EEC2CB1F00A6E40014E44C = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = LTJT8NRPS6;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 61EEC2B21F00A6E40014E44C;
+					};
+					61EEC2D61F00A6E40014E44C = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = LTJT8NRPS6;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 61EEC2B21F00A6E40014E44C;
+					};
+				};
+			};
+			buildConfigurationList = 61EEC2AE1F00A6E40014E44C /* Build configuration list for PBXProject "HeavyMetalProject" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 61EEC2AA1F00A6E40014E44C;
+			productRefGroup = 61EEC2B41F00A6E40014E44C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				61EEC2B21F00A6E40014E44C /* HeavyMetalProject */,
+				61EEC2CB1F00A6E40014E44C /* HeavyMetalProjectTests */,
+				61EEC2D61F00A6E40014E44C /* HeavyMetalProjectUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		61EEC2B11F00A6E40014E44C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61EEC2C61F00A6E40014E44C /* LaunchScreen.storyboard in Resources */,
+				61EEC2C31F00A6E40014E44C /* Assets.xcassets in Resources */,
+				61EEC2C11F00A6E40014E44C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		61EEC2CA1F00A6E40014E44C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		61EEC2D51F00A6E40014E44C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		010D1F6DB40E129662F0C309 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		538FA184E35E4216332D262C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HeavyMetalProject/Pods-HeavyMetalProject-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		67A5F65C59CCC45171C233DD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HeavyMetalProject/Pods-HeavyMetalProject-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		61EEC2AF1F00A6E40014E44C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61EEC2BE1F00A6E40014E44C /* ViewController.m in Sources */,
+				61EEC2BB1F00A6E40014E44C /* AppDelegate.m in Sources */,
+				61EEC2B81F00A6E40014E44C /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		61EEC2C81F00A6E40014E44C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61EEC2D11F00A6E40014E44C /* HeavyMetalProjectTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		61EEC2D31F00A6E40014E44C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61EEC2DC1F00A6E40014E44C /* HeavyMetalProjectUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		61EEC2CE1F00A6E40014E44C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 61EEC2B21F00A6E40014E44C /* HeavyMetalProject */;
+			targetProxy = 61EEC2CD1F00A6E40014E44C /* PBXContainerItemProxy */;
+		};
+		61EEC2D91F00A6E40014E44C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 61EEC2B21F00A6E40014E44C /* HeavyMetalProject */;
+			targetProxy = 61EEC2D81F00A6E40014E44C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		61EEC2BF1F00A6E40014E44C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				61EEC2C01F00A6E40014E44C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		61EEC2C41F00A6E40014E44C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				61EEC2C51F00A6E40014E44C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		61EEC2DE1F00A6E40014E44C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		61EEC2DF1F00A6E40014E44C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		61EEC2E11F00A6E40014E44C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C9D260F7D9EFC1E3656EE5E5 /* Pods-HeavyMetalProject.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = LTJT8NRPS6;
+				INFOPLIST_FILE = HeavyMetalProject/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zh.HeavyMetalProject;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		61EEC2E21F00A6E40014E44C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F59F22E901DFB454D863CC86 /* Pods-HeavyMetalProject.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = LTJT8NRPS6;
+				INFOPLIST_FILE = HeavyMetalProject/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zh.HeavyMetalProject;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		61EEC2E41F00A6E40014E44C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = LTJT8NRPS6;
+				INFOPLIST_FILE = HeavyMetalProjectTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zh.HeavyMetalProjectTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HeavyMetalProject.app/HeavyMetalProject";
+			};
+			name = Debug;
+		};
+		61EEC2E51F00A6E40014E44C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = LTJT8NRPS6;
+				INFOPLIST_FILE = HeavyMetalProjectTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zh.HeavyMetalProjectTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HeavyMetalProject.app/HeavyMetalProject";
+			};
+			name = Release;
+		};
+		61EEC2E71F00A6E40014E44C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = LTJT8NRPS6;
+				INFOPLIST_FILE = HeavyMetalProjectUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zh.HeavyMetalProjectUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = HeavyMetalProject;
+			};
+			name = Debug;
+		};
+		61EEC2E81F00A6E40014E44C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = LTJT8NRPS6;
+				INFOPLIST_FILE = HeavyMetalProjectUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zh.HeavyMetalProjectUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = HeavyMetalProject;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		61EEC2AE1F00A6E40014E44C /* Build configuration list for PBXProject "HeavyMetalProject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				61EEC2DE1F00A6E40014E44C /* Debug */,
+				61EEC2DF1F00A6E40014E44C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		61EEC2E01F00A6E40014E44C /* Build configuration list for PBXNativeTarget "HeavyMetalProject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				61EEC2E11F00A6E40014E44C /* Debug */,
+				61EEC2E21F00A6E40014E44C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		61EEC2E31F00A6E40014E44C /* Build configuration list for PBXNativeTarget "HeavyMetalProjectTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				61EEC2E41F00A6E40014E44C /* Debug */,
+				61EEC2E51F00A6E40014E44C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		61EEC2E61F00A6E40014E44C /* Build configuration list for PBXNativeTarget "HeavyMetalProjectUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				61EEC2E71F00A6E40014E44C /* Debug */,
+				61EEC2E81F00A6E40014E44C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 61EEC2AB1F00A6E40014E44C /* Project object */;
+}
