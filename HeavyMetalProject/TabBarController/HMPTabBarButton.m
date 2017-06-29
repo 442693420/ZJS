@@ -44,7 +44,7 @@
     self.imageView.width = self.currentImage.size.width;
     self.imageView.height = self.currentImage.size.height;
     self.imageView.left = (self.width - self.imageView.width) / 2;
-    self.imageView.top = self.titleLabel.top - self.imageView.height-5 ;
+    self.imageView.top = self.titleLabel.top - self.imageView.height ;
 }
 
 - (void)setEcount:(NSInteger)ecount{

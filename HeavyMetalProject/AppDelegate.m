@@ -19,6 +19,8 @@
     HMPTabBarController *homeVC = [[HMPTabBarController alloc] init];
     self.window.rootViewController = homeVC;
     [self.window makeKeyAndVisible];
+    //导航栏
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     return YES;
 }
 

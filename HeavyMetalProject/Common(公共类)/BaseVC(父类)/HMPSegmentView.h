@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 typedef void(^btnClickBlock)(NSInteger index);
 
+
 @interface HMPSegmentView : UIView
 /**
  *  未选中时的文字颜色,默认黑色
@@ -41,6 +42,8 @@ typedef void(^btnClickBlock)(NSInteger index);
  */
 @property (nonatomic,copy)btnClickBlock block;
 
+
+
 /**
  *  初始化方法
  *
@@ -52,5 +55,8 @@ typedef void(^btnClickBlock)(NSInteger index);
  */
 -(instancetype)initWithFrame:(CGRect)frame titles:(NSArray *)titleArray clickBlick:(btnClickBlock)block;
 
+
+//外部调用
+- (void)bgScrollWithIndex:(NSInteger)index;
 
 @end

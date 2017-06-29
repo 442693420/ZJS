@@ -132,59 +132,7 @@ UIKIT_EXTERN NSString *const kCAGSaveInfoDefault;//上下班模块用户选择�
 
 
 #pragma mark - 通知管理
-UIKIT_EXTERN NSString *const kAppUpdateNotifiCation;//版本更新通知
-UIKIT_EXTERN NSString *const kCarFAttenNotifiCation;//关注通知
-UIKIT_EXTERN NSString *const kCarButtonClickNotifiCation;//关注通知  区分关注按钮和下滑关注
-UIKIT_EXTERN NSString *const kGetMessageRefreshMineViewNotifiCation;//收到消息，刷新个人中心的未读消息数量显示
-UIKIT_EXTERN NSString *const kUseUserLocationNotifiCation;//上下班-使用当前位置
-UIKIT_EXTERN NSString *const kUseMapChooseLocationNotifiCation;//上下班-使用地图位置
-UIKIT_EXTERN NSString *const kUseKeySearchLocationNotifiCation;//上下班-使用关键字搜索位置
-UIKIT_EXTERN NSString *const kSNHomeVCIntercomMsgNotifiCation;//首页点击频道消息跳转
-UIKIT_EXTERN NSString *const kSNHomeReceiveAppDelegateRegisteSuccellNotifiCation;//homeVC收到appdelegate中注册成功的消息
-
-
-
-
-UIKIT_EXTERN NSString *const kCarFInNotifiCation;//车友通知
-UIKIT_EXTERN NSString *const kCarStatusNotifiCation;//车友--附近直播--附近互动
-
-
-UIKIT_EXTERN NSString *const kChatroomUserInfoShowNotifiCation;//聊天室用户信息展示
-UIKIT_EXTERN NSString *const kChatroomUserInfoHidenNotifiCation;//聊天室用户信息隐藏
-
-UIKIT_EXTERN NSString *const kChatroomPointGuideShowNotifiCation;//聊天室积分赚取指引信息展示
-UIKIT_EXTERN NSString *const kChatroomPointGuideHidenNotifiCation;//聊天室积分赚取指引信息隐藏
-
-UIKIT_EXTERN NSString *const kChatroomLeaveMessageNotifiCation;//聊天室留言
-UIKIT_EXTERN NSString *const kChatroomPresentSendNotifiCation;//积分兑换礼物
-
-UIKIT_EXTERN NSString *const kChatroomAnchorChangeLiveBackImageNotifiCation;//主播直播过程中更换背景图片
-UIKIT_EXTERN NSString *const kUserOvertimeNotifiCation;//观看或者进行直播的时候被顶掉(sid超时),发通知关闭当前页面
-
-UIKIT_EXTERN NSString *const kChangeCityChatroomNotifiCation;//城市对讲机模式下切换城市频道
-
-UIKIT_EXTERN NSString *const kChangeFriendsNaviCurrentVC;//互动导航VC下切换不同字VC
-
-UIKIT_EXTERN NSString *const kLoginSuccessNotifiCation;//登陆成功
-
-UIKIT_EXTERN NSString *const kBindingPhoneSuccessNotifiCation;//绑定手机号
-
-UIKIT_EXTERN NSString *const kWechatPayResultNotification;//微信支付回调
-
-
-
-
-//im部分
-UIKIT_EXTERN NSString *const kSooonerSocketManagerConnectedCallbackNotifiCation;//连接成功通知
-UIKIT_EXTERN NSString *const kSooonerSocketManagerReconnectCallbackNotifiCation;//自动重连中通知
-UIKIT_EXTERN NSString *const kSooonerSocketManagerConnectErrorCallbackNotifiCation;//连接错误通知
-UIKIT_EXTERN NSString *const kSooonerSocketManagerJoinCallbackNotifiCation;//接收进入房间通知
-UIKIT_EXTERN NSString *const kSooonerSocketManagerLeaveCallbackNotifiCation;//接收离开房间通知
-UIKIT_EXTERN NSString *const kSooonerSocketManagerRoomMessageCallbackNotifiCation;//接收房间消息通知
-UIKIT_EXTERN NSString *const kSooonerSocketManagerPrivateMessageCallbackNotifiCation;//接收私聊消息通知
-UIKIT_EXTERN NSString *const kSooonerSocketManagerOfflineMessageCallbackNotifiCation;//接收离线消息通知
-UIKIT_EXTERN NSString *const kSooonerSocketManagerSystemMessageCallbackNotifiCation;//接收系统消息通知
-
+UIKIT_EXTERN NSString *const kQuotePriceSmallSegmentScrollNotifiCation;//报价首页检测到收尾页
 
 
 
@@ -198,6 +146,11 @@ UIKIT_EXTERN NSString *const kAppName;//应用名称
 
 #pragma mark - 其他信息管理
 UIKIT_EXTERN NSString *const kMainGreenColor;//主色调中的  绿色
+UIKIT_EXTERN NSString *const kMainWordColorGray;//字体颜色  灰色(报价cell中灰色字体颜色)
+UIKIT_EXTERN NSString *const kMainColorRed;//红色  (报价cell中涨)
+UIKIT_EXTERN NSString *const kMainColorGreen;//绿色  （报价cell中跌)
+UIKIT_EXTERN NSString *const kMainColorOrange;//橙黄色  (报价cell中报价的橙黄色)
+
 
 
 #pragma mark - 微信支付
@@ -208,7 +161,7 @@ UIKIT_EXTERN NSString *const kWXMCH_ID;//商户号，填写商户对应参数
 
 #pragma mark - define
 //tabar高度
-#define HMPTabbarHeight 83
+#define HMPTabbarHeight 48
 /* 屏幕尺寸等比计算 */
 #define KRealValue(value) ((value)/375.0f*[UIScreen mainScreen].bounds.size.width)
 #define KScreenHeight [UIScreen mainScreen].bounds.size.height

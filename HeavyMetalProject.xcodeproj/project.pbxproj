@@ -7,6 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6105C3E91F03971E00A96B2A /* CellModelObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6105C3E81F03971E00A96B2A /* CellModelObject.m */; };
+		6105C3EC1F0397F700A96B2A /* CellModelPriceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6105C3EB1F0397F700A96B2A /* CellModelPriceObject.m */; };
+		6105C3EF1F03A09000A96B2A /* MineTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6105C3EE1F03A09000A96B2A /* MineTitleView.m */; };
+		6105C3F21F03A30700A96B2A /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6105C3F11F03A30700A96B2A /* LoginViewController.m */; };
+		6105C3F51F03A32400A96B2A /* RegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6105C3F41F03A32400A96B2A /* RegistViewController.m */; };
+		6105C4131F03D1FB00A96B2A /* LoginWithPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6105C4121F03D1FB00A96B2A /* LoginWithPwdViewController.m */; };
+		6105C4161F03D20700A96B2A /* LoginWithVerifyCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6105C4151F03D20700A96B2A /* LoginWithVerifyCodeViewController.m */; };
+		612805491F01F73E00C31B18 /* QuotePriceStyleOneTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 612805481F01F73E00C31B18 /* QuotePriceStyleOneTableViewCell.m */; };
+		6128054C1F01F74E00C31B18 /* QuotePriceStyleTwoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6128054B1F01F74E00C31B18 /* QuotePriceStyleTwoTableViewCell.m */; };
+		6128054F1F01F75D00C31B18 /* QuotePriceStyleThreeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6128054E1F01F75D00C31B18 /* QuotePriceStyleThreeTableViewCell.m */; };
+		612805521F01F76800C31B18 /* QuotePriceStyleFourTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 612805511F01F76800C31B18 /* QuotePriceStyleFourTableViewCell.m */; };
+		612805551F01F77500C31B18 /* QuotePriceStyleFiveTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 612805541F01F77500C31B18 /* QuotePriceStyleFiveTableViewCell.m */; };
+		612805581F01F78000C31B18 /* QuotePriceStyleSixTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 612805571F01F77F00C31B18 /* QuotePriceStyleSixTableViewCell.m */; };
+		6128055C1F026F8600C31B18 /* BigClassObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6128055B1F026F8600C31B18 /* BigClassObject.m */; };
+		6128055F1F02700D00C31B18 /* MidClassObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6128055E1F02700D00C31B18 /* MidClassObject.m */; };
+		612805651F027A4C00C31B18 /* SmallClassObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 612805641F027A4C00C31B18 /* SmallClassObject.m */; };
+		61DEBF9E1F0541AC0084D40C /* UIButton+countDown.m in Sources */ = {isa = PBXBuildFile; fileRef = 61DEBF9D1F0541AC0084D40C /* UIButton+countDown.m */; };
+		61DEBFA11F0542140084D40C /* NSString+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 61DEBFA01F0542140084D40C /* NSString+Common.m */; };
+		61DEBFA61F0542B00084D40C /* MBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 61DEBFA51F0542B00084D40C /* MBManager.m */; };
+		61DEBFA91F0544B30084D40C /* ForgetPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61DEBFA81F0544B30084D40C /* ForgetPwdViewController.m */; };
+		61DEBFAC1F054AAC0084D40C /* RegistProtocolButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 61DEBFAB1F054AAC0084D40C /* RegistProtocolButton.m */; };
 		61EEC2B81F00A6E40014E44C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EEC2B71F00A6E40014E44C /* main.m */; };
 		61EEC2BB1F00A6E40014E44C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EEC2BA1F00A6E40014E44C /* AppDelegate.m */; };
 		61EEC2BE1F00A6E40014E44C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EEC2BD1F00A6E40014E44C /* ViewController.m */; };
@@ -29,8 +50,6 @@
 		61EEC3271F00B6FA0014E44C /* UserManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EEC3261F00B6FA0014E44C /* UserManger.m */; };
 		61EEC32E1F00BC0D0014E44C /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EEC32D1F00BC0D0014E44C /* BaseNavigationController.m */; };
 		61EEC3311F00F2000014E44C /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EEC3301F00F2000014E44C /* UIView+Frame.m */; };
-		61EEC3401F010C3D0014E44C /* QuotePriceOddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EEC33F1F010C3D0014E44C /* QuotePriceOddViewController.m */; };
-		61EEC3431F010C590014E44C /* QuotePriceEvenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EEC3421F010C580014E44C /* QuotePriceEvenViewController.m */; };
 		61EEC34C1F0125820014E44C /* HMPSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EEC34B1F0125820014E44C /* HMPSegmentView.m */; };
 		61EEC34F1F0125CC0014E44C /* HMPSegmentScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EEC34E1F0125CC0014E44C /* HMPSegmentScrollView.m */; };
 		61EEC3581F014DF00014E44C /* HMPNaviSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61EEC3571F014DF00014E44C /* HMPNaviSegmentView.m */; };
@@ -55,6 +74,48 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6105C3E71F03971E00A96B2A /* CellModelObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellModelObject.h; sourceTree = "<group>"; };
+		6105C3E81F03971E00A96B2A /* CellModelObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellModelObject.m; sourceTree = "<group>"; };
+		6105C3EA1F0397F700A96B2A /* CellModelPriceObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellModelPriceObject.h; sourceTree = "<group>"; };
+		6105C3EB1F0397F700A96B2A /* CellModelPriceObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellModelPriceObject.m; sourceTree = "<group>"; };
+		6105C3ED1F03A09000A96B2A /* MineTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineTitleView.h; sourceTree = "<group>"; };
+		6105C3EE1F03A09000A96B2A /* MineTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineTitleView.m; sourceTree = "<group>"; };
+		6105C3F01F03A30700A96B2A /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		6105C3F11F03A30700A96B2A /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		6105C3F31F03A32400A96B2A /* RegistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistViewController.h; sourceTree = "<group>"; };
+		6105C3F41F03A32400A96B2A /* RegistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistViewController.m; sourceTree = "<group>"; };
+		6105C4111F03D1FB00A96B2A /* LoginWithPwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginWithPwdViewController.h; sourceTree = "<group>"; };
+		6105C4121F03D1FB00A96B2A /* LoginWithPwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginWithPwdViewController.m; sourceTree = "<group>"; };
+		6105C4141F03D20700A96B2A /* LoginWithVerifyCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginWithVerifyCodeViewController.h; sourceTree = "<group>"; };
+		6105C4151F03D20700A96B2A /* LoginWithVerifyCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginWithVerifyCodeViewController.m; sourceTree = "<group>"; };
+		612805471F01F73E00C31B18 /* QuotePriceStyleOneTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuotePriceStyleOneTableViewCell.h; sourceTree = "<group>"; };
+		612805481F01F73E00C31B18 /* QuotePriceStyleOneTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuotePriceStyleOneTableViewCell.m; sourceTree = "<group>"; };
+		6128054A1F01F74E00C31B18 /* QuotePriceStyleTwoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuotePriceStyleTwoTableViewCell.h; sourceTree = "<group>"; };
+		6128054B1F01F74E00C31B18 /* QuotePriceStyleTwoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuotePriceStyleTwoTableViewCell.m; sourceTree = "<group>"; };
+		6128054D1F01F75D00C31B18 /* QuotePriceStyleThreeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuotePriceStyleThreeTableViewCell.h; sourceTree = "<group>"; };
+		6128054E1F01F75D00C31B18 /* QuotePriceStyleThreeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuotePriceStyleThreeTableViewCell.m; sourceTree = "<group>"; };
+		612805501F01F76800C31B18 /* QuotePriceStyleFourTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuotePriceStyleFourTableViewCell.h; sourceTree = "<group>"; };
+		612805511F01F76800C31B18 /* QuotePriceStyleFourTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuotePriceStyleFourTableViewCell.m; sourceTree = "<group>"; };
+		612805531F01F77500C31B18 /* QuotePriceStyleFiveTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuotePriceStyleFiveTableViewCell.h; sourceTree = "<group>"; };
+		612805541F01F77500C31B18 /* QuotePriceStyleFiveTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuotePriceStyleFiveTableViewCell.m; sourceTree = "<group>"; };
+		612805561F01F77F00C31B18 /* QuotePriceStyleSixTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuotePriceStyleSixTableViewCell.h; sourceTree = "<group>"; };
+		612805571F01F77F00C31B18 /* QuotePriceStyleSixTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuotePriceStyleSixTableViewCell.m; sourceTree = "<group>"; };
+		6128055A1F026F8600C31B18 /* BigClassObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BigClassObject.h; sourceTree = "<group>"; };
+		6128055B1F026F8600C31B18 /* BigClassObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BigClassObject.m; sourceTree = "<group>"; };
+		6128055D1F02700D00C31B18 /* MidClassObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidClassObject.h; sourceTree = "<group>"; };
+		6128055E1F02700D00C31B18 /* MidClassObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidClassObject.m; sourceTree = "<group>"; };
+		612805631F027A4C00C31B18 /* SmallClassObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmallClassObject.h; sourceTree = "<group>"; };
+		612805641F027A4C00C31B18 /* SmallClassObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmallClassObject.m; sourceTree = "<group>"; };
+		61DEBF9C1F0541AC0084D40C /* UIButton+countDown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+countDown.h"; sourceTree = "<group>"; };
+		61DEBF9D1F0541AC0084D40C /* UIButton+countDown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+countDown.m"; sourceTree = "<group>"; };
+		61DEBF9F1F0542140084D40C /* NSString+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Common.h"; sourceTree = "<group>"; };
+		61DEBFA01F0542140084D40C /* NSString+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Common.m"; sourceTree = "<group>"; };
+		61DEBFA41F0542B00084D40C /* MBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBManager.h; sourceTree = "<group>"; };
+		61DEBFA51F0542B00084D40C /* MBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBManager.m; sourceTree = "<group>"; };
+		61DEBFA71F0544B30084D40C /* ForgetPwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPwdViewController.h; sourceTree = "<group>"; };
+		61DEBFA81F0544B30084D40C /* ForgetPwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPwdViewController.m; sourceTree = "<group>"; };
+		61DEBFAA1F054AAC0084D40C /* RegistProtocolButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistProtocolButton.h; sourceTree = "<group>"; };
+		61DEBFAB1F054AAC0084D40C /* RegistProtocolButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistProtocolButton.m; sourceTree = "<group>"; };
 		61EEC2B31F00A6E40014E44C /* HeavyMetalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeavyMetalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61EEC2B71F00A6E40014E44C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		61EEC2B91F00A6E40014E44C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -101,10 +162,6 @@
 		61EEC32D1F00BC0D0014E44C /* BaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationController.m; sourceTree = "<group>"; };
 		61EEC32F1F00F2000014E44C /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
 		61EEC3301F00F2000014E44C /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
-		61EEC33E1F010C3D0014E44C /* QuotePriceOddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuotePriceOddViewController.h; sourceTree = "<group>"; };
-		61EEC33F1F010C3D0014E44C /* QuotePriceOddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuotePriceOddViewController.m; sourceTree = "<group>"; };
-		61EEC3411F010C580014E44C /* QuotePriceEvenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuotePriceEvenViewController.h; sourceTree = "<group>"; };
-		61EEC3421F010C580014E44C /* QuotePriceEvenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuotePriceEvenViewController.m; sourceTree = "<group>"; };
 		61EEC34A1F0125820014E44C /* HMPSegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMPSegmentView.h; sourceTree = "<group>"; };
 		61EEC34B1F0125820014E44C /* HMPSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMPSegmentView.m; sourceTree = "<group>"; };
 		61EEC34D1F0125CC0014E44C /* HMPSegmentScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMPSegmentScrollView.h; sourceTree = "<group>"; };
@@ -148,6 +205,41 @@
 				685A38C20A280189ADB86BD9 /* libPods-HeavyMetalProject.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		612805591F026F3800C31B18 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6128055A1F026F8600C31B18 /* BigClassObject.h */,
+				6128055B1F026F8600C31B18 /* BigClassObject.m */,
+				6128055D1F02700D00C31B18 /* MidClassObject.h */,
+				6128055E1F02700D00C31B18 /* MidClassObject.m */,
+				612805631F027A4C00C31B18 /* SmallClassObject.h */,
+				612805641F027A4C00C31B18 /* SmallClassObject.m */,
+				6105C3E71F03971E00A96B2A /* CellModelObject.h */,
+				6105C3E81F03971E00A96B2A /* CellModelObject.m */,
+				6105C3EA1F0397F700A96B2A /* CellModelPriceObject.h */,
+				6105C3EB1F0397F700A96B2A /* CellModelPriceObject.m */,
+			);
+			name = Model;
+			path = "HeavyMetalProject/MainController/QuotePrice(报价)/Model";
+			sourceTree = SOURCE_ROOT;
+		};
+		61DEBFA21F0542B00084D40C /* Tool(工具) */ = {
+			isa = PBXGroup;
+			children = (
+				61DEBFA31F0542B00084D40C /* MBManager */,
+			);
+			path = "Tool(工具)";
+			sourceTree = "<group>";
+		};
+		61DEBFA31F0542B00084D40C /* MBManager */ = {
+			isa = PBXGroup;
+			children = (
+				61DEBFA41F0542B00084D40C /* MBManager.h */,
+				61DEBFA51F0542B00084D40C /* MBManager.m */,
+			);
+			path = MBManager;
 			sourceTree = "<group>";
 		};
 		61EEC2AA1F00A6E40014E44C = {
@@ -234,6 +326,7 @@
 		61EEC2F41F00B2B40014E44C /* Common(公共类) */ = {
 			isa = PBXGroup;
 			children = (
+				61DEBFA21F0542B00084D40C /* Tool(工具) */,
 				61EEC32B1F00BBF90014E44C /* BaseVC(父类) */,
 				61EEC2F51F00B2B40014E44C /* Categorys(分类) */,
 				61EEC2F81F00B2B40014E44C /* Constant(宏、常量) */,
@@ -245,6 +338,10 @@
 		61EEC2F51F00B2B40014E44C /* Categorys(分类) */ = {
 			isa = PBXGroup;
 			children = (
+				61DEBF9F1F0542140084D40C /* NSString+Common.h */,
+				61DEBFA01F0542140084D40C /* NSString+Common.m */,
+				61DEBF9C1F0541AC0084D40C /* UIButton+countDown.h */,
+				61DEBF9D1F0541AC0084D40C /* UIButton+countDown.m */,
 				61EEC32F1F00F2000014E44C /* UIView+Frame.h */,
 				61EEC3301F00F2000014E44C /* UIView+Frame.m */,
 				61EEC2F61F00B2B40014E44C /* UIColor+Hex.h */,
@@ -323,6 +420,16 @@
 			children = (
 				61EEC31E1F00B6660014E44C /* MineViewController.h */,
 				61EEC31F1F00B6660014E44C /* MineViewController.m */,
+				6105C3F01F03A30700A96B2A /* LoginViewController.h */,
+				6105C3F11F03A30700A96B2A /* LoginViewController.m */,
+				6105C3F31F03A32400A96B2A /* RegistViewController.h */,
+				6105C3F41F03A32400A96B2A /* RegistViewController.m */,
+				61DEBFA71F0544B30084D40C /* ForgetPwdViewController.h */,
+				61DEBFA81F0544B30084D40C /* ForgetPwdViewController.m */,
+				6105C4111F03D1FB00A96B2A /* LoginWithPwdViewController.h */,
+				6105C4121F03D1FB00A96B2A /* LoginWithPwdViewController.m */,
+				6105C4141F03D20700A96B2A /* LoginWithVerifyCodeViewController.h */,
+				6105C4151F03D20700A96B2A /* LoginWithVerifyCodeViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -330,6 +437,10 @@
 		61EEC30B1F00B60B0014E44C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6105C3ED1F03A09000A96B2A /* MineTitleView.h */,
+				6105C3EE1F03A09000A96B2A /* MineTitleView.m */,
+				61DEBFAA1F054AAC0084D40C /* RegistProtocolButton.h */,
+				61DEBFAB1F054AAC0084D40C /* RegistProtocolButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -362,6 +473,7 @@
 		61EEC30F1F00B60B0014E44C /* QuotePrice(报价) */ = {
 			isa = PBXGroup;
 			children = (
+				612805591F026F3800C31B18 /* Model */,
 				61EEC3101F00B60B0014E44C /* Controller */,
 				61EEC3111F00B60B0014E44C /* View */,
 			);
@@ -373,10 +485,6 @@
 			children = (
 				61EEC3121F00B61D0014E44C /* QuotePriceViewController.h */,
 				61EEC3131F00B61D0014E44C /* QuotePriceViewController.m */,
-				61EEC33E1F010C3D0014E44C /* QuotePriceOddViewController.h */,
-				61EEC33F1F010C3D0014E44C /* QuotePriceOddViewController.m */,
-				61EEC3411F010C580014E44C /* QuotePriceEvenViewController.h */,
-				61EEC3421F010C580014E44C /* QuotePriceEvenViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -386,6 +494,18 @@
 			children = (
 				61EEC3561F014DF00014E44C /* HMPNaviSegmentView.h */,
 				61EEC3571F014DF00014E44C /* HMPNaviSegmentView.m */,
+				612805471F01F73E00C31B18 /* QuotePriceStyleOneTableViewCell.h */,
+				612805481F01F73E00C31B18 /* QuotePriceStyleOneTableViewCell.m */,
+				6128054A1F01F74E00C31B18 /* QuotePriceStyleTwoTableViewCell.h */,
+				6128054B1F01F74E00C31B18 /* QuotePriceStyleTwoTableViewCell.m */,
+				6128054D1F01F75D00C31B18 /* QuotePriceStyleThreeTableViewCell.h */,
+				6128054E1F01F75D00C31B18 /* QuotePriceStyleThreeTableViewCell.m */,
+				612805501F01F76800C31B18 /* QuotePriceStyleFourTableViewCell.h */,
+				612805511F01F76800C31B18 /* QuotePriceStyleFourTableViewCell.m */,
+				612805531F01F77500C31B18 /* QuotePriceStyleFiveTableViewCell.h */,
+				612805541F01F77500C31B18 /* QuotePriceStyleFiveTableViewCell.m */,
+				612805561F01F77F00C31B18 /* QuotePriceStyleSixTableViewCell.h */,
+				612805571F01F77F00C31B18 /* QuotePriceStyleSixTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -610,27 +730,46 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6105C3E91F03971E00A96B2A /* CellModelObject.m in Sources */,
+				6128055F1F02700D00C31B18 /* MidClassObject.m in Sources */,
+				61DEBFA61F0542B00084D40C /* MBManager.m in Sources */,
 				61EEC2BE1F00A6E40014E44C /* ViewController.m in Sources */,
+				6128054C1F01F74E00C31B18 /* QuotePriceStyleTwoTableViewCell.m in Sources */,
 				61EEC31D1F00B6520014E44C /* AttentionViewController.m in Sources */,
 				61EEC3201F00B6660014E44C /* MineViewController.m in Sources */,
-				61EEC3431F010C590014E44C /* QuotePriceEvenViewController.m in Sources */,
+				6105C3F51F03A32400A96B2A /* RegistViewController.m in Sources */,
 				61EEC34F1F0125CC0014E44C /* HMPSegmentScrollView.m in Sources */,
 				61EEC2EF1F00B0E90014E44C /* HMPTabBar.m in Sources */,
 				61EEC32E1F00BC0D0014E44C /* BaseNavigationController.m in Sources */,
+				6128055C1F026F8600C31B18 /* BigClassObject.m in Sources */,
 				61EEC2EC1F00AFE80014E44C /* HMPTabBarController.m in Sources */,
 				61EEC3581F014DF00014E44C /* HMPNaviSegmentView.m in Sources */,
 				61EEC3141F00B61D0014E44C /* QuotePriceViewController.m in Sources */,
 				61EEC2BB1F00A6E40014E44C /* AppDelegate.m in Sources */,
 				61EEC3171F00B62C0014E44C /* NewsViewController.m in Sources */,
+				6128054F1F01F75D00C31B18 /* QuotePriceStyleThreeTableViewCell.m in Sources */,
+				6105C3EF1F03A09000A96B2A /* MineTitleView.m in Sources */,
 				61EEC3011F00B2DB0014E44C /* HMPAFNetWorkManager.m in Sources */,
+				612805581F01F78000C31B18 /* QuotePriceStyleSixTableViewCell.m in Sources */,
+				61DEBFA91F0544B30084D40C /* ForgetPwdViewController.m in Sources */,
+				61DEBFA11F0542140084D40C /* NSString+Common.m in Sources */,
 				61EEC2FD1F00B2B40014E44C /* UIColor+Hex.m in Sources */,
+				6105C3F21F03A30700A96B2A /* LoginViewController.m in Sources */,
+				612805651F027A4C00C31B18 /* SmallClassObject.m in Sources */,
+				612805491F01F73E00C31B18 /* QuotePriceStyleOneTableViewCell.m in Sources */,
 				61EEC3041F00B48B0014E44C /* HMPConstantObject.m in Sources */,
+				612805521F01F76800C31B18 /* QuotePriceStyleFourTableViewCell.m in Sources */,
 				61EEC3241F00B6B50014E44C /* UserObject.m in Sources */,
+				6105C4161F03D20700A96B2A /* LoginWithVerifyCodeViewController.m in Sources */,
+				61DEBFAC1F054AAC0084D40C /* RegistProtocolButton.m in Sources */,
+				61DEBF9E1F0541AC0084D40C /* UIButton+countDown.m in Sources */,
 				61EEC34C1F0125820014E44C /* HMPSegmentView.m in Sources */,
 				61EEC2B81F00A6E40014E44C /* main.m in Sources */,
-				61EEC3401F010C3D0014E44C /* QuotePriceOddViewController.m in Sources */,
 				61EEC3311F00F2000014E44C /* UIView+Frame.m in Sources */,
+				612805551F01F77500C31B18 /* QuotePriceStyleFiveTableViewCell.m in Sources */,
 				61EEC2F21F00B13A0014E44C /* HMPTabBarButton.m in Sources */,
+				6105C3EC1F0397F700A96B2A /* CellModelPriceObject.m in Sources */,
+				6105C4131F03D1FB00A96B2A /* LoginWithPwdViewController.m in Sources */,
 				61EEC3271F00B6FA0014E44C /* UserManger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

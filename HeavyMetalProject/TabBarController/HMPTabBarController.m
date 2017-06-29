@@ -48,10 +48,10 @@
     AttentionViewController *attentionVC = [[AttentionViewController alloc] init];
     NewsViewController *newsVC = [[NewsViewController alloc] init];
     MineViewController *mineVC = [[MineViewController alloc] init];
-    [self addOneChildVC:quotePriceVC title:@"报价" imageName:@"tabBar_quotePrice_selectNo" selectedImageName:@"tabBar_quotePrice_selectYes"];
-    [self addOneChildVC:attentionVC title:@"关注" imageName:@"tabBar_attention_selectNo" selectedImageName:@"tabBar_attention_selectYes"];
-    [self addOneChildVC:newsVC title:@"资讯" imageName:@"tabBar_news_selectNo" selectedImageName:@"tabBar_news_selectYes"];
-    [self addOneChildVC:mineVC title:@"我的" imageName:@"tabBar_mine_selectNo" selectedImageName:@"tabBar_mine_selectYes"];
+    [self addOneChildVC:quotePriceVC title:@"报价" imageName:@"tab_quotePrice_yes" selectedImageName:@"tab_quotePrice_no"];
+    [self addOneChildVC:attentionVC title:@"关注" imageName:@"tab_attention_yes" selectedImageName:@"tab_attention_no"];
+    [self addOneChildVC:newsVC title:@"资讯" imageName:@"tab_news_yes" selectedImageName:@"tab_news_no"];
+    [self addOneChildVC:mineVC title:@"我的" imageName:@"tab_mine_yes" selectedImageName:@"tab_mine_no"];
 }
 
 - (void)addOneChildVC:(UIViewController *)childVc title:(NSString *)title imageName:(NSString *)imageName selectedImageName:(NSString *)selectedImageName {
@@ -65,6 +65,7 @@
     BaseNavigationController *nav = [[BaseNavigationController alloc] initWithRootViewController:childVc];
     nav.delegate=self;
     nav.navigationBarHidden=YES;
+    nav.navigationBar.barStyle = UIBarStyleBlack;
     [self addChildViewController:nav];
 }
 - (void)setUpTabBar{

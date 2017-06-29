@@ -52,4 +52,7 @@ typedef void(^btnClickBlock)(NSInteger index);
  *  @return
  */
 -(instancetype)initWithFrame:(CGRect)frame titles:(NSArray *)titleArray clickBlick:(btnClickBlock)block;
+
+//外部调用
+- (void)bgScrollWithIndex:(NSInteger)index;
 @end

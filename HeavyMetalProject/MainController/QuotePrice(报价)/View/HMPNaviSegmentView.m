@@ -17,6 +17,7 @@
 @property (nonatomic,strong) NSArray *titles;
 @property (nonatomic,strong) UIButton *titleBtn;
 @property (nonatomic,strong) UIScrollView *bgScrollView;
+@property (nonatomic,strong) UIView *selectView;
 @property (nonatomic,assign) CGFloat btn_w;
 @end
 @implementation HMPNaviSegmentView
@@ -24,17 +25,8 @@
 -(instancetype)initWithFrame:(CGRect)frame titles:(NSArray *)titleArray clickBlick:(btnClickBlock)block{
     self = [super initWithFrame:frame];
     if (self) {
-        //        self.layer.shadowColor=[UIColor blackColor].CGColor;
-        //        self.layer.shadowOffset=CGSizeMake(2, 2);
-        //        self.layer.shadowRadius=2;
-        //        self.layer.shadowOpacity=.2;
+        _btn_w=frame.size.width/MAX_TitleNumInWindow;
         
-        _btn_w=0.0;
-        if (titleArray.count<MAX_TitleNumInWindow+1) {
-            _btn_w=frame.size.width/titleArray.count;
-        }else{
-            _btn_w=frame.size.width/MAX_TitleNumInWindow;
-        }
         _titles=titleArray;
         _defaultIndex=1;
         _titleFont=[UIFont systemFontOfSize:15];
@@ -46,7 +38,11 @@
         _bgScrollView.showsHorizontalScrollIndicator=NO;
         _bgScrollView.contentSize=CGSizeMake(_btn_w*titleArray.count, self.frame.size.height);
         [self addSubview:_bgScrollView];
-        
+        _selectView=[[UIView alloc] initWithFrame:CGRectMake(ButtonMargin, ButtonMargin*2, _btn_w-ButtonMargin*2, self.frame.size.height-ButtonMargin*4)];
+        _selectView.layer.masksToBounds = YES;
+        _selectView.layer.cornerRadius = (self.frame.size.height-ButtonMargin*4)/2;
+        _selectView.backgroundColor=[UIColor colorWithHexString:@"#4C4A48"];
+        [_bgScrollView addSubview:_selectView];
         for (int i=0; i<titleArray.count; i++) {
             UIButton *btn=[UIButton buttonWithType:UIButtonTypeCustom];
             btn.frame=CGRectMake(_btn_w*i+ButtonMargin, ButtonMargin*2, _btn_w-ButtonMargin*2, self.frame.size.height-ButtonMargin*4);
@@ -56,7 +52,7 @@
             [btn setTitleColor:_titleSelectColor forState:UIControlStateSelected];
             [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchDown];
             btn.titleLabel.font=_titleFont;
-            btn.backgroundColor = [UIColor blackColor];
+            btn.backgroundColor = [UIColor clearColor];
             btn.layer.masksToBounds = YES;
             btn.layer.cornerRadius = (self.frame.size.height-ButtonMargin*4)/2;
             btn.layer.borderColor = [UIColor colorWithHexString:@"#D6D6D6"].CGColor;
@@ -64,15 +60,12 @@
             [_bgScrollView addSubview:btn];
             [_btns addObject:btn];
             if (i==0) {
-                _titleBtn=btn;
                 btn.selected=YES;
-                btn.backgroundColor = [UIColor colorWithHexString:@"#D6D6D6"];
+                _titleBtn=btn;
             }
             self.block=block;
-            
         }
     }
-    
     return self;
 }
 
@@ -86,34 +79,42 @@
         return;
     }else{
         _titleBtn.selected=!_titleBtn.selected;
-        _titleBtn.backgroundColor = [UIColor blackColor];
         _titleBtn=btn;
         _titleBtn.selected=YES;
-        _titleBtn.backgroundColor = [UIColor colorWithHexString:@"#D6D6D6"];
         _defaultIndex=btn.tag;
     }
-    
-    //计算偏移量
-    CGFloat offsetX=btn.frame.origin.x - 2*_btn_w;
-    if (offsetX<0) {
-        offsetX=0;
+    if (_titles.count >= MAX_TitleNumInWindow) {
+        //计算偏移量
+        CGFloat offsetX=btn.frame.origin.x - 2*_btn_w;
+        if (offsetX<0) {
+            offsetX=0;
+        }
+        CGFloat maxOffsetX= _bgScrollView.contentSize.width-self.frame.size.width;
+        if (offsetX>maxOffsetX) {
+            offsetX=maxOffsetX;
+        }
+        
+        [UIView animateWithDuration:0.1 animations:^{
+            [_bgScrollView setContentOffset:CGPointMake(offsetX, 0) animated:YES];
+            _selectView.frame=CGRectMake(btn.frame.origin.x, ButtonMargin*2, _btn_w-ButtonMargin*2, self.frame.size.height-ButtonMargin*4);
+
+        } completion:^(BOOL finished) {
+            
+        }];
+    }else{
+        //不需要偏移
+        _selectView.frame=CGRectMake(btn.frame.origin.x, ButtonMargin*2, _btn_w-ButtonMargin*2, self.frame.size.height-ButtonMargin*4);
+
     }
-    CGFloat maxOffsetX= _bgScrollView.contentSize.width-self.frame.size.width;
-    if (offsetX>maxOffsetX) {
-        offsetX=maxOffsetX;
-    }
     
-    [UIView animateWithDuration:.2 animations:^{
-        
-        [_bgScrollView setContentOffset:CGPointMake(offsetX, 0) animated:YES];
-        
-    } completion:^(BOOL finished) {
-        
-    }];
     
 }
 
-
+//下方内容切换，刷新分段器
+- (void)bgScrollWithIndex:(NSInteger)index{
+    UIButton *btn = [_bgScrollView viewWithTag:index+1];
+    [self btnClick:btn];
+}
 
 -(void)setTitleNomalColor:(UIColor *)titleNomalColor{
     _titleNomalColor=titleNomalColor;
@@ -127,7 +128,7 @@
 
 -(void)setBgScrollViewColor:(UIColor *)bgScrollViewColor{
     _bgScrollViewColor=bgScrollViewColor;
-    [self updateView];
+    _bgScrollView.backgroundColor=_bgScrollViewColor;
 }
 
 -(void)setTitleFont:(UIFont *)titleFont{
@@ -141,7 +142,6 @@
 }
 
 -(void)updateView{
-    _bgScrollView.backgroundColor=_bgScrollViewColor;
     for (UIButton *btn in _btns) {
         [btn setTitleColor:_titleNomalColor forState:UIControlStateNormal];
         [btn setTitleColor:_titleSelectColor forState:UIControlStateSelected];
@@ -150,6 +150,7 @@
         if (btn.tag-1==_defaultIndex-1) {
             _titleBtn=btn;
             btn.selected=YES;
+            _selectView.frame=CGRectMake(btn.frame.origin.x, ButtonMargin*2, _btn_w-ButtonMargin*2, self.frame.size.height-ButtonMargin*4);
         }else{
             btn.selected=NO;
         }

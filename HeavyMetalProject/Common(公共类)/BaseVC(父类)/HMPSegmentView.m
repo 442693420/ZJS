@@ -25,17 +25,9 @@
 -(instancetype)initWithFrame:(CGRect)frame titles:(NSArray *)titleArray clickBlick:(btnClickBlock)block{
     self = [super initWithFrame:frame];
     if (self) {
-//        self.layer.shadowColor=[UIColor blackColor].CGColor;
-//        self.layer.shadowOffset=CGSizeMake(2, 2);
-//        self.layer.shadowRadius=2;
-//        self.layer.shadowOpacity=.2;
         
-        _btn_w=0.0;
-        if (titleArray.count<MAX_TitleNumInWindow+1) {
-            _btn_w=frame.size.width/titleArray.count;
-        }else{
-            _btn_w=frame.size.width/MAX_TitleNumInWindow;
-        }
+        _btn_w=frame.size.width/MAX_TitleNumInWindow;
+        
         _titles=titleArray;
         _defaultIndex=1;
         _titleFont=[UIFont systemFontOfSize:15];
@@ -64,8 +56,8 @@
             [_bgScrollView addSubview:btn];
             [_btns addObject:btn];
             if (i==0) {
-                _titleBtn=btn;
                 btn.selected=YES;
+                _titleBtn=btn;
             }
             //左右分割线
             UIView *lineView = [[UIView alloc]init];
@@ -82,12 +74,21 @@
 
 -(void)btnClick:(UIButton *)btn{
     
+    NSLog(@"%ld",(long)btn.tag);
     if (self.block) {
         self.block(btn.tag);
     }
     
     if (btn.tag==_defaultIndex) {
-        return;
+        if (btn.tag-1 == 0) {
+            NSLog(@"已经是第一页了");
+            [[NSNotificationCenter defaultCenter] postNotificationName:kQuotePriceSmallSegmentScrollNotifiCation object:@"first"];
+        }else if (btn.tag == _titles.count){
+            NSLog(@"已经是最后一页了");
+            [[NSNotificationCenter defaultCenter] postNotificationName:kQuotePriceSmallSegmentScrollNotifiCation object:@"last"];
+        }else{
+            return;
+        }
     }else{
         _titleBtn.selected=!_titleBtn.selected;
         _titleBtn=btn;
@@ -95,28 +96,34 @@
         _defaultIndex=btn.tag;
     }
     
-    //计算偏移量
-    CGFloat offsetX=btn.frame.origin.x - 2*_btn_w;
-    if (offsetX<0) {
-        offsetX=0;
-    }
-    CGFloat maxOffsetX= _bgScrollView.contentSize.width-self.frame.size.width;
-    if (offsetX>maxOffsetX) {
-        offsetX=maxOffsetX;
-    }
-    
-    [UIView animateWithDuration:.2 animations:^{
-        
-        [_bgScrollView setContentOffset:CGPointMake(offsetX, 0) animated:YES];
+    if (_titles.count >= MAX_TitleNumInWindow) {
+        //计算偏移量
+        CGFloat offsetX=btn.frame.origin.x - 2*_btn_w;
+        if (offsetX<0) {
+            offsetX=0;
+        }
+        CGFloat maxOffsetX= _bgScrollView.contentSize.width-self.frame.size.width;
+        if (offsetX>maxOffsetX) {
+            offsetX=maxOffsetX;
+        }
+        [UIView animateWithDuration:0.1 animations:^{
+            
+            [_bgScrollView setContentOffset:CGPointMake(offsetX, 0) animated:YES];
+            _selectLine.frame=CGRectMake(btn.frame.origin.x, self.frame.size.height-LineHeight, btn.frame.size.width, LineHeight);
+            
+        } completion:^(BOOL finished) {
+            
+        }];
+    }else{
         _selectLine.frame=CGRectMake(btn.frame.origin.x, self.frame.size.height-LineHeight, btn.frame.size.width, LineHeight);
-        
-    } completion:^(BOOL finished) {
-        
-    }];
-    
+    }
 }
 
-
+//下方内容切换，刷新分段器
+- (void)bgScrollWithIndex:(NSInteger)index{
+    UIButton *btn = [_bgScrollView viewWithTag:index+1];
+    [self btnClick:btn];
+}
 
 -(void)setTitleNomalColor:(UIColor *)titleNomalColor{
     _titleNomalColor=titleNomalColor;
@@ -130,7 +137,7 @@
 
 -(void)setBgScrollViewColor:(UIColor *)bgScrollViewColor{
     _bgScrollViewColor=bgScrollViewColor;
-    [self updateView];
+    _bgScrollView.backgroundColor=_bgScrollViewColor;
 }
 
 -(void)setTitleFont:(UIFont *)titleFont{
@@ -144,8 +151,9 @@
 }
 
 -(void)updateView{
-    _bgScrollView.backgroundColor=_bgScrollViewColor;
     for (UIButton *btn in _btns) {
+        NSLog(@"%ld",(long)btn.tag);
+        NSLog(@"%ld",(long)_defaultIndex);
         [btn setTitleColor:_titleNomalColor forState:UIControlStateNormal];
         [btn setTitleColor:_titleSelectColor forState:UIControlStateSelected];
         btn.titleLabel.font=_titleFont;

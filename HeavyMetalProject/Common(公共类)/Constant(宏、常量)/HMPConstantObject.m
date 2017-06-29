@@ -34,56 +34,7 @@ NSString *const kCAGSaveInfoDefault = @"CAGSaveInfoDefault";//上下班模块用
 
 
 #pragma mark - 通知管理
-NSString *const kAppUpdateNotifiCation = @"appUpdateNotifiCation";//版本更新通知
-NSString *const kCarFInNotifiCation = @"carFNotifiCation";//车友通知
-NSString *const kCarStatusNotifiCation = @"carStatusNotifiCation";//车友--附近直播--附近互动
-NSString *const kGetMessageRefreshMineViewNotifiCation = @"getMessageRefreshMineViewNotifiCation";//收到消息，刷新个人中心的未读消息数量显示
-NSString *const kUseUserLocationNotifiCation = @"useUserLocationNotifiCation";//上下班-使用当前位置
-NSString *const kUseMapChooseLocationNotifiCation = @"useMapChooseLocationNotifiCation";//上下班-使用地图位置
-NSString *const kUseKeySearchLocationNotifiCation = @"useMapChooseLocationNotifiCation";//上下班-使用关键字搜索位置
-NSString *const kSNHomeVCIntercomMsgNotifiCation = @"SNHomeVCIntercomMsgNotifiCation";//首页点击频道消息跳转
-NSString *const kSNHomeReceiveAppDelegateRegisteSuccellNotifiCation = @"SNHomeReceiveAppDelegateRegisteSuccellNotifiCation";//homeVC收到appdelegate中注册成功的消息
-
-
-
-
-NSString *const kCarFAttenNotifiCation = @"carFAttenNotifiCation";//关注通知
-NSString *const kCarButtonClickNotifiCation = @"carButtonClickNotifiCation";//关注通知 区分关注按钮和下滑关注
-
-NSString *const kChatroomUserInfoShowNotifiCation = @"chatroomUserInfoShowNotifiCation";//聊天室用户信息展示
-NSString *const kChatroomUserInfoHidenNotifiCation = @"chatroomUserInfoHidenNotifiCation";//聊天室用户信息隐藏
-
-NSString *const kChatroomPointGuideShowNotifiCation = @"chatroomPointGuideShowNotifiCation";//聊天室积分赚取指引信息展示
-NSString *const kChatroomPointGuideHidenNotifiCation = @"chatroomPointGuideHidenNotifiCation";//聊天室积分赚取指引信息隐藏
-
-NSString *const kChatroomLeaveMessageNotifiCation = @"chatroomLeaveMessageNotifiCation";//聊天室留言
-NSString *const kChatroomPresentSendNotifiCation = @"chatroomPresentSendNotifiCation";//积分兑换礼物
-
-NSString *const kChatroomAnchorChangeLiveBackImageNotifiCation = @"chatroomAnchorChangeLiveBackImageNotifiCation";//主播直播过程中更换背景图片
-
-NSString *const kUserOvertimeNotifiCation = @"userOvertimeNotifiCation";//观看或者进行直播的时候被顶掉(sid超时),发通知关闭当前页面
-
-NSString *const kChangeCityChatroomNotifiCation = @"changeCityChatroomNotifiCation";//城市对讲机模式下切换城市频道
-
-NSString *const kChangeFriendsNaviCurrentVC = @"changeFriendsNaviCurrentVCNotifiCation";//互动导航VC下切换不同字VC
-
-NSString *const kLoginSuccessNotifiCation = @"loginSuccessNotifiCation";//登陆成功
-NSString *const kBindingPhoneSuccessNotifiCation = @"bindingPhoneSuccessNotifiCation";//绑定手机号
-
-NSString *const kWechatPayResultNotification = @"wechatPayResultNotification";//微信支付回调
-
-
-
-//im部分
-NSString *const kSooonerSocketManagerConnectedCallbackNotifiCation = @"sooonerSocketManagerConnectedCallbackNotifiCation";//连接成功通知
-NSString *const kSooonerSocketManagerReconnectCallbackNotifiCation = @"sooonerSocketManagerReconnectCallbackNotifiCation";//自动重连中通知
-NSString *const kSooonerSocketManagerConnectErrorCallbackNotifiCation = @"sooonerSocketManagerConnectErrorCallbackNotifiCation";//连接错误通知
-NSString *const kSooonerSocketManagerJoinCallbackNotifiCation = @"sooonerSocketManagerJoinCallbackNotifiCation";//接收进入房间通知
-NSString *const kSooonerSocketManagerLeaveCallbackNotifiCation = @"sooonerSocketManagerLeaveCallbackNotifiCation";//接收离开房间通知
-NSString *const kSooonerSocketManagerRoomMessageCallbackNotifiCation = @"sooonerSocketManagerRoomMessageCallbackNotifiCation";//接收房间消息通知
-NSString *const kSooonerSocketManagerPrivateMessageCallbackNotifiCation = @"sooonerSocketManagerPrivateMessageCallbackNotifiCation";//接收私聊消息通知
-NSString *const kSooonerSocketManagerOfflineMessageCallbackNotifiCation = @"sooonerSocketManagerOfflineMessageCallbackNotifiCation";//接收离线消息通知
-NSString *const kSooonerSocketManagerSystemMessageCallbackNotifiCation = @"sooonerSocketManagerSystemMessageCallbackNotifiCation";//接收系统消息通知
+NSString *const kQuotePriceSmallSegmentScrollNotifiCation = @"QuotePriceSmallSegmentScrollNotifiCation";//报价首页检测到收尾页
 
 
 
@@ -98,6 +49,11 @@ NSString *const kAppName = @"路网";//微信appSecret
 
 #pragma mark - 其他信息管理
 NSString *const kMainGreenColor = @"#00A99D";//主色调中的  绿色
+NSString *const kMainWordColorGray = @"#95989A";//字体颜色  灰色(报价cell中灰色字体颜色)
+NSString *const kMainColorRed = @"#FF463C";//红色  (报价cell中涨)
+NSString *const kMainColorGreen = @"#4CDA64";//绿色  (报价cell中跌)
+NSString *const kMainColorOrange = @"#FF8C00";//橙黄色  (报价cell中报价的橙黄色)
+
 
 #pragma mark - 微信支付
 NSString *const kWXAPP_ID = @"wxe8ed4dd0247c603c";//苹果appid

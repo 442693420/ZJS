@@ -28,17 +28,7 @@
 // 默认带返回按钮
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
     //
-    //[super pushViewController:viewController animated:animated];
-    if (self.viewControllers.count > 0) {
-        viewController.hidesBottomBarWhenPushed = YES;
-        viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"fuanhuil"] style:UIBarButtonItemStylePlain target:self action:@selector(backAction)];
-        
-    }
-    
-    if ([self.topViewController isMemberOfClass:[viewController class]]) {
-        return;
-    }
-    
+    viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"backArrow"] style:UIBarButtonItemStylePlain target:self action:@selector(backAction)];
     [super pushViewController:viewController animated:animated];
     
 }

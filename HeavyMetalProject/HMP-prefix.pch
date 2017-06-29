@@ -21,6 +21,7 @@
 #import "Masonry.h"
 #import "UIImageView+WebCache.h"
 #import "HMPAFNetWorkManager.h"
+#import "MBManager.h"
 
 #import "UIColor+Hex.h"
 #import "UIView+Frame.h"
