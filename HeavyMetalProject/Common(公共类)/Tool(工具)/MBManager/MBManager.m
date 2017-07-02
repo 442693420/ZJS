@@ -184,7 +184,6 @@ UIView *hudAddedView;
     tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapTheScreen)];
     tap.delegate = self;
     [view addGestureRecognizer:tap];
-        
 }
 #pragma mark -点击屏幕
 -(void)tapTheScreen{

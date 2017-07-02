@@ -35,6 +35,7 @@ NSString *const kCAGSaveInfoDefault = @"CAGSaveInfoDefault";//上下班模块用
 
 #pragma mark - 通知管理
 NSString *const kQuotePriceSmallSegmentScrollNotifiCation = @"QuotePriceSmallSegmentScrollNotifiCation";//报价首页检测到收尾页
+NSString *const kFilterChangeSegmentNotifiCation = @"FilterChangeSegmentNotifiCation";//筛选-选择目类
 
 
 

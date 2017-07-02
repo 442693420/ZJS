@@ -14,8 +14,6 @@
 #import "BaseNavigationController.h"
 
 #import "HMPTabBar.h"
-#import "UserManger.h"
-#import "UserObject.h"
 @interface HMPTabBarController ()<UINavigationControllerDelegate,HMPTabBarDelegate>{
     NSString *updateStr;//版本更新提示语
 }
@@ -84,19 +82,11 @@
 }
 #pragma mark --cctabbar delegate方法--
 - (void)tabBar:(HMPTabBar *)tabBar didClickBtn:(NSInteger)index{
-    //    J_UserModel *userObj = [J_BaseObject getUserInfoDefault];
-    //    BaseNavigationController *bnav = self.selectedViewController;
-    
-    [super setSelectedIndex:index];
-    
+        [super setSelectedIndex:index];
 }
-
 - (void)setSelectedIndex:(NSUInteger)selectedIndex{
     self.mytabbar.seletedIndex = selectedIndex;
 }
-
-
-
 #pragma mark navVC代理  次级页不显示tabbar
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
     UIViewController *root = navigationController.viewControllers.firstObject;
@@ -123,8 +113,6 @@
     UIViewController *root = navigationController.viewControllers.firstObject;
     BaseNavigationController *nav = (BaseNavigationController *)navigationController;
     if (viewController == root) {
-        // 更改导航控制器view的frame
-        //        navigationController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - kTabbarHeight);
         
         navigationController.interactivePopGestureRecognizer.delegate = nav.popDelegate;
         // 让Dock从root上移除

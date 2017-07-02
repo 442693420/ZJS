@@ -26,6 +26,17 @@
 #define API_GetOfferList  [NSString stringWithFormat:@"%@yh_cllist%@",MAIN_HOST,MAIN_VERSION]
 
 
+/**************  我的  *******************/
+//验证码
+#define API_GETVERIFYCODE  [NSString stringWithFormat:@"%@gg_user_getvc%@",MAIN_HOST,MAIN_VERSION]
+//注册
+#define API_RESGIST  [NSString stringWithFormat:@"%@yh_user_reg_submit%@",MAIN_HOST,MAIN_VERSION]
+//登录
+#define API_LOGIN  [NSString stringWithFormat:@"%@yh_user_login%@",MAIN_HOST,MAIN_VERSION]
+//重置密码
+#define API_MODIFYPWD  [NSString stringWithFormat:@"%@yh_user_modifypwd%@",MAIN_HOST,MAIN_VERSION]
+
+
 #endif
 
 

@@ -25,10 +25,13 @@
 
 #import "UIColor+Hex.h"
 #import "UIView+Frame.h"
+#import "NSString+Common.h"
 #import "MJExtension.h"
 #import "API.h"
 #import "HMPConstantObject.h"
-
+#import "UserManger.h"
+#import "UserObject.h"
+#import "UIImageView+WebCache.h"
 #endif
 
 

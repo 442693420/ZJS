@@ -7,7 +7,6 @@
 //
 
 #import "UserManger.h"
-#import "UserObject.h"
 @implementation UserManger
 //存储用户信息
 + (void)saveUserInfoDefault:(UserObject *)user{

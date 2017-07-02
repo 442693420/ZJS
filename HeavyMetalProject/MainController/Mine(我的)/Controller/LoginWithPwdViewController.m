@@ -10,8 +10,6 @@
 #import "RegistViewController.h"
 #import "ForgetPwdViewController.h"
 
-#import "UserObject.h"
-#import "UserManger.h"
 @interface LoginWithPwdViewController ()
 @property (nonatomic , strong)UITextField *phoneTF;
 @property (nonatomic , strong)UITextField *pwdTF;
@@ -128,7 +126,7 @@
 }
 - (void)countTextLength:(UITextField *)textField {
     if (textField.text.length >11) {
-                [MBManager showBriefAlert:@"手机号长度超出"];
+        [MBManager showBriefMessage:@"手机号长度超出" InView:self.view];
         textField.text = [textField.text substringToIndex:11];
     }
 }
@@ -140,17 +138,53 @@
     ForgetPwdViewController *forgetVC = [[ForgetPwdViewController alloc]init];
     [self.navigationController pushViewController:forgetVC animated:YES];
 }
+- (IBAction)loginBtnClick:(id)sender{
+    if ([self.phoneTF.text isEmpty]) {
+        [MBManager showBriefMessage:@"手机号不能为空" InView:self.view];
+        return;
+    }
+    if ([self.pwdTF.text isEmpty]) {
+        [MBManager showBriefMessage:@"密码不能为空" InView:self.view];
+        return;
+    }
+    if (self.pwdTF.text.length < 4 || self.pwdTF.text.length >16) {
+        [MBManager showBriefMessage:@"密码,4-16位" InView:self.view];
+        return;
+    }
+    //账户密码登录
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"c_s"] = C_S;
+    params[@"user_tel"] = self.phoneTF.text;
+    params[@"user_pwd"] = [self.pwdTF.text md5Str];
+    params[@"type"] = [NSString stringWithFormat:@"%ld",(long)KLoginTypePhone];
+    [HMPAFNetWorkManager POST:API_LOGIN params:params success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"%@",responseObject);
+        [MBManager hideAlert];
+        if ([responseObject[@"rc"] isEqualToString:@"0"]) {
+            UserObject *model = [UserObject mj_objectWithKeyValues:responseObject[@"msg"]];
+            [UserManger saveUserInfoDefault:model];
+            //跳转
+            [self.navigationController popViewControllerAnimated:YES];
+        }else{
+            [MBManager showBriefMessage:responseObject[@"des"] InView:self.view];
+        }
+    } fail:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
+}
+
 #pragma mark getter and setter
 -(UITextField *)phoneTF{
     if (_phoneTF == nil) {
         _phoneTF = [[UITextField alloc] init];
         _phoneTF.keyboardType = UIKeyboardTypePhonePad;
-        _phoneTF.placeholder = @"请输入手机号码";
+        _phoneTF.placeholder = @"手机号";
         UserObject *userObj = [UserManger getUserInfoDefault];
-        //        if(userObj != nil && userObj.tel != nil)
-        //        {
-        //            _phoneFirstTextField.text = userObj.tel;
-        //        }
+                if(userObj != nil && userObj.tel != nil)
+                {
+                    _phoneTF.text = userObj.tel;
+                }
+        _phoneTF.font = [UIFont systemFontOfSize:KRealValue(14)];
         [_phoneTF addTarget:self action:@selector(countTextLength:) forControlEvents:UIControlEventEditingChanged];
     }
     return _phoneTF;
@@ -158,8 +192,9 @@
 -(UITextField *)pwdTF{
     if (_pwdTF == nil) {
         _pwdTF = [[UITextField alloc]init];
-        _pwdTF.placeholder = @"请输入密码";
+        _pwdTF.placeholder = @"密码";
         [_pwdTF setSecureTextEntry:YES];
+        _pwdTF.font = [UIFont systemFontOfSize:KRealValue(14)];
     }
     return _pwdTF;
 }
@@ -171,6 +206,8 @@
         _loginBtn.layer.masksToBounds = YES;
         _loginBtn.layer.cornerRadius = 5;
         _loginBtn.backgroundColor = [UIColor colorWithHexString:@"#4C4A48"];
+        _loginBtn.titleLabel.font = [UIFont systemFontOfSize:KRealValue(14)];
+        [_loginBtn addTarget:self action:@selector(loginBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _loginBtn;
 }
@@ -180,6 +217,7 @@
         [_registBtn setTitle:@"新用户注册" forState:UIControlStateNormal];
         [_registBtn setTitleColor:[UIColor colorWithHexString:@"#5A99E0"] forState:UIControlStateNormal];
         _registBtn.backgroundColor = [UIColor colorWithHexString:@"#EFEFF4"];
+        _registBtn.titleLabel.font = [UIFont systemFontOfSize:KRealValue(14)];
         [_registBtn addTarget:self action:@selector(registBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _registBtn;
@@ -190,6 +228,7 @@
         [_forgetPwdBtn setTitle:@"重置密码" forState:UIControlStateNormal];
         [_forgetPwdBtn setTitleColor:[UIColor colorWithHexString:@"#5A99E0"] forState:UIControlStateNormal];
         _forgetPwdBtn.backgroundColor = [UIColor colorWithHexString:@"#EFEFF4"];
+        _forgetPwdBtn.titleLabel.font = [UIFont systemFontOfSize:KRealValue(14)];
         [_forgetPwdBtn addTarget:self action:@selector(forgetPwdBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _forgetPwdBtn;

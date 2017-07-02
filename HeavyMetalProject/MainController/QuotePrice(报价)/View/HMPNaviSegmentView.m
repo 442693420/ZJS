@@ -94,7 +94,7 @@
             offsetX=maxOffsetX;
         }
         
-        [UIView animateWithDuration:0.1 animations:^{
+        [UIView animateWithDuration:0.5 animations:^{
             [_bgScrollView setContentOffset:CGPointMake(offsetX, 0) animated:YES];
             _selectView.frame=CGRectMake(btn.frame.origin.x, ButtonMargin*2, _btn_w-ButtonMargin*2, self.frame.size.height-ButtonMargin*4);
 
@@ -103,8 +103,12 @@
         }];
     }else{
         //不需要偏移
-        _selectView.frame=CGRectMake(btn.frame.origin.x, ButtonMargin*2, _btn_w-ButtonMargin*2, self.frame.size.height-ButtonMargin*4);
+        [UIView animateWithDuration:0.5 animations:^{
+            _selectView.frame=CGRectMake(btn.frame.origin.x, ButtonMargin*2, _btn_w-ButtonMargin*2, self.frame.size.height-ButtonMargin*4);
 
+        } completion:^(BOOL finished) {
+            
+        }];
     }
     
     
@@ -150,7 +154,33 @@
         if (btn.tag-1==_defaultIndex-1) {
             _titleBtn=btn;
             btn.selected=YES;
-            _selectView.frame=CGRectMake(btn.frame.origin.x, ButtonMargin*2, _btn_w-ButtonMargin*2, self.frame.size.height-ButtonMargin*4);
+            if (_titles.count >= MAX_TitleNumInWindow) {
+                //计算偏移量
+                CGFloat offsetX=btn.frame.origin.x - 2*_btn_w;
+                if (offsetX<0) {
+                    offsetX=0;
+                }
+                CGFloat maxOffsetX= _bgScrollView.contentSize.width-self.frame.size.width;
+                if (offsetX>maxOffsetX) {
+                    offsetX=maxOffsetX;
+                }
+                
+                [UIView animateWithDuration:0.5 animations:^{
+                    [_bgScrollView setContentOffset:CGPointMake(offsetX, 0) animated:YES];
+                    _selectView.frame=CGRectMake(btn.frame.origin.x, ButtonMargin*2, _btn_w-ButtonMargin*2, self.frame.size.height-ButtonMargin*4);
+                    
+                } completion:^(BOOL finished) {
+                    
+                }];
+            }else{
+                //不需要偏移
+                [UIView animateWithDuration:0.5 animations:^{
+                    _selectView.frame=CGRectMake(btn.frame.origin.x, ButtonMargin*2, _btn_w-ButtonMargin*2, self.frame.size.height-ButtonMargin*4);
+                } completion:^(BOOL finished) {
+                    
+                }];
+            }
+
         }else{
             btn.selected=NO;
         }

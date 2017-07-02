@@ -106,7 +106,7 @@
         if (offsetX>maxOffsetX) {
             offsetX=maxOffsetX;
         }
-        [UIView animateWithDuration:0.1 animations:^{
+        [UIView animateWithDuration:0.5 animations:^{
             
             [_bgScrollView setContentOffset:CGPointMake(offsetX, 0) animated:YES];
             _selectLine.frame=CGRectMake(btn.frame.origin.x, self.frame.size.height-LineHeight, btn.frame.size.width, LineHeight);
@@ -115,7 +115,14 @@
             
         }];
     }else{
-        _selectLine.frame=CGRectMake(btn.frame.origin.x, self.frame.size.height-LineHeight, btn.frame.size.width, LineHeight);
+        [UIView animateWithDuration:0.5 animations:^{
+            
+            _selectLine.frame=CGRectMake(btn.frame.origin.x, self.frame.size.height-LineHeight, btn.frame.size.width, LineHeight);
+
+        } completion:^(BOOL finished) {
+            
+        }];
+
     }
 }
 

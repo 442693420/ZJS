@@ -9,13 +9,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HeavyMetalProject/MainController/QuotePrice(&#x62a5;&#x4ef7;)/View/HMPNaviSegmentView.m"
-            timestampString = "520311004.36841"
+            filePath = "HeavyMetalProject/Common(&#x516c;&#x5171;&#x7c7b;)/Tool(&#x5de5;&#x5177;)/MBManager/MBManager.m"
+            timestampString = "520664884.00786"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
-            landmarkName = "-setTitleNomalColor:"
+            startingLineNumber = "190"
+            endingLineNumber = "190"
+            landmarkName = "-tapTheScreen"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HeavyMetalProject/MainController/QuotePrice(&#x62a5;&#x4ef7;)/Controller/QuotePriceViewController.m"
+            timestampString = "520672125.12993"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "502"
+            endingLineNumber = "502"
+            landmarkName = "-filterChangeSegmentNotifiCation:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,12 +42,92 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HeavyMetalProject/MainController/QuotePrice(&#x62a5;&#x4ef7;)/View/HMPNaviSegmentView.m"
-            timestampString = "520311004.36841"
+            timestampString = "520671913.062409"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
-            landmarkName = "-bgScrollWithIndex:"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "-btnClick:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HeavyMetalProject/MainController/QuotePrice(&#x62a5;&#x4ef7;)/View/HMPNaviSegmentView.m"
+            timestampString = "520671913.062409"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "-btnClick:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HeavyMetalProject/MainController/QuotePrice(&#x62a5;&#x4ef7;)/View/HMPNaviSegmentView.m"
+            timestampString = "520671913.062409"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
+            landmarkName = "-updateView"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[HMPNaviSegmentView updateView]"
+                  moduleName = "HeavyMetalProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhanghao/MyProject/ZJS/HeavyMetalProject/MainController/QuotePrice(%E6%8A%A5%E4%BB%B7)/View/HMPNaviSegmentView.m"
+                  timestampString = "520672125.239947"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "149"
+                  endingLineNumber = "149"
+                  offsetFromSymbolStart = "72">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[HMPNaviSegmentView updateView]"
+                  moduleName = "HeavyMetalProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhanghao/MyProject/ZJS/HeavyMetalProject/MainController/QuotePrice(%E6%8A%A5%E4%BB%B7)/View/HMPNaviSegmentView.m"
+                  timestampString = "520672125.241936"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "149"
+                  endingLineNumber = "149"
+                  offsetFromSymbolStart = "96">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HeavyMetalProject/MainController/QuotePrice(&#x62a5;&#x4ef7;)/Controller/QuotePriceViewController.m"
+            timestampString = "520672166.755617"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "480"
+            endingLineNumber = "480"
+            landmarkName = "-filterBtnClick:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

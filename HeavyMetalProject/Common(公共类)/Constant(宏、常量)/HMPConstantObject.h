@@ -29,95 +29,17 @@ typedef NS_ENUM(NSInteger , KIMConnectionStstus) {
 };
 
 typedef NS_ENUM(NSInteger , KLoginType) {
-    KLoginTypePhone = 0,	//手机号登录
+    KLoginTypePhone = 0,	//账号密码登录
     KLoginTypeWeChat = 1,// 微信登录
     KLoginTypeQQ = 2,	//QQ登录
     KLoginTypeCode = 3, //手机号+验证码登录
 };
+typedef NS_ENUM(NSInteger , KVerifyType) {
+    KVerifyTypeRegister = 10,	//注册验证码
+    KVerifyTypeChangePwd = 11,//修改密码或重置验证码
+    KVerifyTypeLogin = 13,	//登录验证码
+};
 
-
-
-#pragma mark - 互动
-typedef NS_ENUM(NSInteger , KLiveRadioType) {
-    KLiveRadioTypeWithNoVideo = 1,	//无视频直播
-    KLiveRadioTypeWithDevice = 2,// 自驾宝直播
-    KLiveRadioTypeWithPhone = 3,	//手机直播
-};
-typedef NS_ENUM(NSInteger , KLiveRadioStatusType) {
-    KLiveRadioStatusTypeIn = 1,	//进入聊天室
-    KLiveRadioStatusTypeOut = 2,//离开聊天室
-};
-typedef NS_ENUM(NSInteger , KLiveRadioLocationType) {
-    KLiveRadioLocationTypeTrue = 0,	//直播真实地址
-    KLiveRadioLocationTypeFalse = 1,// 直播自定义地址
-};
-typedef NS_ENUM(NSInteger , KLiveRadioBeautyType) {
-    KLiveRadioBeautyTypeTrue = 0,	//使用美颜
-    KLiveRadioBeautyTypeFalse = 1,// 关闭美颜
-};
-typedef NS_ENUM(NSInteger , KUpdateFileType) {
-    KUpdateFileTypeImage = 1,	//上传图片
-    KUpdateFileTypeAudio = 2,//上传音频
-};
-typedef NS_ENUM(NSInteger, KLiveRadioRecordPhase) {
-    KLiveRadioRecordPhaseStart,
-    KLiveRadioRecordPhaseRecording,
-    KLiveRadioRecordPhaseCancelling,
-    KLiveRadioRecordPhaseEnd
-};
-typedef NS_ENUM(NSInteger , KMessageDeliveryStatus) {
-    KMessageDeliveryStatusSuccell = 1,//消息发送成功
-    KMessageDeliveryStatusFail = 2,//消息发送失败
-    KMessageDeliveryStatusDelivering = 3,//消息发送中
-};
-typedef NS_ENUM(NSInteger , KMessageCellDirection) {
-    KMessageCellDirectionRight = 1,//消息显示在右侧
-    KMessageCellDirectionLeft = 2,//消息显示在左侧
-};
-typedef NS_ENUM(NSInteger , KMessagePlayingStatus) {
-    KMessagePlayingStatusStart = 1,//消息开始播放
-    KMessagePlayingStatusEnd = 2,//消息停止播报
-};
-typedef NS_ENUM(NSInteger , KMessageType) {
-    KMessageTypePhoto = 0,//图片
-    KMessageTypeAudio = 1,//语音
-    KMessageTypePresent = 2,//礼物
-    KMessageTypeText = 3,//文字
-    KMessageTypeInsuranceGetCash = 10,//保险收款
-    KMessageTypeTime = 99,//时间
-};
-typedef NS_ENUM(NSInteger , KChatroomManagerType) {
-    KChatroomManagerTypeYes = 0,//设为管理员
-    KChatroomManagerTypeNo = 1,//取消管理员
-};
-typedef NS_ENUM(NSInteger , KChatroomSilenceType) {
-    KChatroomSilenceTypeYes = 0,//禁言
-    KChatroomSilenceTypeNo = 1,//取消禁言
-};
-typedef NS_ENUM(NSInteger , KCityChatroomVolumeType) {
-    KCityChatroomVolumeZero = 0,//静音
-    KCityChatroomVolumeOne = 1,//取消静音
-};
-typedef NS_ENUM(NSInteger , KCityChatroomType) {
-    KCityChatroomTypePublic = 1,//公共频道
-    KCityChatroomTypeCity = 2,//城市频道
-    KCityChatroomTypePersonal = 3,//个人频道
-    KCityChatroomTypeBusiness = 4,//商业频道
-    KCityChatroomTypeHighWay = 5,//高速频道
-};
-typedef NS_ENUM(NSInteger , KLoginSuccessToVcType) {
-    KLoginSuccessToVcTypeChannel = 1,//登陆成功跳转对讲机
-    KLoginSuccessToVcTypeChatroom = 2,//登陆成功跳转直播
-    KLoginSuccessToVcTypeH5Web = 3,//登陆成功跳转H5页面
-};
-typedef NS_ENUM(NSInteger , KVipCenterWebType) {
-    KVipCenterWebTypeShop = 1,//积分商城
-    KVipCenterWebTypeHjq = 2,//惠加气
-    KVipCenterWebTypeCarInsurance = 3,//车险订单
-    KVipCenterWebTypeRentCar = 4,//路叔包车
-    KVipCenterWebTypeFreeway = 5,//智慧高速
-    KVipCenterWebTypeHjqOrderDetail = 6,//惠加气订单详情
-};
 
 
 
@@ -133,7 +55,7 @@ UIKIT_EXTERN NSString *const kCAGSaveInfoDefault;//上下班模块用户选择�
 
 #pragma mark - 通知管理
 UIKIT_EXTERN NSString *const kQuotePriceSmallSegmentScrollNotifiCation;//报价首页检测到收尾页
-
+UIKIT_EXTERN NSString *const kFilterChangeSegmentNotifiCation;//筛选-选择目类
 
 
 #pragma mark - 第三方key管理

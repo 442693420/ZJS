@@ -113,7 +113,7 @@ static NSString *btnSelectColor = @"#EFEFF4";
     [btn setBackgroundColor:[UIColor colorWithHexString:btnNormalColor]];
     [btn setTitleColor:[UIColor blackColor] forState:(UIControlStateNormal)];
     btn.tag = index + kTag;
-    
+    btn.titleLabel.font = [UIFont systemFontOfSize:KRealValue(14)];
     [btn addTarget:self action:@selector(pageClick:) forControlEvents:(UIControlEventTouchUpInside)];
     [self.view addSubview:btn];
     

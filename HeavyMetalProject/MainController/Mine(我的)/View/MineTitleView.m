@@ -17,7 +17,6 @@
         [self addSubview:self.infoBackView];
         
         [self.infoBackView addSubview:self.titleImgView];
-        [self.infoBackView addSubview:self.carImgView];
         [self.infoBackView addSubview:self.nickNameLab];
         [self.infoBackView addSubview:self.infoLab];
         [self.infoBackView addSubview:self.messageBtn];
@@ -33,13 +32,8 @@
             make.width.height.mas_equalTo(KRealValue(64));
             make.top.equalTo(self.infoBackView.mas_top).offset(40+KRealValue(13));
         }];
-        [self.carImgView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.titleImgView.mas_top);
-            make.height.width.mas_equalTo(KRealValue(20));
-            make.left.equalTo(self.titleImgView.mas_right).offset(3);
-        }];
         [self.nickNameLab mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.carImgView.mas_right).offset(8);
+            make.left.equalTo(self.titleImgView.mas_right).offset(8);
             make.top.equalTo(self.titleImgView.mas_top);
             make.height.equalTo(@30);
             make.right.equalTo(self.infoBackView.mas_right).offset(-20);
@@ -92,21 +86,15 @@
     if (_nickNameLab == nil) {
         _nickNameLab = [[UILabel alloc]init];
         _nickNameLab.text = @"昵称";
-        _nickNameLab.font = [UIFont systemFontOfSize:16];
+        _nickNameLab.font = [UIFont systemFontOfSize:KRealValue(18)];
         _nickNameLab.textColor = [UIColor whiteColor];
     }
     return _nickNameLab;
 }
--(UIImageView *)carImgView{
-    if (_carImgView == nil) {
-        _carImgView = [[UIImageView alloc]init];
-    }
-    return _carImgView;
-}
 -(UILabel *)infoLab{
     if (!_infoLab) {
         _infoLab = [[UILabel alloc]init];
-        _infoLab.font = [UIFont systemFontOfSize:14];
+        _infoLab.font = [UIFont systemFontOfSize:KRealValue(12)];
         _infoLab.textColor = [UIColor whiteColor];
     }
     return _infoLab;
@@ -133,13 +121,6 @@
         _rightArrowView.image = [UIImage imageNamed:@"rightArrowWhite"];
     }
     return _rightArrowView;
-}
--(UIButton *)addRoadBtn{
-    if (_addRoadBtn == nil) {
-        _addRoadBtn = [[UIButton alloc]init];
-        [_addRoadBtn setImage:[UIImage imageNamed:@"SNMine_titleView_addRoadView_addImg"] forState:UIControlStateNormal];
-    }
-    return _addRoadBtn;
 }
 - (void)refreshTitleViewUI:(UserObject *)userModel{
     NSLog(@"%@",userModel);

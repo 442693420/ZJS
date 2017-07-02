@@ -7,8 +7,6 @@
 //
 
 #import "ForgetPwdViewController.h"
-#import "UserObject.h"
-#import "UserManger.h"
 #import "UIButton+countDown.h"
 #import "NSString+Common.h"
 @interface ForgetPwdViewController ()
@@ -156,54 +154,86 @@
 }
 - (void)countTextLength:(UITextField *)textField {
     if (textField.text.length >11) {
-        [MBManager showBriefAlert:@"手机号长度超出"];
+        [MBManager showBriefMessage:@"手机号长度超出" InView:self.view];
         textField.text = [textField.text substringToIndex:11];
     }
 }
 - (void)verifyCodeButtonClick:(UIButton *)button {
-    if (![self.phoneTF.text isMobile]) {
-        [MBManager showBriefAlert:@"请输入正确的手机号"];
+    if ([self.phoneTF.text isEmpty]) {
+        [MBManager showBriefMessage:@"手机号不能为空" InView:self.view];
         return;
     }
-    [self loadverifyCodeData];
+    if (![self.phoneTF.text isMobile]) {
+        [MBManager showBriefMessage:@"请输入正确的手机号" InView:self.view];
+        return;
+    }
+    [self loadVerifyCodeData];
 }
-- (void)loadverifyCodeData {
-    //    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    //    params[@"imei"] = [UUID getUUID];
-    //    params[@"tel"] = _phoneFirstTextField.text;
-    //    params[@"c_s"] = C_S;
-    //    params[@"type"] = LOGININCODE;
-    //
-    //    [HMPAFNetWorkManager POST:API_GETVERIFYCODE params:params success:^(NSURLSessionDataTask *task, id responseObject) {
-    //
-    //        J_RegistModel *model = [J_RegistModel mj_objectWithKeyValues:responseObject];
-    //
-    //        if ([model.rc isEqual:@"0"]) {
-    //            [self.verifyCodeBtn startWithTime:50 title:@"获取验证码" countDownTitle:@"s后重试" mainColor:[UIColor clearColor] countColor:[UIColor clearColor]];
-    //            [MBManager showBriefAlert:@"验证码获取成功"];
-    //
-    //        }else{
-    //            [MBManager showBriefAlert:model.des];
-    //
-    //        }
-    //    } fail:^(NSURLSessionDataTask *task, NSError *error) {
-    //
-    //
-    //    }];
+- (void)loadVerifyCodeData {
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"tel"] = self.phoneTF.text;
+    params[@"type"] = [NSNumber numberWithInteger:KVerifyTypeChangePwd];
+    [HMPAFNetWorkManager POST:API_GETVERIFYCODE params:params success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"%@",responseObject);
+        if ([responseObject[@"rc"] isEqual:@"0"]) {
+            [self.verifyCodeBtn startWithTime:50 title:@"获取验证码" countDownTitle:@"s后重试" mainColor:[UIColor clearColor] countColor:[UIColor clearColor]];
+            [MBManager showBriefMessage:@"验证码获取成功" InView:self.view];
+        }else{
+            [MBManager showBriefMessage:responseObject[@"des"] InView:self.view];
+        }
+    } fail:^(NSURLSessionDataTask *task, NSError *error) {
+    }];
 }
-
-
+- (IBAction)submitBtnClick:(id)sender{
+    if ([self.verifyCodeTF.text isEmpty]) {
+        [MBManager showBriefMessage:@"验证码不能为空" InView:self.view];
+        return;
+    }
+    if ([self.pwdTF.text isEmpty]) {
+        [MBManager showBriefMessage:@"密码不能为空" InView:self.view];
+        return;
+    }
+    if (self.pwdTF.text.length < 4 || self.pwdTF.text.length >16) {
+        [MBManager showBriefMessage:@"密码,4-16位" InView:self.view];
+        return;
+    }
+    if ([self.pwdNewTF.text isEmpty]) {
+        [MBManager showBriefMessage:@"新密码不能为空" InView:self.view];
+        return;
+    }
+    if (self.pwdNewTF.text.length < 4 || self.pwdTF.text.length >16) {
+        [MBManager showBriefMessage:@"新密码,4-16位" InView:self.view];
+        return;
+    }
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"c_s"] = C_S;
+    params[@"sjh"] = self.phoneTF.text;
+    params[@"vccode"] = self.verifyCodeTF.text;
+    params[@"user_newpwd"] = [self.pwdNewTF.text md5Str];
+    [HMPAFNetWorkManager POST:API_MODIFYPWD params:params success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"%@",responseObject);
+        if ([responseObject[@"rc"] isEqualToString:@"0"]) {
+            //跳转
+            [self.navigationController popViewControllerAnimated:YES];
+        }else{
+            [MBManager showBriefMessage:responseObject[@"des"] InView:self.view];
+        }
+    } fail:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
+}
 #pragma mark getter and setter
 -(UITextField *)phoneTF{
     if (_phoneTF == nil) {
         _phoneTF = [[UITextField alloc] init];
         _phoneTF.keyboardType = UIKeyboardTypePhonePad;
-        _phoneTF.placeholder = @"请输入手机号码";
+        _phoneTF.placeholder = @"手机号";
         UserObject *userObj = [UserManger getUserInfoDefault];
-        //        if(userObj != nil && userObj.tel != nil)
-        //        {
-        //            _phoneFirstTextField.text = userObj.tel;
-        //        }
+                if(userObj != nil && userObj.tel != nil)
+                {
+                    _phoneTF.text = userObj.tel;
+                }
+        _phoneTF.font = [UIFont systemFontOfSize:KRealValue(14)];
         [_phoneTF addTarget:self action:@selector(countTextLength:) forControlEvents:UIControlEventEditingChanged];
     }
     return _phoneTF;
@@ -212,8 +242,9 @@
     if (_verifyCodeTF == nil) {
         _verifyCodeTF = [[UITextField alloc]init];
         _verifyCodeTF.keyboardType = UIKeyboardTypePhonePad;
-        _verifyCodeTF.placeholder = @"请输入验证码";
+        _verifyCodeTF.placeholder = @"验证码";
         [_verifyCodeTF addTarget:self action:@selector(countTextLength:) forControlEvents:UIControlEventEditingChanged];
+        _verifyCodeTF.font = [UIFont systemFontOfSize:KRealValue(14)];
     }
     return _verifyCodeTF;
 }
@@ -222,7 +253,7 @@
         _verifyCodeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [_verifyCodeBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
         [_verifyCodeBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-        _verifyCodeBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+        _verifyCodeBtn.titleLabel.font = [UIFont systemFontOfSize:KRealValue(12)];
         _verifyCodeBtn.layer.cornerRadius = 5;
         _verifyCodeBtn.layer.masksToBounds = YES;
         _verifyCodeBtn.layer.borderWidth = 1.0;
@@ -235,16 +266,18 @@
 -(UITextField *)pwdTF{
     if (_pwdTF == nil) {
         _pwdTF = [[UITextField alloc]init];
-        _pwdTF.placeholder = @"请输入密码";
+        _pwdTF.placeholder = @"密码，4-16位";
         [_pwdTF setSecureTextEntry:YES];
+        _pwdTF.font = [UIFont systemFontOfSize:KRealValue(14)];
     }
     return _pwdTF;
 }
 -(UITextField *)pwdNewTF{
     if (_pwdNewTF == nil) {
         _pwdNewTF = [[UITextField alloc]init];
-        _pwdNewTF.placeholder = @"新的密码";
+        _pwdNewTF.placeholder = @"新密码，4-16位";
         [_pwdNewTF setSecureTextEntry:YES];
+        _pwdNewTF.font = [UIFont systemFontOfSize:KRealValue(14)];
     }
     return _pwdNewTF;
 }
@@ -256,6 +289,8 @@
         _submitBtn.layer.masksToBounds = YES;
         _submitBtn.layer.cornerRadius = 5;
         _submitBtn.backgroundColor = [UIColor colorWithHexString:@"#4C4A48"];
+        _submitBtn.titleLabel.font = [UIFont systemFontOfSize:KRealValue(14)];
+        [_submitBtn addTarget:self action:@selector(submitBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _submitBtn;
 }

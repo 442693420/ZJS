@@ -12,9 +12,6 @@
 
 #import "MineTitleView.h"
 
-#import "UserObject.h"
-#import "UserManger.h"
-
 @interface MineViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     NSInteger sum_unRead;//消息未读数量
@@ -61,44 +58,16 @@ static NSString *cellIdentifier = @"TableViewCell";
     [self reloadTableviewData];
 }
 - (void)reloadTableviewData{
+    UserObject *userObj = [UserManger getUserInfoDefault];
+    [self.titleView.titleImgView sd_setImageWithURL:[NSURL URLWithString:userObj.head_Img] placeholderImage:[UIImage imageNamed:@""]];
+    self.titleView.nickNameLab.text = userObj.nickname;
+    self.titleView.infoLab.text = [NSString stringWithFormat:@"我的金币数额:%@个",userObj.gold];
     NSArray *sec0 = @[@"绑定手机号",@"分享给朋友"];
     NSArray *sec1 = @[@"我的钱包",@"消费记录"];
     NSArray *sec2 = @[@"系统设置",@"客服电话",@"注销"];
     self.dataArr = [[NSMutableArray alloc]initWithObjects:sec0,sec1,sec2,nil];
     [self.tableView reloadData];
 }
-//-(void)loadMyinfo
-//{
-//    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-//    J_UserModel *userObj = [J_BaseObject getUserInfoDefault];
-//
-//    params[@"sid"] = userObj.sid;
-//    params[@"c_s"] = C_S;
-//
-//    [J_AFNetWorkManager POST:API_GETJIBENINFO params:params success:^(NSURLSessionDataTask *task, id responseObject) {
-//
-//        J_UserModel *model = [J_UserModel mj_objectWithKeyValues:responseObject];
-//
-//        if ([model.rc isEqualToString:@"0"])
-//        {
-//
-//            if ([model.sign isBlankString] || model.sign == nil) {
-//                self.titleView.infoLab.text = [NSString stringWithFormat:@"编辑个性签名"];
-//            }else {
-//                self.titleView.infoLab.text = [NSString stringWithFormat:@"%@",model.sign];
-//
-//            }
-//            [self.tableView reloadData];
-//        }
-//        else
-//        {
-//
-//            //            [MBManager showBriefAlert:model.des];
-//        }
-//    } fail:^(NSURLSessionDataTask *task, NSError *error) {
-//
-//    }];
-//}
 #pragma tableViewDelegate
 /**
  *  分割线顶头

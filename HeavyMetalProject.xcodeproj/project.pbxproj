@@ -23,6 +23,10 @@
 		6128055C1F026F8600C31B18 /* BigClassObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6128055B1F026F8600C31B18 /* BigClassObject.m */; };
 		6128055F1F02700D00C31B18 /* MidClassObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6128055E1F02700D00C31B18 /* MidClassObject.m */; };
 		612805651F027A4C00C31B18 /* SmallClassObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 612805641F027A4C00C31B18 /* SmallClassObject.m */; };
+		61A193C11F08BA9500059FE4 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A193C01F08BA9500059FE4 /* SearchViewController.m */; };
+		61A193C41F08BAB300059FE4 /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A193C31F08BAB300059FE4 /* FilterViewController.m */; };
+		61A193C71F08BB1B00059FE4 /* SearchDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A193C61F08BB1B00059FE4 /* SearchDetailViewController.m */; };
+		61A193CA1F08CB2400059FE4 /* FilterButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A193C91F08CB2400059FE4 /* FilterButton.m */; };
 		61DEBF9E1F0541AC0084D40C /* UIButton+countDown.m in Sources */ = {isa = PBXBuildFile; fileRef = 61DEBF9D1F0541AC0084D40C /* UIButton+countDown.m */; };
 		61DEBFA11F0542140084D40C /* NSString+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 61DEBFA01F0542140084D40C /* NSString+Common.m */; };
 		61DEBFA61F0542B00084D40C /* MBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 61DEBFA51F0542B00084D40C /* MBManager.m */; };
@@ -106,6 +110,14 @@
 		6128055E1F02700D00C31B18 /* MidClassObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidClassObject.m; sourceTree = "<group>"; };
 		612805631F027A4C00C31B18 /* SmallClassObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmallClassObject.h; sourceTree = "<group>"; };
 		612805641F027A4C00C31B18 /* SmallClassObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmallClassObject.m; sourceTree = "<group>"; };
+		61A193BF1F08BA9500059FE4 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		61A193C01F08BA9500059FE4 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		61A193C21F08BAB300059FE4 /* FilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterViewController.h; sourceTree = "<group>"; };
+		61A193C31F08BAB300059FE4 /* FilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterViewController.m; sourceTree = "<group>"; };
+		61A193C51F08BB1B00059FE4 /* SearchDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchDetailViewController.h; sourceTree = "<group>"; };
+		61A193C61F08BB1B00059FE4 /* SearchDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchDetailViewController.m; sourceTree = "<group>"; };
+		61A193C81F08CB2400059FE4 /* FilterButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterButton.h; sourceTree = "<group>"; };
+		61A193C91F08CB2400059FE4 /* FilterButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterButton.m; sourceTree = "<group>"; };
 		61DEBF9C1F0541AC0084D40C /* UIButton+countDown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+countDown.h"; sourceTree = "<group>"; };
 		61DEBF9D1F0541AC0084D40C /* UIButton+countDown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+countDown.m"; sourceTree = "<group>"; };
 		61DEBF9F1F0542140084D40C /* NSString+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Common.h"; sourceTree = "<group>"; };
@@ -220,6 +232,8 @@
 				6105C3E81F03971E00A96B2A /* CellModelObject.m */,
 				6105C3EA1F0397F700A96B2A /* CellModelPriceObject.h */,
 				6105C3EB1F0397F700A96B2A /* CellModelPriceObject.m */,
+				61A193C81F08CB2400059FE4 /* FilterButton.h */,
+				61A193C91F08CB2400059FE4 /* FilterButton.m */,
 			);
 			name = Model;
 			path = "HeavyMetalProject/MainController/QuotePrice(报价)/Model";
@@ -485,6 +499,12 @@
 			children = (
 				61EEC3121F00B61D0014E44C /* QuotePriceViewController.h */,
 				61EEC3131F00B61D0014E44C /* QuotePriceViewController.m */,
+				61A193BF1F08BA9500059FE4 /* SearchViewController.h */,
+				61A193C01F08BA9500059FE4 /* SearchViewController.m */,
+				61A193C21F08BAB300059FE4 /* FilterViewController.h */,
+				61A193C31F08BAB300059FE4 /* FilterViewController.m */,
+				61A193C51F08BB1B00059FE4 /* SearchDetailViewController.h */,
+				61A193C61F08BB1B00059FE4 /* SearchDetailViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -733,6 +753,7 @@
 				6105C3E91F03971E00A96B2A /* CellModelObject.m in Sources */,
 				6128055F1F02700D00C31B18 /* MidClassObject.m in Sources */,
 				61DEBFA61F0542B00084D40C /* MBManager.m in Sources */,
+				61A193C71F08BB1B00059FE4 /* SearchDetailViewController.m in Sources */,
 				61EEC2BE1F00A6E40014E44C /* ViewController.m in Sources */,
 				6128054C1F01F74E00C31B18 /* QuotePriceStyleTwoTableViewCell.m in Sources */,
 				61EEC31D1F00B6520014E44C /* AttentionViewController.m in Sources */,
@@ -759,11 +780,13 @@
 				612805491F01F73E00C31B18 /* QuotePriceStyleOneTableViewCell.m in Sources */,
 				61EEC3041F00B48B0014E44C /* HMPConstantObject.m in Sources */,
 				612805521F01F76800C31B18 /* QuotePriceStyleFourTableViewCell.m in Sources */,
+				61A193CA1F08CB2400059FE4 /* FilterButton.m in Sources */,
 				61EEC3241F00B6B50014E44C /* UserObject.m in Sources */,
 				6105C4161F03D20700A96B2A /* LoginWithVerifyCodeViewController.m in Sources */,
 				61DEBFAC1F054AAC0084D40C /* RegistProtocolButton.m in Sources */,
 				61DEBF9E1F0541AC0084D40C /* UIButton+countDown.m in Sources */,
 				61EEC34C1F0125820014E44C /* HMPSegmentView.m in Sources */,
+				61A193C11F08BA9500059FE4 /* SearchViewController.m in Sources */,
 				61EEC2B81F00A6E40014E44C /* main.m in Sources */,
 				61EEC3311F00F2000014E44C /* UIView+Frame.m in Sources */,
 				612805551F01F77500C31B18 /* QuotePriceStyleFiveTableViewCell.m in Sources */,
@@ -771,6 +794,7 @@
 				6105C3EC1F0397F700A96B2A /* CellModelPriceObject.m in Sources */,
 				6105C4131F03D1FB00A96B2A /* LoginWithPwdViewController.m in Sources */,
 				61EEC3271F00B6FA0014E44C /* UserManger.m in Sources */,
+				61A193C41F08BAB300059FE4 /* FilterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

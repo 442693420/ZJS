@@ -8,6 +8,8 @@
 
 #import "QuotePriceViewController.h"
 #import "LoginViewController.h"
+#import "SearchViewController.h"
+#import "FilterViewController.h"
 #import "HMPSegmentScrollView.h"
 #import "HMPNaviSegmentView.h"
 #import "MJRefresh.h"
@@ -19,8 +21,6 @@
 #import "QuotePriceStyleFiveTableViewCell.h"
 #import "QuotePriceStyleSixTableViewCell.h"
 
-#import "UserObject.h"
-#import "UserManger.h"
 #import "BigClassObject.h"
 #import "MidClassObject.h"
 #import "SmallClassObject.h"
@@ -35,11 +35,11 @@
 @property (nonatomic , strong)HMPNaviSegmentView *segmentToolView;//二级标题
 
 
+@property (nonatomic , strong)NSMutableArray *bigArr;//所有一级对象
 @property (nonatomic , strong)NSMutableArray *midArr;//所有二级对象
 @property (nonatomic , assign)NSInteger currentMidIndex;//二级标题的索引
 @property (nonatomic , assign)NSInteger currentSmallIndex;//三级标题的索引
 @property (nonatomic , strong)NSMutableArray *dataArr;//三级目录下的详情列表
-
 @end
 static NSInteger kSegmentUITag = 900;//二级分段器的tag
 static NSInteger kTableViewTag = 800;//tableView TAG值
@@ -71,31 +71,31 @@ static NSString *cellIdentifier6 = @"QuotePriceStyleSixTableViewCell";
     //筛选按钮
     UIButton *filterBtn = [[UIButton alloc]initWithFrame:CGRectMake(KScreenWidth-KRealValue(10)-KRealValue(24), 20+(KRealValue(44-24))/2, KRealValue(24), KRealValue(24))];
     [filterBtn setImage:[UIImage imageNamed:@"filter"] forState:UIControlStateNormal];
+    [filterBtn addTarget:self action:@selector(filterBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:filterBtn];
     
-    //获取栏目返分组
-    [self creatNaviSegmentUI];
     //注册消息通知
     [self installMovieNotificationObservers];
     //分页
     start_id = 0;
     sum = 10;
     self.dataArr = [[NSMutableArray alloc]init];
-    
-    //    //判断登录状态
-    //    if (![UserManger getUserInfoDefault]) {
-    //        [self.navigationController pushViewController:[[LoginViewController alloc]init] animated:YES];
-    //    }
+    //判断登录状态
+    if (![UserManger getUserInfoDefault]) {
+        [self.navigationController pushViewController:[[LoginViewController alloc]init] animated:YES];
+    }
+    self.currentMidIndex = 0;
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
+    //获取栏目返分组
+    [self creatNaviSegmentUI];
 }
 - (void)creatNaviSegmentUI{
-    //    UserObject *userObj = [UserManger getUserInfoDefault];
-    //    if (userObj) {
+    UserObject *userObj = [UserManger getUserInfoDefault];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"sid"] = @"6c81a69bc4b644a78d31d19b69b3b94c";
+    params[@"sid"] = userObj.sid;
     params[@"c_s"] = C_S;
     
     [HMPAFNetWorkManager POST:API_GetClassify params:params success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -106,11 +106,11 @@ static NSString *cellIdentifier6 = @"QuotePriceStyleSixTableViewCell";
         NSArray *msg = dic[@"msg"];
         if ([rc isEqualToString:@"0"])
         {
-            NSArray *bigArr = [BigClassObject mj_objectArrayWithKeyValuesArray:msg];
-            NSLog(@"%@",bigArr);
+            self.bigArr = [BigClassObject mj_objectArrayWithKeyValuesArray:msg];
+            NSLog(@"%@",self.bigArr);
             //1.取出所有二级obj
             self.midArr = [[NSMutableArray alloc]init];
-            for (BigClassObject *bigObj in bigArr) {
+            for (BigClassObject *bigObj in self.bigArr) {
                 for (MidClassObject *midObj in bigObj.midclasslst) {
                     [self.midArr addObject:midObj];
                 }
@@ -129,24 +129,29 @@ static NSString *cellIdentifier6 = @"QuotePriceStyleSixTableViewCell";
                 MidClassObject *indexMidObj = self.midArr[index-1];
                 [self creatSegmentUI:indexMidObj.smlclasslst];
             }];
+            self.segmentToolView.defaultIndex = self.currentMidIndex+1;//默认选中第一个;//defaultIndex从1开始   currentMidIndex从0开始
             self.segmentToolView.bgScrollViewColor = [UIColor blackColor];//背景色
             [self.view addSubview:self.segmentToolView];
             //构建默认三级分段选择器
             if (self.midArr) {
-                MidClassObject *firstMidObj = self.midArr[0];
+                MidClassObject *firstMidObj = self.midArr[self.currentMidIndex];
                 [self creatSegmentUI:firstMidObj.smlclasslst];
             }
-            self.currentMidIndex = 0;
             self.currentSmallIndex = 0;
             [self loadListData];
-        }else
+        }
+        if ([rc isEqualToString:@"100"])//会话超时
         {
-            [MBManager showBriefAlert:des];
+            LoginViewController *loginVC = [[LoginViewController alloc]init];
+            [self.navigationController pushViewController:loginVC animated:YES];
+        }
+        else
+        {
+            //            [MBManager showBriefMessage:des InView:self.view];
         }
     } fail:^(NSURLSessionDataTask *task, NSError *error) {
         
     }];
-    //    }
 }
 - (void)creatSegmentUI:(NSArray *)smallArr{
     UIView *segmentView = [self.view viewWithTag:kSegmentUITag];
@@ -193,12 +198,13 @@ static NSString *cellIdentifier6 = @"QuotePriceStyleSixTableViewCell";
     [self.view addSubview:scView];
 }
 - (void)loadListData{
+    UserObject *userObj = [UserManger getUserInfoDefault];
     MidClassObject *midObj = self.midArr[self.currentMidIndex];
     NSArray *smallArr = midObj.smlclasslst;
     SmallClassObject *smallObj = smallArr[self.currentSmallIndex];
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"sid"] = @"6c81a69bc4b644a78d31d19b69b3b94c";
+    params[@"sid"] = userObj.sid;
     params[@"c_s"] = C_S;
     params[@"smlclassid"] = smallObj.smlclassid;
     params[@"start_id"] = [NSString stringWithFormat:@"%d",start_id];
@@ -221,9 +227,14 @@ static NSString *cellIdentifier6 = @"QuotePriceStyleSixTableViewCell";
                 [self.dataArr addObjectsFromArray:[CellModelObject mj_objectArrayWithKeyValuesArray:msg]];
             }
             [self delayMethod];
-        }else
+        }if ([rc isEqualToString:@"100"])//会话超时
         {
-            [MBManager showBriefAlert:des];
+            LoginViewController *loginVC = [[LoginViewController alloc]init];
+            [self.navigationController pushViewController:loginVC animated:YES];
+        }
+        else
+        {
+            //            [MBManager showBriefMessage:des InView:self.view];
             [self delayMethod];
         }
     } fail:^(NSURLSessionDataTask *task, NSError *error) {
@@ -435,19 +446,6 @@ static NSString *cellIdentifier6 = @"QuotePriceStyleSixTableViewCell";
     }
     return nil;
 }
-#pragma Notifiacation action
-- (void)quotePriceSmallSegmentScrollNotifiCation:(NSNotification *)notification {
-    NSString *str = notification.object;
-    if ([str isEqualToString:@"first"]) {
-        if (self.currentMidIndex != 0) {
-            [self.segmentToolView bgScrollWithIndex:self.currentMidIndex-1];
-        }
-    }else if([str isEqualToString:@"last"]){
-        if (self.currentMidIndex != self.midArr.count) {
-            [self.segmentToolView bgScrollWithIndex:self.currentMidIndex+1];
-        }
-    }
-}
 -(void)headerRereshing
 {
     start_id = 0;
@@ -473,20 +471,58 @@ static NSString *cellIdentifier6 = @"QuotePriceStyleSixTableViewCell";
 }
 #pragma mark pricate
 -(IBAction)searchBtnClick:(id)sender{
-    LoginViewController *loginVC = [[LoginViewController alloc]init];
-    [self.navigationController pushViewController:loginVC animated:YES];
+    SearchViewController *searchVC = [[SearchViewController alloc]init];
+    [self.navigationController pushViewController:searchVC animated:YES];
 }
+-(IBAction)filterBtnClick:(id)sender{
+    FilterViewController *filterVC = [[FilterViewController alloc]init];
+    filterVC.dataArr = [[NSMutableArray alloc]initWithArray:self.bigArr];
+    MidClassObject *midObj = self.midArr[self.currentMidIndex];
+    filterVC.currentMidTitle = midObj.midclassname;
+    [self.navigationController pushViewController:filterVC animated:YES];
+}
+#pragma Notifiacation action
+- (void)quotePriceSmallSegmentScrollNotifiCation:(NSNotification *)notification {
+    NSString *str = notification.object;
+    if ([str isEqualToString:@"first"]) {
+        if (self.currentMidIndex != 0) {
+            [self.segmentToolView bgScrollWithIndex:self.currentMidIndex-1];
+        }
+    }else if([str isEqualToString:@"last"]){
+        if (self.currentMidIndex != self.midArr.count) {
+            [self.segmentToolView bgScrollWithIndex:self.currentMidIndex+1];
+        }
+    }
+}
+- (void)filterChangeSegmentNotifiCation:(NSNotification *)notification {
+    NSString *str = notification.object;
+    for (int i = 0; i < self.midArr.count; i++) {
+        MidClassObject *midObj = self.midArr[i];
+        if ([midObj.midclassname isEqualToString:str]) {
+            self.currentMidIndex = i;
+            break;
+        }
+    }
+}
+
 #pragma Install Notifiacation
 - (void)installMovieNotificationObservers {
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(quotePriceSmallSegmentScrollNotifiCation:)
                                                  name:kQuotePriceSmallSegmentScrollNotifiCation
                                                object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(filterChangeSegmentNotifiCation:)
+                                                 name:kFilterChangeSegmentNotifiCation
+                                               object:nil];
 }
 
 - (void)removeMovieNotificationObservers {
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:kQuotePriceSmallSegmentScrollNotifiCation
+                                                  object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:kFilterChangeSegmentNotifiCation
                                                   object:nil];
 }
 - (void)didReceiveMemoryWarning {
