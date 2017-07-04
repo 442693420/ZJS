@@ -25,6 +25,14 @@
 //详情列表
 #define API_GetOfferList  [NSString stringWithFormat:@"%@yh_cllist%@",MAIN_HOST,MAIN_VERSION]
 
+/**************  关注  *******************/
+//关注/取消关注栏目
+#define API_AttentionOffer  [NSString stringWithFormat:@"%@yh_gz%@",MAIN_HOST,MAIN_VERSION]
+//关注栏目列表
+#define API_GetAttentionClassify  [NSString stringWithFormat:@"%@yh_gztypelist%@",MAIN_HOST,MAIN_VERSION]
+//关注详情列表
+#define API_GetAttentionOfferList  [NSString stringWithFormat:@"%@yh_gzlist%@",MAIN_HOST,MAIN_VERSION]
+
 
 /**************  我的  *******************/
 //验证码

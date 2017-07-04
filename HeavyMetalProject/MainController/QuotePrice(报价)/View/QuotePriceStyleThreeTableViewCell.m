@@ -161,9 +161,9 @@
     }
     return _showPriceBtn;
 }
--(UIButton *)attentionBtn{
+-(QuotePriceTableViewCellBtn *)attentionBtn{
     if (_attentionBtn == nil) {
-        _attentionBtn = [[UIButton alloc]init];
+        _attentionBtn = [[QuotePriceTableViewCellBtn alloc]init];
         [_attentionBtn setImage:[UIImage imageNamed:@"attention_no"] forState:UIControlStateNormal];
     }
     return _attentionBtn;

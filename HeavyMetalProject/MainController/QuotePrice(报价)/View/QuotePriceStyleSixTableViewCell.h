@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "QuotePriceTableViewCellBtn.h"
 
 @interface QuotePriceStyleSixTableViewCell : UITableViewCell
 @property (nonatomic , strong)UILabel *timeLab;
@@ -17,6 +18,6 @@
 @property (nonatomic , strong)UILabel *upDownstockLab;
 
 @property (nonatomic , strong)UIButton *showPriceBtn;//查看实时报价
-@property (nonatomic , strong)UIButton *attentionBtn;//关注
+@property (nonatomic , strong)QuotePriceTableViewCellBtn *attentionBtn;//关注
 
 @end

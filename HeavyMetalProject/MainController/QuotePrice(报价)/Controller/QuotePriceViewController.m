@@ -10,6 +10,7 @@
 #import "LoginViewController.h"
 #import "SearchViewController.h"
 #import "FilterViewController.h"
+#import "QuotePriceChartsDetailViewController.h"
 #import "HMPSegmentScrollView.h"
 #import "HMPNaviSegmentView.h"
 #import "MJRefresh.h"
@@ -20,6 +21,7 @@
 #import "QuotePriceStyleFourTableViewCell.h"
 #import "QuotePriceStyleFiveTableViewCell.h"
 #import "QuotePriceStyleSixTableViewCell.h"
+#import "QuotePriceTableViewCellBtn.h"
 
 #import "BigClassObject.h"
 #import "MidClassObject.h"
@@ -290,6 +292,10 @@ static NSString *cellIdentifier6 = @"QuotePriceStyleSixTableViewCell";
             }else{
                 [cell1.attentionBtn setImage:[UIImage imageNamed:@"attention_yes"] forState:UIControlStateNormal];
             }
+            cell1.attentionBtn.cellIndexPath = indexPath;
+            cell1.attentionBtn.clid = obj.clid;
+            cell1.attentionBtn.isgz = obj.isgz;
+            [cell1.attentionBtn addTarget:self action:@selector(attentionBntClick:) forControlEvents:UIControlEventTouchUpInside];
             return cell1;
         }
             break;
@@ -320,6 +326,10 @@ static NSString *cellIdentifier6 = @"QuotePriceStyleSixTableViewCell";
             }else{
                 [cell2.attentionBtn setImage:[UIImage imageNamed:@"attention_yes"] forState:UIControlStateNormal];
             }
+            cell2.attentionBtn.cellIndexPath = indexPath;
+            cell2.attentionBtn.clid = obj.clid;
+            cell2.attentionBtn.isgz = obj.isgz;
+            [cell2.attentionBtn addTarget:self action:@selector(attentionBntClick:) forControlEvents:UIControlEventTouchUpInside];
             return cell2;
         }
             break;
@@ -350,6 +360,10 @@ static NSString *cellIdentifier6 = @"QuotePriceStyleSixTableViewCell";
             }else{
                 [cell3.attentionBtn setImage:[UIImage imageNamed:@"attention_yes"] forState:UIControlStateNormal];
             }
+            cell3.attentionBtn.cellIndexPath = indexPath;
+            cell3.attentionBtn.clid = obj.clid;
+            cell3.attentionBtn.isgz = obj.isgz;
+            [cell3.attentionBtn addTarget:self action:@selector(attentionBntClick:) forControlEvents:UIControlEventTouchUpInside];
             return cell3;
         }
             break;
@@ -379,6 +393,10 @@ static NSString *cellIdentifier6 = @"QuotePriceStyleSixTableViewCell";
             }else{
                 [cell4.attentionBtn setImage:[UIImage imageNamed:@"attention_yes"] forState:UIControlStateNormal];
             }
+            cell4.attentionBtn.cellIndexPath = indexPath;
+            cell4.attentionBtn.clid = obj.clid;
+            cell4.attentionBtn.isgz = obj.isgz;
+            [cell4.attentionBtn addTarget:self action:@selector(attentionBntClick:) forControlEvents:UIControlEventTouchUpInside];
             return cell4;
         }
             break;
@@ -409,6 +427,10 @@ static NSString *cellIdentifier6 = @"QuotePriceStyleSixTableViewCell";
             }else{
                 [cell5.attentionBtn setImage:[UIImage imageNamed:@"attention_yes"] forState:UIControlStateNormal];
             }
+            cell5.attentionBtn.cellIndexPath = indexPath;
+            cell5.attentionBtn.clid = obj.clid;
+            cell5.attentionBtn.isgz = obj.isgz;
+            [cell5.attentionBtn addTarget:self action:@selector(attentionBntClick:) forControlEvents:UIControlEventTouchUpInside];
             return cell5;
         }
             break;
@@ -438,6 +460,10 @@ static NSString *cellIdentifier6 = @"QuotePriceStyleSixTableViewCell";
             }else{
                 [cell6.attentionBtn setImage:[UIImage imageNamed:@"attention_yes"] forState:UIControlStateNormal];
             }
+            cell6.attentionBtn.cellIndexPath = indexPath;
+            cell6.attentionBtn.clid = obj.clid;
+            cell6.attentionBtn.isgz = obj.isgz;
+            [cell6.attentionBtn addTarget:self action:@selector(attentionBntClick:) forControlEvents:UIControlEventTouchUpInside];
             return cell6;
         }
             break;
@@ -445,6 +471,10 @@ static NSString *cellIdentifier6 = @"QuotePriceStyleSixTableViewCell";
             break;
     }
     return nil;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    QuotePriceChartsDetailViewController *detailVC = [[QuotePriceChartsDetailViewController alloc]init];
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 -(void)headerRereshing
 {
@@ -480,6 +510,53 @@ static NSString *cellIdentifier6 = @"QuotePriceStyleSixTableViewCell";
     MidClassObject *midObj = self.midArr[self.currentMidIndex];
     filterVC.currentMidTitle = midObj.midclassname;
     [self.navigationController pushViewController:filterVC animated:YES];
+}
+-(IBAction)attentionBntClick:(id)sender{
+    QuotePriceTableViewCellBtn *btn = (QuotePriceTableViewCellBtn *)sender;
+    NSString *type;
+    if ([btn.isgz isEqualToString:@"0"]) {
+        type = @"1";
+    }else{
+        type = @"2";
+    }
+    UserObject *userObj = [UserManger getUserInfoDefault];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"sid"] = userObj.sid;
+    params[@"clid"] = btn.clid;
+    params[@"type"] = type;
+    params[@"c_s"] = C_S;
+    
+    [HMPAFNetWorkManager POST:API_AttentionOffer params:params success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"%@",responseObject);
+        NSDictionary *dic = (NSDictionary *)responseObject;
+        NSString *rc = dic[@"rc"];
+        NSString *des = dic[@"des"];
+        NSArray *msg = dic[@"msg"];
+        if ([rc isEqualToString:@"0"])
+        {
+            CellModelObject *obj = self.dataArr[btn.cellIndexPath.row];
+            if ([type isEqualToString:@"1"]) {
+                obj.isgz = @"1";
+            }else{
+                obj.isgz = @"0";
+            }
+            //刷新
+            UIView *segmentView = [self.view viewWithTag:kSegmentUITag];
+            UITableView *tabelView = [segmentView viewWithTag:kTableViewTag+self.currentSmallIndex];
+            [tabelView reloadRowsAtIndexPaths:@[btn.cellIndexPath] withRowAnimation:UITableViewRowAnimationNone];
+        }
+        if ([rc isEqualToString:@"100"])//会话超时
+        {
+            LoginViewController *loginVC = [[LoginViewController alloc]init];
+            [self.navigationController pushViewController:loginVC animated:YES];
+        }
+        else
+        {
+            //            [MBManager showBriefMessage:des InView:self.view];
+        }
+    } fail:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
 }
 #pragma Notifiacation action
 - (void)quotePriceSmallSegmentScrollNotifiCation:(NSNotification *)notification {

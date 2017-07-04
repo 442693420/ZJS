@@ -23,6 +23,8 @@
 		6128055C1F026F8600C31B18 /* BigClassObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6128055B1F026F8600C31B18 /* BigClassObject.m */; };
 		6128055F1F02700D00C31B18 /* MidClassObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6128055E1F02700D00C31B18 /* MidClassObject.m */; };
 		612805651F027A4C00C31B18 /* SmallClassObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 612805641F027A4C00C31B18 /* SmallClassObject.m */; };
+		617BDF441F0B2CCA00645073 /* QuotePriceTableViewCellBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 617BDF431F0B2CCA00645073 /* QuotePriceTableViewCellBtn.m */; };
+		617BDF471F0B69B300645073 /* QuotePriceChartsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 617BDF461F0B69B300645073 /* QuotePriceChartsDetailViewController.m */; };
 		61A193C11F08BA9500059FE4 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A193C01F08BA9500059FE4 /* SearchViewController.m */; };
 		61A193C41F08BAB300059FE4 /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A193C31F08BAB300059FE4 /* FilterViewController.m */; };
 		61A193C71F08BB1B00059FE4 /* SearchDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A193C61F08BB1B00059FE4 /* SearchDetailViewController.m */; };
@@ -110,6 +112,11 @@
 		6128055E1F02700D00C31B18 /* MidClassObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidClassObject.m; sourceTree = "<group>"; };
 		612805631F027A4C00C31B18 /* SmallClassObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmallClassObject.h; sourceTree = "<group>"; };
 		612805641F027A4C00C31B18 /* SmallClassObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmallClassObject.m; sourceTree = "<group>"; };
+		617BDF421F0B2CCA00645073 /* QuotePriceTableViewCellBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuotePriceTableViewCellBtn.h; sourceTree = "<group>"; };
+		617BDF431F0B2CCA00645073 /* QuotePriceTableViewCellBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuotePriceTableViewCellBtn.m; sourceTree = "<group>"; };
+		617BDF451F0B69B300645073 /* QuotePriceChartsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuotePriceChartsDetailViewController.h; sourceTree = "<group>"; };
+		617BDF461F0B69B300645073 /* QuotePriceChartsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuotePriceChartsDetailViewController.m; sourceTree = "<group>"; };
+		617BDFE21F0B6B3B00645073 /* Charts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Charts.h; sourceTree = "<group>"; };
 		61A193BF1F08BA9500059FE4 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		61A193C01F08BA9500059FE4 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		61A193C21F08BAB300059FE4 /* FilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterViewController.h; sourceTree = "<group>"; };
@@ -239,9 +246,34 @@
 			path = "HeavyMetalProject/MainController/QuotePrice(报价)/Model";
 			sourceTree = SOURCE_ROOT;
 		};
+		617BDF491F0B6B3A00645073 /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				617BDF4A1F0B6B3A00645073 /* Source */,
+			);
+			path = Charts;
+			sourceTree = "<group>";
+		};
+		617BDF4A1F0B6B3A00645073 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				617BDFE11F0B6B3B00645073 /* Supporting Files */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		617BDFE11F0B6B3B00645073 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				617BDFE21F0B6B3B00645073 /* Charts.h */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		61DEBFA21F0542B00084D40C /* Tool(工具) */ = {
 			isa = PBXGroup;
 			children = (
+				617BDF491F0B6B3A00645073 /* Charts */,
 				61DEBFA31F0542B00084D40C /* MBManager */,
 			);
 			path = "Tool(工具)";
@@ -505,6 +537,8 @@
 				61A193C31F08BAB300059FE4 /* FilterViewController.m */,
 				61A193C51F08BB1B00059FE4 /* SearchDetailViewController.h */,
 				61A193C61F08BB1B00059FE4 /* SearchDetailViewController.m */,
+				617BDF451F0B69B300645073 /* QuotePriceChartsDetailViewController.h */,
+				617BDF461F0B69B300645073 /* QuotePriceChartsDetailViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -526,6 +560,8 @@
 				612805541F01F77500C31B18 /* QuotePriceStyleFiveTableViewCell.m */,
 				612805561F01F77F00C31B18 /* QuotePriceStyleSixTableViewCell.h */,
 				612805571F01F77F00C31B18 /* QuotePriceStyleSixTableViewCell.m */,
+				617BDF421F0B2CCA00645073 /* QuotePriceTableViewCellBtn.h */,
+				617BDF431F0B2CCA00645073 /* QuotePriceTableViewCellBtn.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -758,6 +794,7 @@
 				6128054C1F01F74E00C31B18 /* QuotePriceStyleTwoTableViewCell.m in Sources */,
 				61EEC31D1F00B6520014E44C /* AttentionViewController.m in Sources */,
 				61EEC3201F00B6660014E44C /* MineViewController.m in Sources */,
+				617BDF471F0B69B300645073 /* QuotePriceChartsDetailViewController.m in Sources */,
 				6105C3F51F03A32400A96B2A /* RegistViewController.m in Sources */,
 				61EEC34F1F0125CC0014E44C /* HMPSegmentScrollView.m in Sources */,
 				61EEC2EF1F00B0E90014E44C /* HMPTabBar.m in Sources */,
@@ -791,6 +828,7 @@
 				61EEC3311F00F2000014E44C /* UIView+Frame.m in Sources */,
 				612805551F01F77500C31B18 /* QuotePriceStyleFiveTableViewCell.m in Sources */,
 				61EEC2F21F00B13A0014E44C /* HMPTabBarButton.m in Sources */,
+				617BDF441F0B2CCA00645073 /* QuotePriceTableViewCellBtn.m in Sources */,
 				6105C3EC1F0397F700A96B2A /* CellModelPriceObject.m in Sources */,
 				6105C4131F03D1FB00A96B2A /* LoginWithPwdViewController.m in Sources */,
 				61EEC3271F00B6FA0014E44C /* UserManger.m in Sources */,
@@ -952,6 +990,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zh.HeavyMetalProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -966,6 +1005,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zh.HeavyMetalProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
