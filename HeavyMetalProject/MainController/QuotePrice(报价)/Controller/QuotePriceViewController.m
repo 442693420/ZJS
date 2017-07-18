@@ -63,7 +63,6 @@ static NSString *cellIdentifier6 = @"QuotePriceStyleSixTableViewCell";
     self.view.backgroundColor=[UIColor blackColor];
     //iOS7新增属性
     self.automaticallyAdjustsScrollViewInsets=NO;
-    
     //搜索按钮
     UIButton *searchBtn = [[UIButton alloc]initWithFrame:CGRectMake(KRealValue(10), 20+(KRealValue(44-24))/2, KRealValue(24), KRealValue(24))];
     [searchBtn setImage:[UIImage imageNamed:@"search"] forState:UIControlStateNormal];
@@ -166,7 +165,7 @@ static NSString *cellIdentifier6 = @"QuotePriceStyleSixTableViewCell";
         table.delegate=self;
         table.tag = i+kTableViewTag;
         table.dataSource=self;
-        table.rowHeight=134;
+        table.rowHeight = KRealValue(144);
         table.backgroundColor = [UIColor blackColor];
         table.separatorColor = [UIColor colorWithHexString:kMainWordColorGray];
         table.tableFooterView = [[UIView alloc]init];
@@ -266,25 +265,33 @@ static NSString *cellIdentifier6 = @"QuotePriceStyleSixTableViewCell";
     switch ([obj.styletype integerValue]) {
         case 1:
         {
-            cell1.nameLab.text = obj.clname;
+            cell1.nameLab.text = [NSString stringWithFormat:@"%@|%@|%@", obj.clname,obj.clph,obj.clgg];
             cell1.timeLab.text = obj.rq;
-            if (obj.needupd) {//是否点击更新价格
+            if ([obj.needupd isEqualToString:@"1"]) {//是否点击更新价格
                 cell1.priceBgView.hidden = YES;
                 cell1.showPriceBtn.hidden = NO;
             }else{
                 cell1.priceBgView.hidden = NO;
                 cell1.showPriceBtn.hidden = YES;
-                cell1.oldPriceLab.text = [NSString stringWithFormat:@"%@ %@",obj.stylecontent.zd1,obj.stylecontent.dw];
-                cell1.nowPriceLab.text = [NSString stringWithFormat:@"%@ %@",obj.stylecontent.zd2,obj.stylecontent.dw];
-                cell1.countPriceLab.text = [NSString stringWithFormat:@"%@ %@",obj.stylecontent.zd3,obj.stylecontent.dw];
+                NSString *oldPriceStr = [NSString stringWithFormat:@"%@ %@",obj.stylecontent.zd1,obj.stylecontent.dw];
+                NSString *nowPriceLab = [NSString stringWithFormat:@"%@ %@",obj.stylecontent.zd2,obj.stylecontent.dw];
+                NSString *countPriceLab = [NSString stringWithFormat:@"%@ %@",obj.stylecontent.zd3,obj.stylecontent.dw];
                 //涨跌值
                 NSString *type = [obj.stylecontent.zd4 substringWithRange:NSMakeRange(0, 1)];
-                if ([type isEqualToString:@"-"]) {
-                    cell1.upDownPriceLab.backgroundColor = [UIColor colorWithHexString:kMainColorGreen];
-                    cell1.upDownPriceLab.text = [NSString stringWithFormat:@"↓%@",obj.stylecontent.zd4];
-                }else{
+                if (![type isEqualToString:@"-"]) {
                     cell1.upDownPriceLab.backgroundColor = [UIColor colorWithHexString:kMainColorRed];
-                    cell1.upDownPriceLab.text = [NSString stringWithFormat:@"↑%@",obj.stylecontent.zd4];
+                    cell1.upDownPriceLab.text = [NSString stringWithFormat:@"↑%.2f",[obj.stylecontent.zd4 floatValue]];
+                    
+                    cell1.oldPriceLab.attributedText = [self cellUpDownAttributedString:oldPriceStr colorContent:obj.stylecontent.zd1 color:[UIColor colorWithHexString:kMainColorRed]];
+                    cell1.nowPriceLab.attributedText = [self cellUpDownAttributedString:nowPriceLab colorContent:obj.stylecontent.zd2 color:[UIColor colorWithHexString:kMainColorRed]];
+                    cell1.countPriceLab.attributedText = [self cellUpDownAttributedString:countPriceLab colorContent:obj.stylecontent.zd3 color:[UIColor colorWithHexString:kMainColorRed]];
+                }else{
+                    cell1.upDownPriceLab.backgroundColor = [UIColor colorWithHexString:kMainColorGreen];
+                    cell1.upDownPriceLab.text = [NSString stringWithFormat:@"↓%.2f",[[obj.stylecontent.zd4 substringFromIndex:1] floatValue]];
+                    
+                    cell1.oldPriceLab.attributedText = [self cellUpDownAttributedString:oldPriceStr colorContent:obj.stylecontent.zd1 color:[UIColor colorWithHexString:kMainColorGreen]];
+                    cell1.nowPriceLab.attributedText = [self cellUpDownAttributedString:nowPriceLab colorContent:obj.stylecontent.zd2 color:[UIColor colorWithHexString:kMainColorGreen]];
+                    cell1.countPriceLab.attributedText = [self cellUpDownAttributedString:countPriceLab colorContent:obj.stylecontent.zd3 color:[UIColor colorWithHexString:kMainColorGreen]];
                 }
             }
             if ([obj.isgz isEqualToString:@"0"]) {
@@ -301,24 +308,30 @@ static NSString *cellIdentifier6 = @"QuotePriceStyleSixTableViewCell";
             break;
         case 2:
         {
-            cell2.nameLab.text = obj.clname;
+            cell2.nameLab.text = [NSString stringWithFormat:@"%@|%@|%@", obj.clname,obj.clph,obj.clgg];
             cell2.timeLab.text = obj.rq;
-            if (obj.needupd) {//是否点击更新价格
+            if ([obj.needupd isEqualToString:@"1"]) {//是否点击更新价格
                 cell2.priceBgView.hidden = YES;
                 cell2.showPriceBtn.hidden = NO;
             }else{
                 cell2.priceBgView.hidden = NO;
                 cell2.showPriceBtn.hidden = YES;
-                cell2.oldPriceLab.text = [NSString stringWithFormat:@"%@ %@",obj.stylecontent.zd1,obj.stylecontent.dw];
-                cell2.nowPriceLab.text = [NSString stringWithFormat:@"%@ %@",obj.stylecontent.zd2,obj.stylecontent.dw];
+                NSString *oldPriceStr = [NSString stringWithFormat:@"%@ %@",obj.stylecontent.zd1,obj.stylecontent.dw];
+                NSString *nowPriceLab = [NSString stringWithFormat:@"%@ %@",obj.stylecontent.zd2,obj.stylecontent.dw];
                 //涨跌值
                 NSString *type = [obj.stylecontent.zd3 substringWithRange:NSMakeRange(0, 1)];
                 if ([type isEqualToString:@"-"]) {
-                    cell2.upDownPriceLab.backgroundColor = [UIColor colorWithHexString:kMainColorGreen];
-                    cell2.upDownPriceLab.text = [NSString stringWithFormat:@"↓%@",obj.stylecontent.zd3];
-                }else{
                     cell2.upDownPriceLab.backgroundColor = [UIColor colorWithHexString:kMainColorRed];
-                    cell2.upDownPriceLab.text = [NSString stringWithFormat:@"↑%@",obj.stylecontent.zd3];
+                    cell2.upDownPriceLab.text = [NSString stringWithFormat:@"↑%.2f",[obj.stylecontent.zd3 floatValue]];
+                    
+                    cell2.oldPriceLab.attributedText = [self cellUpDownAttributedString:oldPriceStr colorContent:obj.stylecontent.zd1 color:[UIColor colorWithHexString:kMainColorRed]];
+                    cell2.nowPriceLab.attributedText = [self cellUpDownAttributedString:nowPriceLab colorContent:obj.stylecontent.zd2 color:[UIColor colorWithHexString:kMainColorRed]];
+                }else{
+                    cell2.upDownPriceLab.backgroundColor = [UIColor colorWithHexString:kMainColorGreen];
+                    cell2.upDownPriceLab.text = [NSString stringWithFormat:@"↓%.2f",[[obj.stylecontent.zd3 substringFromIndex:1] floatValue]];
+                    
+                    cell2.oldPriceLab.attributedText = [self cellUpDownAttributedString:oldPriceStr colorContent:obj.stylecontent.zd1 color:[UIColor colorWithHexString:kMainColorGreen]];
+                    cell2.nowPriceLab.attributedText = [self cellUpDownAttributedString:nowPriceLab colorContent:obj.stylecontent.zd2 color:[UIColor colorWithHexString:kMainColorGreen]];
                 }
             }
             if ([obj.isgz isEqualToString:@"0"]) {
@@ -335,24 +348,32 @@ static NSString *cellIdentifier6 = @"QuotePriceStyleSixTableViewCell";
             break;
         case 3:
         {
-            cell3.nameLab.text = obj.clname;
+            cell3.nameLab.text = [NSString stringWithFormat:@"%@|%@|%@", obj.clname,obj.clph,obj.clgg];
             cell3.timeLab.text = obj.rq;
-            if (obj.needupd) {//是否点击更新价格
+            if ([obj.needupd isEqualToString:@"1"]) {//是否点击更新价格
                 cell3.priceBgView.hidden = YES;
                 cell3.showPriceBtn.hidden = NO;
             }else{
                 cell3.priceBgView.hidden = NO;
                 cell3.showPriceBtn.hidden = YES;
-                cell3.priceLab.text = [NSString stringWithFormat:@"%@ %@",obj.stylecontent.zd1,obj.stylecontent.dw];
-                cell3.averagePriceLab.text = [NSString stringWithFormat:@"%@ %@",obj.stylecontent.zd2,obj.stylecontent.dw];
+                
+                NSString *priceStr = [NSString stringWithFormat:@"%@ %@",obj.stylecontent.zd1,obj.stylecontent.dw];
+                NSString *averagePriceStr = [NSString stringWithFormat:@"%@ %@",obj.stylecontent.zd2,obj.stylecontent.dw];
+                
                 //涨跌值
                 NSString *type = [obj.stylecontent.zd3 substringWithRange:NSMakeRange(0, 1)];
                 if ([type isEqualToString:@"-"]) {
-                    cell3.upDownPriceLab.backgroundColor = [UIColor colorWithHexString:kMainColorGreen];
-                    cell3.upDownPriceLab.text = [NSString stringWithFormat:@"↓%@",obj.stylecontent.zd3];
-                }else{
                     cell3.upDownPriceLab.backgroundColor = [UIColor colorWithHexString:kMainColorRed];
-                    cell3.upDownPriceLab.text = [NSString stringWithFormat:@"↑%@",obj.stylecontent.zd3];
+                    cell3.upDownPriceLab.text = [NSString stringWithFormat:@"↑%.2f",[obj.stylecontent.zd3 floatValue]];
+                    
+                    cell3.priceLab.attributedText = [self cellUpDownAttributedString:priceStr colorContent:obj.stylecontent.zd1 color:[UIColor colorWithHexString:kMainColorRed]];
+                    cell3.averagePriceLab.attributedText = [self cellUpDownAttributedString:averagePriceStr colorContent:obj.stylecontent.zd2 color:[UIColor colorWithHexString:kMainColorRed]];
+                }else{
+                    cell3.upDownPriceLab.backgroundColor = [UIColor colorWithHexString:kMainColorGreen];
+                    cell3.upDownPriceLab.text = [NSString stringWithFormat:@"↓%.2f",[[obj.stylecontent.zd3 substringFromIndex:1] floatValue]];
+                    
+                    cell3.priceLab.attributedText = [self cellUpDownAttributedString:priceStr colorContent:obj.stylecontent.zd1 color:[UIColor colorWithHexString:kMainColorGreen]];
+                    cell3.averagePriceLab.attributedText = [self cellUpDownAttributedString:averagePriceStr colorContent:obj.stylecontent.zd2 color:[UIColor colorWithHexString:kMainColorGreen]];
                 }
             }
             if ([obj.isgz isEqualToString:@"0"]) {
@@ -369,23 +390,29 @@ static NSString *cellIdentifier6 = @"QuotePriceStyleSixTableViewCell";
             break;
         case 4:
         {
-            cell4.nameLab.text = obj.clname;
+            cell4.nameLab.text = [NSString stringWithFormat:@"%@|%@|%@", obj.clname,obj.clph,obj.clgg];
             cell4.timeLab.text = obj.rq;
-            if (obj.needupd) {//是否点击更新价格
+            if ([obj.needupd isEqualToString:@"1"]) {//是否点击更新价格
                 cell4.priceBgView.hidden = YES;
                 cell4.showPriceBtn.hidden = NO;
             }else{
                 cell4.priceBgView.hidden = NO;
                 cell4.showPriceBtn.hidden = YES;
-                cell4.priceLab.text = [NSString stringWithFormat:@"%@ %@",obj.stylecontent.zd1,obj.stylecontent.dw];
+                
+                NSString *priceStr = [NSString stringWithFormat:@"%@ %@",obj.stylecontent.zd1,obj.stylecontent.dw];
+                
                 //涨跌值
                 NSString *type = [obj.stylecontent.zd2 substringWithRange:NSMakeRange(0, 1)];
                 if ([type isEqualToString:@"-"]) {
-                    cell4.upDownPriceLab.backgroundColor = [UIColor colorWithHexString:kMainColorGreen];
-                    cell4.upDownPriceLab.text = [NSString stringWithFormat:@"↓%@",obj.stylecontent.zd2];
-                }else{
                     cell4.upDownPriceLab.backgroundColor = [UIColor colorWithHexString:kMainColorRed];
-                    cell4.upDownPriceLab.text = [NSString stringWithFormat:@"↑%@",obj.stylecontent.zd2];
+                    cell4.upDownPriceLab.text = [NSString stringWithFormat:@"↑%.2f",[obj.stylecontent.zd2 floatValue]];
+                    
+                    cell4.priceLab.attributedText = [self cellUpDownAttributedString:priceStr colorContent:obj.stylecontent.zd1 color:[UIColor colorWithHexString:kMainColorRed]];
+                }else{
+                    cell4.upDownPriceLab.backgroundColor = [UIColor colorWithHexString:kMainColorGreen];
+                    cell4.upDownPriceLab.text = [NSString stringWithFormat:@"↓%.2f",[[obj.stylecontent.zd2 substringFromIndex:1] floatValue]];
+                    
+                    cell4.priceLab.attributedText = [self cellUpDownAttributedString:priceStr colorContent:obj.stylecontent.zd1 color:[UIColor colorWithHexString:kMainColorGreen]];
                 }
             }
             if ([obj.isgz isEqualToString:@"0"]) {
@@ -402,24 +429,31 @@ static NSString *cellIdentifier6 = @"QuotePriceStyleSixTableViewCell";
             break;
         case 5:
         {
-            cell5.nameLab.text = obj.clname;
+            cell5.nameLab.text = [NSString stringWithFormat:@"%@|%@|%@", obj.clname,obj.clph,obj.clgg];
             cell5.timeLab.text = obj.rq;
-            if (obj.needupd) {//是否点击更新价格
+            if ([obj.needupd isEqualToString:@"1"]) {//是否点击更新价格
                 cell5.priceBgView.hidden = YES;
                 cell5.showPriceBtn.hidden = NO;
             }else{
                 cell5.priceBgView.hidden = NO;
                 cell5.showPriceBtn.hidden = YES;
-                cell5.spotPriceLab.text = [NSString stringWithFormat:@"%@ %@",obj.stylecontent.zd1,obj.stylecontent.dw];
-                cell5.orderPriceLab.text = [NSString stringWithFormat:@"%@ %@",obj.stylecontent.zd2,obj.stylecontent.dw];
+                
+                NSString *spotPriceStr = [NSString stringWithFormat:@"%@ %@",obj.stylecontent.zd1,obj.stylecontent.dw];
+                NSString *orderPriceLab = [NSString stringWithFormat:@"%@ %@",obj.stylecontent.zd2,obj.stylecontent.dw];
                 //涨跌值
                 NSString *type = [obj.stylecontent.zd3 substringWithRange:NSMakeRange(0, 1)];
                 if ([type isEqualToString:@"-"]) {
-                    cell5.upDownPriceLab.backgroundColor = [UIColor colorWithHexString:kMainColorGreen];
-                    cell5.upDownPriceLab.text = [NSString stringWithFormat:@"↓%@",obj.stylecontent.zd3];
-                }else{
                     cell5.upDownPriceLab.backgroundColor = [UIColor colorWithHexString:kMainColorRed];
-                    cell5.upDownPriceLab.text = [NSString stringWithFormat:@"↑%@",obj.stylecontent.zd3];
+                    cell5.upDownPriceLab.text = [NSString stringWithFormat:@"↑%.2f",[obj.stylecontent.zd3 floatValue]];
+                    
+                    cell5.spotPriceLab.attributedText = [self cellUpDownAttributedString:spotPriceStr colorContent:obj.stylecontent.zd1 color:[UIColor colorWithHexString:kMainColorRed]];
+                    cell5.orderPriceLab.attributedText = [self cellUpDownAttributedString:orderPriceLab colorContent:obj.stylecontent.zd2 color:[UIColor colorWithHexString:kMainColorRed]];
+                }else{
+                    cell5.upDownPriceLab.backgroundColor = [UIColor colorWithHexString:kMainColorGreen];
+                    cell5.upDownPriceLab.text = [NSString stringWithFormat:@"↓%.2f",[[obj.stylecontent.zd3 substringFromIndex:1] floatValue]];
+                    
+                    cell5.spotPriceLab.attributedText = [self cellUpDownAttributedString:spotPriceStr colorContent:obj.stylecontent.zd1 color:[UIColor colorWithHexString:kMainColorGreen]];
+                    cell5.orderPriceLab.attributedText = [self cellUpDownAttributedString:orderPriceLab colorContent:obj.stylecontent.zd2 color:[UIColor colorWithHexString:kMainColorGreen]];
                 }
             }
             if ([obj.isgz isEqualToString:@"0"]) {
@@ -436,23 +470,28 @@ static NSString *cellIdentifier6 = @"QuotePriceStyleSixTableViewCell";
             break;
         case 6:
         {
-            cell6.nameLab.text = obj.clname;
+            cell6.nameLab.text = [NSString stringWithFormat:@"%@|%@|%@", obj.clname,obj.clph,obj.clgg];
             cell6.timeLab.text = obj.rq;
-            if (obj.needupd) {//是否点击更新价格
+            if ([obj.needupd isEqualToString:@"1"]) {//是否点击更新价格
                 cell6.priceBgView.hidden = YES;
                 cell6.showPriceBtn.hidden = NO;
             }else{
                 cell6.priceBgView.hidden = NO;
                 cell6.showPriceBtn.hidden = YES;
-                cell6.stockLab.text = [NSString stringWithFormat:@"%@ %@",obj.stylecontent.zd1,obj.stylecontent.dw];
+                
+                NSString *stockStr = [NSString stringWithFormat:@"%@ %@",obj.stylecontent.zd1,obj.stylecontent.dw];
                 //涨跌值
                 NSString *type = [obj.stylecontent.zd2 substringWithRange:NSMakeRange(0, 1)];
                 if ([type isEqualToString:@"-"]) {
-                    cell6.upDownstockLab.backgroundColor = [UIColor colorWithHexString:kMainColorGreen];
-                    cell6.upDownstockLab.text = [NSString stringWithFormat:@"↓%@",obj.stylecontent.zd2];
-                }else{
                     cell6.upDownstockLab.backgroundColor = [UIColor colorWithHexString:kMainColorRed];
-                    cell6.upDownstockLab.text = [NSString stringWithFormat:@"↑%@",obj.stylecontent.zd2];
+                    cell6.upDownstockLab.text = [NSString stringWithFormat:@"↑%.2f",[obj.stylecontent.zd2 floatValue]];
+                    
+                    cell6.stockLab.attributedText = [self cellUpDownAttributedString:stockStr colorContent:obj.stylecontent.zd1 color:[UIColor colorWithHexString:kMainColorRed]];
+                }else{
+                    cell6.upDownstockLab.backgroundColor = [UIColor colorWithHexString:kMainColorGreen];
+                    cell6.upDownstockLab.text = [NSString stringWithFormat:@"↓%.2f",[[obj.stylecontent.zd2 substringFromIndex:1] floatValue]];
+                    
+                    cell6.stockLab.attributedText = [self cellUpDownAttributedString:stockStr colorContent:obj.stylecontent.zd1 color:[UIColor colorWithHexString:kMainColorGreen]];
                 }
             }
             if ([obj.isgz isEqualToString:@"0"]) {
@@ -607,4 +646,12 @@ static NSString *cellIdentifier6 = @"QuotePriceStyleSixTableViewCell";
     // Dispose of any resources that can be recreated.
 }
 
+
+- (NSMutableAttributedString *)cellUpDownAttributedString:(NSString *)contentStr colorContent:(NSString *)colorContent color:(UIColor *)fontColor{
+    NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc]initWithString:contentStr];
+    //设置：在0-X个单位长度内的内容显示成红色
+    NSInteger length = colorContent.length;
+    [attrStr addAttribute:NSForegroundColorAttributeName value:fontColor range:NSMakeRange(0,length)];
+    return attrStr;
+}
 @end

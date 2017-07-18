@@ -78,10 +78,10 @@
             make.left.equalTo(self.priceBgView.mas_left).offset(KRealValue(8));
             make.centerY.equalTo(self.priceBgView.mas_centerY);
             make.height.mas_equalTo(KRealValue(20));
-            make.right.mas_equalTo(self.mas_right).offset(KRealValue(16+60));
+            make.right.mas_equalTo(self.mas_right).offset(-KRealValue(16+60));
         }];
         [self.upDownPriceLab mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.mas_equalTo(self.mas_right).offset(KRealValue(8));
+            make.right.mas_equalTo(self.mas_right).offset(-KRealValue(8));
             make.centerY.equalTo(self.priceBgView.mas_centerY);
             make.height.mas_equalTo(KRealValue(30));
             make.width.mas_equalTo(KRealValue(60));
@@ -128,6 +128,8 @@
 -(UILabel *)priceLab{
     if (_priceLab == nil) {
         _priceLab = [[UILabel alloc]init];
+        _priceLab.font = [UIFont systemFontOfSize:KRealValue(12)];
+        _priceLab.textColor = [UIColor colorWithHexString:kMainWordColorGray];
     }
     return _priceLab;
 }
@@ -136,6 +138,9 @@
         _upDownPriceLab = [[UILabel alloc]init];
         _upDownPriceLab.layer.masksToBounds = YES;
         _upDownPriceLab.layer.cornerRadius = KRealValue(5);
+        _upDownPriceLab.textColor = [UIColor whiteColor];
+        _upDownPriceLab.textAlignment = NSTextAlignmentCenter;
+        _upDownPriceLab.font = [UIFont systemFontOfSize:12];
     }
     return _upDownPriceLab;
 }

@@ -92,10 +92,10 @@
             make.centerY.equalTo(self.priceBgView.mas_centerY);
             make.height.mas_equalTo(KRealValue(20));
             make.width.equalTo(self.nowPriceLab.mas_width);
-            make.right.mas_equalTo(self.mas_right).offset(KRealValue(16+60));
+            make.right.mas_equalTo(self.mas_right).offset(-KRealValue(16+60));
         }];
         [self.upDownPriceLab mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.mas_equalTo(self.mas_right).offset(KRealValue(8));
+            make.right.mas_equalTo(self.mas_right).offset(-KRealValue(8));
             make.centerY.equalTo(self.priceBgView.mas_centerY);
             make.height.mas_equalTo(KRealValue(30));
             make.width.mas_equalTo(KRealValue(60));
@@ -111,7 +111,7 @@
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
+    
     // Configure the view for the selected state
 }
 #pragma mark getter and setter
@@ -142,18 +142,24 @@
 -(UILabel *)oldPriceLab{
     if (_oldPriceLab == nil) {
         _oldPriceLab = [[UILabel alloc]init];
+        _oldPriceLab.font = [UIFont systemFontOfSize:KRealValue(12)];
+        _oldPriceLab.textColor = [UIColor colorWithHexString:kMainWordColorGray];
     }
     return _oldPriceLab;
 }
 -(UILabel *)nowPriceLab{
     if (_nowPriceLab == nil) {
         _nowPriceLab = [[UILabel alloc]init];
+        _nowPriceLab.font = [UIFont systemFontOfSize:KRealValue(12)];
+        _nowPriceLab.textColor = [UIColor colorWithHexString:kMainWordColorGray];
     }
     return _nowPriceLab;
 }
 -(UILabel *)countPriceLab{
     if (_countPriceLab == nil) {
         _countPriceLab = [[UILabel alloc]init];
+        _countPriceLab.font = [UIFont systemFontOfSize:KRealValue(12)];
+        _countPriceLab.textColor = [UIColor colorWithHexString:kMainWordColorGray];
     }
     return _countPriceLab;
 }
@@ -162,6 +168,9 @@
         _upDownPriceLab = [[UILabel alloc]init];
         _upDownPriceLab.layer.masksToBounds = YES;
         _upDownPriceLab.layer.cornerRadius = KRealValue(5);
+        _upDownPriceLab.textColor = [UIColor whiteColor];
+        _upDownPriceLab.textAlignment = NSTextAlignmentCenter;
+        _upDownPriceLab.font = [UIFont systemFontOfSize:12];
     }
     return _upDownPriceLab;
 }

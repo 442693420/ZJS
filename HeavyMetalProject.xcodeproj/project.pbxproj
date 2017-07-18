@@ -25,6 +25,10 @@
 		612805651F027A4C00C31B18 /* SmallClassObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 612805641F027A4C00C31B18 /* SmallClassObject.m */; };
 		617BDF441F0B2CCA00645073 /* QuotePriceTableViewCellBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 617BDF431F0B2CCA00645073 /* QuotePriceTableViewCellBtn.m */; };
 		617BDF471F0B69B300645073 /* QuotePriceChartsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 617BDF461F0B69B300645073 /* QuotePriceChartsDetailViewController.m */; };
+		617BE0721F0B723E00645073 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 617BE06F1F0B721200645073 /* Charts.framework */; };
+		617BE0731F0B723E00645073 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 617BE06F1F0B721200645073 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		617BE0791F0B727E00645073 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617BE0781F0B727E00645073 /* File.swift */; };
+		617BE07C1F0B7F7000645073 /* SymbolsValueFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 617BE07B1F0B7F7000645073 /* SymbolsValueFormatter.m */; };
 		61A193C11F08BA9500059FE4 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A193C01F08BA9500059FE4 /* SearchViewController.m */; };
 		61A193C41F08BAB300059FE4 /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A193C31F08BAB300059FE4 /* FilterViewController.m */; };
 		61A193C71F08BB1B00059FE4 /* SearchDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A193C61F08BB1B00059FE4 /* SearchDetailViewController.m */; };
@@ -63,6 +67,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		617BE06E1F0B721200645073 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 617BE0691F0B721200645073 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06165F241D8110E600722320;
+			remoteInfo = Charts;
+		};
+		617BE0701F0B721200645073 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 617BE0691F0B721200645073 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06165F2E1D8110E600722320;
+			remoteInfo = ChartsTests;
+		};
+		617BE0741F0B723E00645073 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 617BE0691F0B721200645073 /* Charts.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 06165F231D8110E600722320;
+			remoteInfo = Charts;
+		};
 		61EEC2CD1F00A6E40014E44C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 61EEC2AB1F00A6E40014E44C /* Project object */;
@@ -78,6 +103,20 @@
 			remoteInfo = HeavyMetalProject;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		617BE0761F0B723E00645073 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				617BE0731F0B723E00645073 /* Charts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		6105C3E71F03971E00A96B2A /* CellModelObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellModelObject.h; sourceTree = "<group>"; };
@@ -116,7 +155,11 @@
 		617BDF431F0B2CCA00645073 /* QuotePriceTableViewCellBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuotePriceTableViewCellBtn.m; sourceTree = "<group>"; };
 		617BDF451F0B69B300645073 /* QuotePriceChartsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuotePriceChartsDetailViewController.h; sourceTree = "<group>"; };
 		617BDF461F0B69B300645073 /* QuotePriceChartsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuotePriceChartsDetailViewController.m; sourceTree = "<group>"; };
-		617BDFE21F0B6B3B00645073 /* Charts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Charts.h; sourceTree = "<group>"; };
+		617BE0691F0B721200645073 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "Charts-master/Charts.xcodeproj"; sourceTree = "<group>"; };
+		617BE0771F0B727D00645073 /* HeavyMetalProject-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HeavyMetalProject-Bridging-Header.h"; sourceTree = "<group>"; };
+		617BE0781F0B727E00645073 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		617BE07A1F0B7F7000645073 /* SymbolsValueFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SymbolsValueFormatter.h; sourceTree = "<group>"; };
+		617BE07B1F0B7F7000645073 /* SymbolsValueFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SymbolsValueFormatter.m; sourceTree = "<group>"; };
 		61A193BF1F08BA9500059FE4 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		61A193C01F08BA9500059FE4 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		61A193C21F08BAB300059FE4 /* FilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterViewController.h; sourceTree = "<group>"; };
@@ -198,6 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7613B99E8CDDB9EEDC153012 /* libPods-HeavyMetalProject.a in Frameworks */,
+				617BE0721F0B723E00645073 /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,40 +285,29 @@
 				6105C3EB1F0397F700A96B2A /* CellModelPriceObject.m */,
 				61A193C81F08CB2400059FE4 /* FilterButton.h */,
 				61A193C91F08CB2400059FE4 /* FilterButton.m */,
+				617BE07A1F0B7F7000645073 /* SymbolsValueFormatter.h */,
+				617BE07B1F0B7F7000645073 /* SymbolsValueFormatter.m */,
 			);
 			name = Model;
 			path = "HeavyMetalProject/MainController/QuotePrice(报价)/Model";
 			sourceTree = SOURCE_ROOT;
 		};
-		617BDF491F0B6B3A00645073 /* Charts */ = {
+		617BE06A1F0B721200645073 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				617BDF4A1F0B6B3A00645073 /* Source */,
+				617BE06F1F0B721200645073 /* Charts.framework */,
+				617BE0711F0B721200645073 /* ChartsTests.xctest */,
 			);
-			path = Charts;
-			sourceTree = "<group>";
-		};
-		617BDF4A1F0B6B3A00645073 /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				617BDFE11F0B6B3B00645073 /* Supporting Files */,
-			);
-			path = Source;
-			sourceTree = "<group>";
-		};
-		617BDFE11F0B6B3B00645073 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				617BDFE21F0B6B3B00645073 /* Charts.h */,
-			);
-			path = "Supporting Files";
+			name = Products;
 			sourceTree = "<group>";
 		};
 		61DEBFA21F0542B00084D40C /* Tool(工具) */ = {
 			isa = PBXGroup;
 			children = (
-				617BDF491F0B6B3A00645073 /* Charts */,
+				617BE0691F0B721200645073 /* Charts.xcodeproj */,
 				61DEBFA31F0542B00084D40C /* MBManager */,
+				617BE0781F0B727E00645073 /* File.swift */,
+				617BE0771F0B727D00645073 /* HeavyMetalProject-Bridging-Header.h */,
 			);
 			path = "Tool(工具)";
 			sourceTree = "<group>";
@@ -612,10 +645,12 @@
 				61EEC2B11F00A6E40014E44C /* Resources */,
 				538FA184E35E4216332D262C /* [CP] Embed Pods Frameworks */,
 				67A5F65C59CCC45171C233DD /* [CP] Copy Pods Resources */,
+				617BE0761F0B723E00645073 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				617BE0751F0B723E00645073 /* PBXTargetDependency */,
 			);
 			name = HeavyMetalProject;
 			productName = HeavyMetalProject;
@@ -670,6 +705,7 @@
 					61EEC2B21F00A6E40014E44C = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = LTJT8NRPS6;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 					61EEC2CB1F00A6E40014E44C = {
@@ -697,6 +733,12 @@
 			mainGroup = 61EEC2AA1F00A6E40014E44C;
 			productRefGroup = 61EEC2B41F00A6E40014E44C /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 617BE06A1F0B721200645073 /* Products */;
+					ProjectRef = 617BE0691F0B721200645073 /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				61EEC2B21F00A6E40014E44C /* HeavyMetalProject */,
@@ -705,6 +747,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		617BE06F1F0B721200645073 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 617BE06E1F0B721200645073 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		617BE0711F0B721200645073 /* ChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsTests.xctest;
+			remoteRef = 617BE0701F0B721200645073 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		61EEC2B11F00A6E40014E44C /* Resources */ = {
@@ -795,6 +854,7 @@
 				61EEC31D1F00B6520014E44C /* AttentionViewController.m in Sources */,
 				61EEC3201F00B6660014E44C /* MineViewController.m in Sources */,
 				617BDF471F0B69B300645073 /* QuotePriceChartsDetailViewController.m in Sources */,
+				617BE07C1F0B7F7000645073 /* SymbolsValueFormatter.m in Sources */,
 				6105C3F51F03A32400A96B2A /* RegistViewController.m in Sources */,
 				61EEC34F1F0125CC0014E44C /* HMPSegmentScrollView.m in Sources */,
 				61EEC2EF1F00B0E90014E44C /* HMPTabBar.m in Sources */,
@@ -823,6 +883,7 @@
 				61DEBFAC1F054AAC0084D40C /* RegistProtocolButton.m in Sources */,
 				61DEBF9E1F0541AC0084D40C /* UIButton+countDown.m in Sources */,
 				61EEC34C1F0125820014E44C /* HMPSegmentView.m in Sources */,
+				617BE0791F0B727E00645073 /* File.swift in Sources */,
 				61A193C11F08BA9500059FE4 /* SearchViewController.m in Sources */,
 				61EEC2B81F00A6E40014E44C /* main.m in Sources */,
 				61EEC3311F00F2000014E44C /* UIView+Frame.m in Sources */,
@@ -855,6 +916,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		617BE0751F0B723E00645073 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Charts;
+			targetProxy = 617BE0741F0B723E00645073 /* PBXContainerItemProxy */;
+		};
 		61EEC2CE1F00A6E40014E44C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 61EEC2B21F00A6E40014E44C /* HeavyMetalProject */;
@@ -983,13 +1049,17 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C9D260F7D9EFC1E3656EE5E5 /* Pods-HeavyMetalProject.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = LTJT8NRPS6;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HeavyMetalProject/HMP-prefix.pch";
 				INFOPLIST_FILE = HeavyMetalProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zh.HeavyMetalProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HeavyMetalProject/Common(公共类)/Tool(工具)/HeavyMetalProject-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -998,13 +1068,16 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F59F22E901DFB454D863CC86 /* Pods-HeavyMetalProject.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = LTJT8NRPS6;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HeavyMetalProject/HMP-prefix.pch";
 				INFOPLIST_FILE = HeavyMetalProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zh.HeavyMetalProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HeavyMetalProject/Common(公共类)/Tool(工具)/HeavyMetalProject-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -1012,6 +1085,7 @@
 		61EEC2E41F00A6E40014E44C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = LTJT8NRPS6;
 				INFOPLIST_FILE = HeavyMetalProjectTests/Info.plist;
@@ -1025,6 +1099,7 @@
 		61EEC2E51F00A6E40014E44C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = LTJT8NRPS6;
 				INFOPLIST_FILE = HeavyMetalProjectTests/Info.plist;
@@ -1038,6 +1113,7 @@
 		61EEC2E71F00A6E40014E44C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = LTJT8NRPS6;
 				INFOPLIST_FILE = HeavyMetalProjectUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1050,6 +1126,7 @@
 		61EEC2E81F00A6E40014E44C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = LTJT8NRPS6;
 				INFOPLIST_FILE = HeavyMetalProjectUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
