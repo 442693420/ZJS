@@ -21,9 +21,25 @@
     [self.window makeKeyAndVisible];
     //导航栏
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    
+    //更新登录时间
+    UserObject *userObj = [UserManger getUserInfoDefault];
+    if (userObj) {
+        [self updateUserLoginTime:userObj.sid];
+    }
     return YES;
 }
-
+- (void)updateUserLoginTime:(NSString *)sid{
+    //账户密码登录
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"c_s"] = C_S;
+    params[@"sid"] = sid;
+    [HMPAFNetWorkManager POST:API_APPSTART params:params success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"%@",responseObject);
+    } fail:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

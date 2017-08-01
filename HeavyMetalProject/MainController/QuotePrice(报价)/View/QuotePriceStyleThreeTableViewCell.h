@@ -7,17 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "QuotePriceTableViewCellBtn.h"
+#import "QuotePriceStyleThreeView.h"
+
 
 @interface QuotePriceStyleThreeTableViewCell : UITableViewCell
-@property (nonatomic , strong)UILabel *timeLab;
-@property (nonatomic , strong)UILabel *nameLab;
-
-@property (nonatomic , strong)UIView *priceBgView;//下方显示价格和涨跌的View，此处可能隐藏此View，显示点击查看报价的button
-@property (nonatomic , strong)UILabel *priceLab;//
-@property (nonatomic , strong)UILabel *averagePriceLab;
-@property (nonatomic , strong)UILabel *upDownPriceLab;
-
-@property (nonatomic , strong)UIButton *showPriceBtn;//查看实时报价
-@property (nonatomic , strong)QuotePriceTableViewCellBtn *attentionBtn;//关注
+@property (nonatomic , strong)QuotePriceStyleThreeView *cellView;
 @end

@@ -8,8 +8,8 @@
 
 #import "MineViewController.h"
 #import "LoginViewController.h"
-
-
+#import "ChangePwdViewController.h"
+#import "ConsumeListViewController.h"
 #import "MineTitleView.h"
 
 @interface MineViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -125,27 +125,67 @@ static NSString *cellIdentifier = @"TableViewCell";
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-//    LBTabBarController *rootTab = (LBTabBarController *) [UIApplication sharedApplication].delegate.window.rootViewController;
-//    BaseNavigationController *nav = (BaseNavigationController*)rootTab.selectedViewController;
-   
+    switch (indexPath.section) {
+        case 0://绑定手机号，分享到朋友
+            
+            break;
+        case 1://我的钱包，消费记录
+        {
+            switch (indexPath.row) {
+                case 0:
+                    
+                    break;
+                case 1:
+                {
+                    ConsumeListViewController *consumeListVC = [[ConsumeListViewController alloc]init];
+                    [self.navigationController pushViewController:consumeListVC animated:YES];
+                    
+                }
+                    break;
+                default:
+                    break;
+            }
+        }
+            break;
+        case 2://系统设置，客服电话，注销
+        {
+            switch (indexPath.row) {
+                case 0:
+                    
+                    break;
+                case 1:
+                {
+                    ChangePwdViewController *changePwdVC = [[ChangePwdViewController alloc]init];
+                    [self.navigationController pushViewController:changePwdVC animated:YES];
+                    
+                }
+                    break;
+                default:
+                    break;
+            }
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 - (void)loginOutData {
-//    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-//    params[@"sid"] = [J_BaseObject getUserInfoDefault].sid;
-//    params[@"user_id"] = [J_BaseObject getUserInfoDefault].ID;
-//    params[@"c_s"] = C_S;
-//    [J_AFNetWorkManager POST:API_LOGINOUT params:params success:^(NSURLSessionDataTask *task, id responseObject) {
-//        if ([[responseObject objectForKey:@"rc"] isEqual:@"0"]) {
-////            [MBManager showBriefAlert:@"注销成功"];
-//            
-//        }else{
-////            [MBManager showBriefAlert:[responseObject objectForKey:@"des"]];
-//        }
-//    } fail:^(NSURLSessionDataTask *task, NSError *error) {
-//        
-//        
-//    }];
+    //    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    //    params[@"sid"] = [J_BaseObject getUserInfoDefault].sid;
+    //    params[@"user_id"] = [J_BaseObject getUserInfoDefault].ID;
+    //    params[@"c_s"] = C_S;
+    //    [J_AFNetWorkManager POST:API_LOGINOUT params:params success:^(NSURLSessionDataTask *task, id responseObject) {
+    //        if ([[responseObject objectForKey:@"rc"] isEqual:@"0"]) {
+    ////            [MBManager showBriefAlert:@"注销成功"];
+    //
+    //        }else{
+    ////            [MBManager showBriefAlert:[responseObject objectForKey:@"des"]];
+    //        }
+    //    } fail:^(NSURLSessionDataTask *task, NSError *error) {
+    //
+    //
+    //    }];
     
 }
 - (void)didReceiveMemoryWarning {
@@ -155,13 +195,13 @@ static NSString *cellIdentifier = @"TableViewCell";
 #pragma mark private-method
 //个人资料详情
 - (void)infoBackViewClick{
-//    J_PersonalMsgViewController *viewController = [[J_PersonalMsgViewController alloc]init];
-//    [self.navigationController pushViewController:viewController animated:YES];
+    //    J_PersonalMsgViewController *viewController = [[J_PersonalMsgViewController alloc]init];
+    //    [self.navigationController pushViewController:viewController animated:YES];
 }
 //我的消息
 - (IBAction)messageBtnClick:(id)sender{
-//    SNFriendsSessionListViewController *viewController = [[SNFriendsSessionListViewController alloc]init];
-//    [self.navigationController pushViewController:viewController animated:YES];
+    //    SNFriendsSessionListViewController *viewController = [[SNFriendsSessionListViewController alloc]init];
+    //    [self.navigationController pushViewController:viewController animated:YES];
 }
 //普通登录
 - (IBAction)defaultLoginBtnClick:(id)sender{
@@ -176,7 +216,7 @@ static NSString *cellIdentifier = @"TableViewCell";
 //        J_UserModel *model = [J_UserModel mj_objectWithKeyValues:responseObject];
 //        if ([model.rc isEqualToString:@"0"]) {
 //            [J_BaseObject saveUserInfoDefault:model];
-//            
+//
 //            //频道信息保存(全局)
 //            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];//做一个NSUserdefaults对象
 //            NSDictionary *pdDic;
@@ -189,16 +229,16 @@ static NSString *cellIdentifier = @"TableViewCell";
 //            }
 //            [defaults setObject:pdDic forKey:kPdInfo];
 //            [defaults synchronize];
-//            
+//
 //            J_UserModel *userObj = [J_BaseObject getUserInfoDefault];
-//            
+//
 //            [JPUSHService setAlias:userObj.ID callbackSelector:nil object:nil];
 //            //建立socket连接
 //            if ([[SooonerSocketManager shareInstance] isConnected]) {
 //                //注册
 //                NSMutableDictionary *mdicLoginInfo = [[NSMutableDictionary alloc] init];
 //                [mdicLoginInfo setObject:@"rooodad" forKey:@"sp"];
-//                
+//
 //                NSMutableDictionary *mdicUserInfo = [[NSMutableDictionary alloc] init];
 //                [mdicUserInfo setObject:model.ID forKey:@"id"];
 //                [mdicUserInfo setObject:model.name forKey:@"name"];
@@ -207,9 +247,9 @@ static NSString *cellIdentifier = @"TableViewCell";
 //                [mdicLoginInfo setObject:mdicUserInfo forKey:@"user"];
 //                [[SooonerSocketManager shareInstance] regist:mdicLoginInfo withACK:^(NSArray *data) {
 //                    if (data.count && [[data firstObject] isEqualToString:@"ok"]) {
-//                        
+//
 //                    }else{
-//                        
+//
 //                    }
 //                }];
 //            }else{
@@ -219,7 +259,7 @@ static NSString *cellIdentifier = @"TableViewCell";
 //            [SessionDBManager creatSessionTableViewDicPath];
 //            //刷新互动部分未读消息
 //            [self refreshHuDongRedView];
-//            
+//
 //            //登陆成功，刷新
 //            [self loginInnotification];
 //        }
@@ -229,7 +269,7 @@ static NSString *cellIdentifier = @"TableViewCell";
 //    } fail:^(NSURLSessionDataTask *task, NSError *error) {
 //        [MBManager hideAlert];
 //        [MBManager showBriefAlert:@"网络异常"];
-//        
+//
 //    }];
 //}
 #pragma mark getter and setter

@@ -196,6 +196,7 @@
     params[@"user_tel"] = self.phoneTF.text;
     params[@"vccode"] = self.verifyCodeTF.text;
     params[@"user_pwd"] = self.pwdTF.text;
+    params[@"invit_code"] = @"";//邀请码，后来接口加的数据，界面还没加
     [HMPAFNetWorkManager POST:API_RESGIST params:params success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"%@",responseObject);
         if ([responseObject[@"rc"] isEqualToString:@"0"]) {

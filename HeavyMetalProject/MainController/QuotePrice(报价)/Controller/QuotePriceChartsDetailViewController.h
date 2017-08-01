@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "CellModelObject.h"
 @interface QuotePriceChartsDetailViewController : UIViewController
-
+@property (nonatomic , strong)CellModelObject *cellObj;
 @end
