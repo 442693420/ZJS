@@ -12,6 +12,8 @@ pod 'Masonry', '~> 1.0.1'
 pod 'AFNetworking', '~> 3.0'
 pod 'RealReachability', '~> 1.1.8'
 
+pod 'WechatOpenSDK'
+
 #数据库
 pod 'FMDBMigrationManager', '~> 1.4.1'
 

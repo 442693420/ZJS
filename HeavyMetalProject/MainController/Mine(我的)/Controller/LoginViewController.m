@@ -7,9 +7,10 @@
 //
 
 #import "LoginViewController.h"
-
 #import "LoginWithPwdViewController.h"
 #import "LoginWithVerifyCodeViewController.h"
+
+#import <ShareSDKExtension/SSEThirdPartyLoginHelper.h>
 #define kView_W self.view.frame.size.width
 #define kView_H self.view.frame.size.height
 #define kPageCount 2
@@ -36,9 +37,7 @@ static NSString *btnSelectColor = @"#EFEFF4";
     [leftButton setTitle:@"" forState:UIControlStateNormal];
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc]initWithCustomView:leftButton];
     self.navigationItem.leftBarButtonItem= leftItem;
-    self.navigationItem.title = @"登录";
-    self.view.backgroundColor = [UIColor blackColor];
-    
+    self.title = @"登录";
     self.view.backgroundColor = [UIColor lightGrayColor];
     //设置可以左右滑动的ScrollView
     [self setupScrollView];
@@ -77,6 +76,9 @@ static NSString *btnSelectColor = @"#EFEFF4";
 - (void)setupChildViewControll{
     self.pwdVC = [[LoginWithPwdViewController alloc]init];
     self.verifyCodeVC = [[LoginWithVerifyCodeViewController alloc]init];
+    
+    [self.pwdVC.wxBtn addTarget:self action:@selector(wxBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.verifyCodeVC.wxBtn addTarget:self action:@selector(wxBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     
     //指定该控制器为其子控制器
     [self addChildViewController:_pwdVC];
@@ -161,14 +163,52 @@ static NSString *btnSelectColor = @"#EFEFF4";
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark 微信登录
+-(IBAction)wxBtnClick:(id)sender{
+    [MBManager showLoadingInView:self.view msg:@"登录中"];
+    
+    NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
+    [SSEThirdPartyLoginHelper loginByPlatform:SSDKPlatformTypeWechat
+                                   onUserSync:^(SSDKUser *user, SSEUserAssociateHandler associateHandler) {
+                                       //在此回调中可以将社交平台用户信息与自身用户系统进行绑定，最后使用一个唯一用户标识来关联此用户信息。
+                                       //在此示例中没有跟用户系统关联，则使用一个社交用户对应一个系统用户的方式。将社交用户的uid作为关联ID传入associateHandler。
+                                       NSString *unionid = [user.rawData objectForKey:@"unionid"];
+                                       params[@"c_s"] = C_S;
+                                       params[@"type"] = [NSNumber numberWithInteger:KLoginTypeWeChat];
+                                       params[@"third_id"] = unionid;
+                                       params[@"headimgurl"] = user.icon;
+                                       params[@"nickname"] = user.nickname;
+                                       associateHandler (user.uid, user, user);
+                                       NSLog(@"dd%@",user.rawData);
+                                       NSLog(@"dd%@",user.credential);
+                                   }
+                                onLoginResult:^(SSDKResponseState state, SSEBaseUser *user, NSError *error) {
+                                    [MBManager hideAlert];
+                                    if (state == SSDKResponseStateSuccess)
+                                    {
+                                        [self loadLoginDataparamar:params];
+                                        
+                                    }else {
+                                        
+                                    }
+                                    
+                                }];
 }
-*/
-
+- (void)loadLoginDataparamar:(NSMutableDictionary *)params {
+    //三方登录
+    [HMPAFNetWorkManager POST:API_LOGIN params:params success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"%@",responseObject);
+        [MBManager hideAlert];
+        if ([responseObject[@"rc"] isEqualToString:@"0"]) {
+            UserObject *model = [UserObject mj_objectWithKeyValues:responseObject[@"msg"]];
+            [UserManger saveUserInfoDefault:model];
+            //跳转
+            [self.navigationController popViewControllerAnimated:YES];
+        }else{
+            [MBManager showBriefMessage:responseObject[@"des"] InView:self.view];
+        }
+    } fail:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
+}
 @end

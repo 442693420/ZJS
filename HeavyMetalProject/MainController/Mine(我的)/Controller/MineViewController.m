@@ -151,13 +151,23 @@ static NSString *cellIdentifier = @"TableViewCell";
         {
             switch (indexPath.row) {
                 case 0:
-                    
-                    break;
-                case 1:
                 {
                     ChangePwdViewController *changePwdVC = [[ChangePwdViewController alloc]init];
                     [self.navigationController pushViewController:changePwdVC animated:YES];
+                }
+                    break;
+                case 1:
+                {
+                   
                     
+                }
+                    break;
+                case 2:
+                {
+                    //移除本地信息
+                    [UserManger removeUserInfoDefault];
+                    LoginViewController *loginVC = [[LoginViewController alloc]init];
+                    [self.navigationController pushViewController:loginVC animated:YES];
                 }
                     break;
                 default:

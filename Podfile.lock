@@ -33,6 +33,7 @@ PODS:
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
   - UITableView+FDTemplateLayoutCell (1.5.beta)
+  - WechatOpenSDK (1.7.9)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
@@ -45,6 +46,7 @@ DEPENDENCIES:
   - RealReachability (~> 1.1.8)
   - SDWebImage (~> 3.8.1)
   - UITableView+FDTemplateLayoutCell (~> 1.5.beta)
+  - WechatOpenSDK
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
@@ -58,7 +60,8 @@ SPEC CHECKSUMS:
   RealReachability: e6c8a2bbffa316006e8c282efc1ee2567d61a920
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   UITableView+FDTemplateLayoutCell: 02b508ab1cb4cea16a8c17ac83d2cd1fd72124f9
+  WechatOpenSDK: 1fe7e3b07db860d6a936c3ff4a5aba6b890958d9
 
-PODFILE CHECKSUM: d2fe68f8b15cabc92f0732811b0b08272ff3e2d5
+PODFILE CHECKSUM: 0bbd9fc09739122ea63af8d4e8d1efc49ce29332
 
 COCOAPODS: 1.2.1.beta.1

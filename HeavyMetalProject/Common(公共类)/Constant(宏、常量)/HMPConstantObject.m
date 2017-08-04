@@ -40,11 +40,11 @@ NSString *const kFilterChangeSegmentNotifiCation = @"FilterChangeSegmentNotifiCa
 
 
 #pragma mark - 第三方key管理
-NSString *const kShareSDKAppKey = @"19f16e96a6d40";//shareSDK
-NSString *const kWeChatAppKey = @"wxe8ed4dd0247c603c";//微信appKey
-NSString *const kWeChatAppSecret = @"b765b6941b7a1ee2e833a2613df5ffcb";//微信appSecret
-NSString *const kAppleId = @"1190009170";//苹果appid
-NSString *const kAppName = @"路网";//微信appSecret
+NSString *const kShareSDKAppKey = @"1ff2324cd6f16";//shareSDK
+NSString *const kWeChatAppKey = @"wx5fcbd2e6fdd6c14e";//微信appKey
+NSString *const kWeChatAppSecret = @"e70407b02b6e55f67adb139cd1618c8d";//微信appSecret
+NSString *const kAppleId = @"";//苹果appid
+NSString *const kAppName = @"路网";//
 
 
 
@@ -58,7 +58,7 @@ NSString *const kChatFillColor = @"#D06121";//橙黄色  (chat填充色)
 
 
 #pragma mark - 微信支付
-NSString *const kWXAPP_ID = @"wxe8ed4dd0247c603c";//苹果appid
-NSString *const kWXMCH_ID = @"1440649002";//商户号，填写商户对应参数
+NSString *const kWXAPP_ID = @"";//苹果appid
+NSString *const kWXMCH_ID = @"";//商户号，填写商户对应参数
 
 @end

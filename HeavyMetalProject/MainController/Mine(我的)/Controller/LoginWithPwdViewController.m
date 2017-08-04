@@ -16,7 +16,6 @@
 @property (nonatomic , strong)UIButton *loginBtn;
 @property (nonatomic , strong)UIButton *registBtn;
 @property (nonatomic , strong)UIButton *forgetPwdBtn;
-@property (nonatomic , strong)UIButton *wxBtn;
 
 @end
 

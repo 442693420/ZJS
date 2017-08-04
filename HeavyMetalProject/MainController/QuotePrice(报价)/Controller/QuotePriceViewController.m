@@ -91,10 +91,7 @@ static NSString *cellIdentifier6 = @"QuotePriceStyleSixTableViewCell";
     start_id = 0;
     sum = 10;
     self.dataArr = [[NSMutableArray alloc]init];
-    //判断登录状态
-    if (![UserManger getUserInfoDefault]) {
-        [self.navigationController pushViewController:[[LoginViewController alloc]init] animated:YES];
-    }
+
     self.currentMidIndex = 0;
     
     [self.view addSubview:self.showPriceView];
@@ -112,8 +109,13 @@ static NSString *cellIdentifier6 = @"QuotePriceStyleSixTableViewCell";
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
-    //获取栏目返分组
-    [self creatNaviSegmentUI];
+    //判断登录状态
+    if (![UserManger getUserInfoDefault]) {
+        [self.navigationController pushViewController:[[LoginViewController alloc]init] animated:YES];
+    }else{
+        //获取栏目返分组
+        [self creatNaviSegmentUI];
+    }
 }
 - (void)creatNaviSegmentUI{
     UserObject *userObj = [UserManger getUserInfoDefault];

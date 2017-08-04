@@ -9,7 +9,6 @@
 #import "LoginWithVerifyCodeViewController.h"
 #import "RegistViewController.h"
 #import "ForgetPwdViewController.h"
-
 #import "UIButton+countDown.h"
 #import "NSString+Common.h"
 @interface LoginWithVerifyCodeViewController ()
@@ -19,7 +18,6 @@
 @property (nonatomic , strong)UIButton *loginBtn;
 @property (nonatomic , strong)UIButton *registBtn;
 @property (nonatomic , strong)UIButton *forgetPwdBtn;
-@property (nonatomic , strong)UIButton *wxBtn;
 
 @end
 @implementation LoginWithVerifyCodeViewController

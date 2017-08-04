@@ -8,7 +8,14 @@
 
 #import "AppDelegate.h"
 #import "HMPTabBarController.h"
-@interface AppDelegate ()
+#import "LoginViewController.h"
+
+//ShareSDK
+#import <ShareSDK/ShareSDK.h>
+#import <ShareSDKConnector/ShareSDKConnector.h>
+//微信SDK头文件
+#import "WXApi.h"
+@interface AppDelegate ()<WXApiDelegate>
 
 @end
 @implementation AppDelegate
@@ -21,6 +28,10 @@
     [self.window makeKeyAndVisible];
     //导航栏
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    
+    //ShareSDK配置
+    [self sharrSDKConfig];
+    [WXApi registerApp:kWeChatAppKey];//微信注册
     
     //更新登录时间
     UserObject *userObj = [UserManger getUserInfoDefault];
@@ -39,6 +50,46 @@
     } fail:^(NSURLSessionDataTask *task, NSError *error) {
         
     }];
+}
+- (void)sharrSDKConfig
+{
+    /**
+     *  设置ShareSDK的appKey，如果尚未在ShareSDK官网注册过App，请移步到http://mob.com/login 登录后台进行应用注册，
+     *  在将生成的AppKey传入到此方法中。
+     *  方法中的第二个第三个参数为需要连接社交平台SDK时触发，
+     *  在此事件中写入连接代码。第四个参数则为配置本地社交平台时触发，根据返回的平台类型来配置平台信息。
+     *  如果您使用的时服务端托管平台信息时，第二、四项参数可以传入nil，第三项参数则根据服务端托管平台来决定要连接的社交SDK。
+     */
+    [ShareSDK registerActivePlatforms:@[
+                                        // 不要使用微信总平台进行初始化
+                                        //@(SSDKPlatformTypeWechat),
+                                        // 使用微信子平台进行初始化，即可
+                                        @(SSDKPlatformSubTypeWechatSession),
+                                        @(SSDKPlatformSubTypeWechatTimeline),
+                                        ] onImport:^(SSDKPlatformType platformType) {
+                                            switch (platformType)
+                                            {
+                                                case SSDKPlatformTypeWechat:
+                                                    [ShareSDKConnector connectWeChat:[WXApi class]];
+                                                    break;
+                                                    
+                                                default:
+                                                    break;
+                                            }
+                                        } onConfiguration:^(SSDKPlatformType platformType, NSMutableDictionary *appInfo) {
+                                            switch (platformType)
+                                            {
+                                                    
+                                                case SSDKPlatformTypeWechat:
+                                                    [appInfo SSDKSetupWeChatByAppId:kWeChatAppKey
+                                                                          appSecret:kWeChatAppSecret];
+                                                    break;
+                                                    
+                                                    
+                                                default:
+                                                    break;
+                                            }
+                                        }];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -66,6 +117,34 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-
+#pragma mark wxapi-delegate
+//第三方程序向微信发送了sendReq的请求，那么onResp会被回调。sendReq请求调用后，会切到微信终端程序界面
+//微信
+-(void)onResp:(BaseResp *)resp{
+//    switch (resp.errCode) {
+//        case 0://用户同意
+//        {
+//            SendAuthResp *aresp = (SendAuthResp *)resp;
+//        }
+//            break;
+//        case -4://用户拒绝授权
+//            //do ...
+//            break;
+//        case -2://用户取消
+//            //do ...
+//            break;
+//        default:
+//            break;
+//    }
+//    NSDictionary *dicha;
+//    if([resp isKindOfClass:[PayResp class]]){
+//        //支付返回结果，实际支付结果需要去微信服务器端查询
+//        NSString *status = [NSString stringWithFormat:@"%d",resp.errCode];
+//        dicha = @{@"status":status};
+//        [[NSNotificationCenter defaultCenter] postNotificationName:kWechatPayResultNotification //广播名称
+//                                                            object:dicha
+//                                                          userInfo:nil];
+//    }
+}
 
 @end

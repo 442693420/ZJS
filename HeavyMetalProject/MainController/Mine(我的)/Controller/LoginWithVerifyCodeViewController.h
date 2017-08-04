@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface LoginWithVerifyCodeViewController : UIViewController
+@property (nonatomic , strong)UIButton *wxBtn;
 
 @end

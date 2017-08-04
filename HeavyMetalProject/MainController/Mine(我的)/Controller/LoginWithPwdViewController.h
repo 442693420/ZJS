@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface LoginWithPwdViewController : UIViewController
-
+@property (nonatomic , strong)UIButton *wxBtn;
 @end
