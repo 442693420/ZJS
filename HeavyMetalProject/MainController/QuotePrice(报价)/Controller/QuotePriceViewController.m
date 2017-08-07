@@ -561,9 +561,53 @@ static NSString *cellIdentifier6 = @"QuotePriceStyleSixTableViewCell";
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     CellModelObject *obj = self.dataArr[indexPath.row];
-    QuotePriceChartsDetailViewController *detailVC = [[QuotePriceChartsDetailViewController alloc]init];
-    detailVC.cellObj = obj;
-    [self.navigationController pushViewController:detailVC animated:YES];
+    if ([obj.needupd isEqualToString:@"1"]) {//是否点击更新价格
+        switch ([obj.styletype integerValue]) {
+            case 1:
+            {
+            QuotePriceStyleOneTableViewCell *cell1 = (QuotePriceStyleOneTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+                [self showPriceBtnClick:cell1.cellView.showPriceBtn];
+            }
+                break;
+            case 2:
+            {
+                QuotePriceStyleTwoTableViewCell *cell2 = (QuotePriceStyleTwoTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+                [self showPriceBtnClick:cell2.cellView.showPriceBtn];
+            }
+                break;
+            case 3:
+            {
+                QuotePriceStyleThreeTableViewCell *cell3 = (QuotePriceStyleThreeTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+                [self showPriceBtnClick:cell3.cellView.showPriceBtn];
+            }
+                break;
+            case 4:
+            {
+                QuotePriceStyleFourTableViewCell *cell4 = (QuotePriceStyleFourTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+                [self showPriceBtnClick:cell4.cellView.showPriceBtn];
+            }
+                break;
+            case 5:
+            {
+                QuotePriceStyleFiveTableViewCell *cell5 = (QuotePriceStyleFiveTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+                [self showPriceBtnClick:cell5.cellView.showPriceBtn];
+            }
+                break;
+            case 6:
+            {
+                QuotePriceStyleSixTableViewCell *cell6 = (QuotePriceStyleSixTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+                [self showPriceBtnClick:cell6.cellView.showPriceBtn];
+            }
+                break;
+            default:
+                break;
+        }
+
+    }else{
+        QuotePriceChartsDetailViewController *detailVC = [[QuotePriceChartsDetailViewController alloc]init];
+        detailVC.cellObj = obj;
+        [self.navigationController pushViewController:detailVC animated:YES];
+    }
 }
 -(void)headerRereshing
 {

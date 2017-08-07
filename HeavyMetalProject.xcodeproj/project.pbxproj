@@ -62,6 +62,9 @@
 		614B7BF81F209FCB0028800E /* QuotePriceStyleFourView.m in Sources */ = {isa = PBXBuildFile; fileRef = 614B7BF71F209FCB0028800E /* QuotePriceStyleFourView.m */; };
 		614B7BFB1F209FD60028800E /* QuotePriceStyleFiveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 614B7BFA1F209FD60028800E /* QuotePriceStyleFiveView.m */; };
 		614B7BFE1F209FE00028800E /* QuotePriceStyleSixView.m in Sources */ = {isa = PBXBuildFile; fileRef = 614B7BFD1F209FE00028800E /* QuotePriceStyleSixView.m */; };
+		615290871F3853AA0084AF20 /* ChartValueObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 615290861F3853AA0084AF20 /* ChartValueObject.m */; };
+		6152908B1F38542B0084AF20 /* ChartInfoDataObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6152908A1F38542B0084AF20 /* ChartInfoDataObject.m */; };
+		6152908E1F387B120084AF20 /* ChartSeletView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6152908D1F387B120084AF20 /* ChartSeletView.m */; };
 		617BDF441F0B2CCA00645073 /* QuotePriceTableViewCellBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 617BDF431F0B2CCA00645073 /* QuotePriceTableViewCellBtn.m */; };
 		617BDF471F0B69B300645073 /* QuotePriceChartsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 617BDF461F0B69B300645073 /* QuotePriceChartsDetailViewController.m */; };
 		617BE0721F0B723E00645073 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 617BE06F1F0B721200645073 /* Charts.framework */; };
@@ -254,6 +257,12 @@
 		614B7BFA1F209FD60028800E /* QuotePriceStyleFiveView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuotePriceStyleFiveView.m; sourceTree = "<group>"; };
 		614B7BFC1F209FE00028800E /* QuotePriceStyleSixView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuotePriceStyleSixView.h; sourceTree = "<group>"; };
 		614B7BFD1F209FE00028800E /* QuotePriceStyleSixView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuotePriceStyleSixView.m; sourceTree = "<group>"; };
+		615290851F3853AA0084AF20 /* ChartValueObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartValueObject.h; sourceTree = "<group>"; };
+		615290861F3853AA0084AF20 /* ChartValueObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartValueObject.m; sourceTree = "<group>"; };
+		615290891F38542B0084AF20 /* ChartInfoDataObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartInfoDataObject.h; sourceTree = "<group>"; };
+		6152908A1F38542B0084AF20 /* ChartInfoDataObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartInfoDataObject.m; sourceTree = "<group>"; };
+		6152908C1F387B120084AF20 /* ChartSeletView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartSeletView.h; sourceTree = "<group>"; };
+		6152908D1F387B120084AF20 /* ChartSeletView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartSeletView.m; sourceTree = "<group>"; };
 		617BDF421F0B2CCA00645073 /* QuotePriceTableViewCellBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuotePriceTableViewCellBtn.h; sourceTree = "<group>"; };
 		617BDF431F0B2CCA00645073 /* QuotePriceTableViewCellBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuotePriceTableViewCellBtn.m; sourceTree = "<group>"; };
 		617BDF451F0B69B300645073 /* QuotePriceChartsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuotePriceChartsDetailViewController.h; sourceTree = "<group>"; };
@@ -506,6 +515,10 @@
 				612997B61F2C626400DE5A75 /* DateValueFormatter.m */,
 				612997B91F2C629800DE5A75 /* SetValueFormatter.h */,
 				612997BA1F2C629800DE5A75 /* SetValueFormatter.m */,
+				615290891F38542B0084AF20 /* ChartInfoDataObject.h */,
+				6152908A1F38542B0084AF20 /* ChartInfoDataObject.m */,
+				615290851F3853AA0084AF20 /* ChartValueObject.h */,
+				615290861F3853AA0084AF20 /* ChartValueObject.m */,
 			);
 			name = Model;
 			path = "HeavyMetalProject/MainController/QuotePrice(报价)/Model";
@@ -857,6 +870,8 @@
 				612997E71F2F2E6200DE5A75 /* ShowPriceAlertView.m */,
 				614476241F3030F2001E0558 /* ShowAllPriceView.h */,
 				614476251F3030F2001E0558 /* ShowAllPriceView.m */,
+				6152908C1F387B120084AF20 /* ChartSeletView.h */,
+				6152908D1F387B120084AF20 /* ChartSeletView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1128,11 +1143,13 @@
 				612997DC1F2F1AE500DE5A75 /* ConsumeObject.m in Sources */,
 				61EEC31D1F00B6520014E44C /* AttentionViewController.m in Sources */,
 				614B7BFE1F209FE00028800E /* QuotePriceStyleSixView.m in Sources */,
+				615290871F3853AA0084AF20 /* ChartValueObject.m in Sources */,
 				612997E51F2F1FDA00DE5A75 /* RechargeObject.m in Sources */,
 				61EEC3201F00B6660014E44C /* MineViewController.m in Sources */,
 				612997D61F2F111A00DE5A75 /* HMPNomalNoDataView.m in Sources */,
 				617BDF471F0B69B300645073 /* QuotePriceChartsDetailViewController.m in Sources */,
 				617BE07C1F0B7F7000645073 /* SymbolsValueFormatter.m in Sources */,
+				6152908E1F387B120084AF20 /* ChartSeletView.m in Sources */,
 				6105C3F51F03A32400A96B2A /* RegistViewController.m in Sources */,
 				61EEC34F1F0125CC0014E44C /* HMPSegmentScrollView.m in Sources */,
 				61EEC2EF1F00B0E90014E44C /* HMPTabBar.m in Sources */,
@@ -1170,6 +1187,7 @@
 				612997C81F2C782000DE5A75 /* NewsTableViewCell.m in Sources */,
 				612997D91F2F149A00DE5A75 /* ConsumeListTableViewCell.m in Sources */,
 				612997D01F2F0C0400DE5A75 /* ChangePwdViewController.m in Sources */,
+				6152908B1F38542B0084AF20 /* ChartInfoDataObject.m in Sources */,
 				61EEC34C1F0125820014E44C /* HMPSegmentView.m in Sources */,
 				617BE0791F0B727E00645073 /* File.swift in Sources */,
 				61A193C11F08BA9500059FE4 /* SearchViewController.m in Sources */,

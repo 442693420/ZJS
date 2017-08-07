@@ -34,14 +34,18 @@
     }
     return self;
 }
-
-- (NSString * _Nonnull)stringForValue:(double)value entry:(ChartDataEntry * _Nonnull)entry dataSetIndex:(NSInteger)dataSetIndex viewPortHandler:(ChartViewPortHandler * _Nullable)viewPortHandler{
-    //    NSLog(@"value:%f----entry:%@------dataSetIndex:%ld-------viewPortHandler:%@",value,[entry modelToJSONString],(long)dataSetIndex,[viewPortHandler modelToJSONString]);
-    if (entry.x==_AAAdataSetIndex) {
-        return [NSString stringWithFormat:@"%ld%%",(NSInteger)entry.y];
-    }else{
-        return @"";
-    }
+-(NSString *)stringForValue:(double)value entry:(ChartDataEntry *)entry dataSetIndex:(NSInteger)dataSetIndex viewPortHandler:(ChartViewPortHandler *)viewPortHandler{
+    NSLog(@"%@",[NSString stringWithFormat:@"%.2f",(float)entry.y]);
+    return [NSString stringWithFormat:@"%.2f",(float)entry.y];
 }
+//- (NSString * _Nonnull)stringForValue:(double)value entry:(ChartDataEntry * _Nonnull)entry dataSetIndex:(NSInteger)dataSetIndex viewPortHandler:(ChartViewPortHandler * _Nullable)viewPortHandler{
+//    //    NSLog(@"value:%f----entry:%@------dataSetIndex:%ld-------viewPortHandler:%@",value,[entry modelToJSONString],(long)dataSetIndex,[viewPortHandler modelToJSONString]);
+//    if (entry.x==_AAAdataSetIndex) {
+//        NSLog(@"%@",[NSString stringWithFormat:@"%.2f",(float)entry.y]);
+//        return [NSString stringWithFormat:@"%.2f",(float)entry.y];
+//    }else{
+//        return @"";
+//    }
+//}
 
 @end

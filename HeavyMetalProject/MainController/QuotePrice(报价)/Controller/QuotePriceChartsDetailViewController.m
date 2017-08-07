@@ -14,12 +14,22 @@
 #import "QuotePriceStyleFiveView.h"
 #import "QuotePriceStyleSixView.h"
 #import "QuotePriceDetailChartView.h"
+#import "LoginViewController.h"
+
+#import "ChartInfoDataObject.h"
 
 @interface QuotePriceChartsDetailViewController ()
 @property (nonatomic, strong)QuotePriceDetailChartView *chartView;
 
+@property (nonatomic , strong)NSString *zp;
 @end
-
+typedef NS_ENUM(NSInteger , KChartInfoDataZP) {
+    KChartInfoDataZPOneWeek = 1,	//一周
+    KChartInfoDataZPOneMonth = 2,// 一月
+    KChartInfoDataZPThreeMonth = 3,	// 三月
+    KChartInfoDataZPHalfYear = 4,	// 半年
+    KChartInfoDataZPOneYear = 5,	// 一年
+};
 @implementation QuotePriceChartsDetailViewController
 
 - (void)viewDidLoad {
@@ -236,6 +246,50 @@
         default:
             break;
     }
+
+    //获取图表信息
+    self.zp = [NSString stringWithFormat:@"%ld",(long)KChartInfoDataZPThreeMonth];
+    [self getChartInfoData];
+   
+}
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
+    
+}
+
+- (void)getChartInfoData{
+    
+    UserObject *userObj = [UserManger getUserInfoDefault];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"sid"] = userObj.sid;
+    params[@"c_s"] = C_S;
+    params[@"clid"] = self.cellObj.clid;
+    params[@"zq"] = self.zp;
+
+    [HMPAFNetWorkManager POST:API_GetChartInfoData params:params success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"%@",responseObject);
+        NSDictionary *dic = (NSDictionary *)responseObject;
+        NSString *rc = dic[@"rc"];
+        NSString *des = dic[@"des"];
+        if ([rc isEqualToString:@"0"])
+        {
+            self.chartView.zp = self.zp;
+            [self.chartView refreshView:[ChartInfoDataObject mj_objectWithKeyValues:dic[@"msg"]]];
+        }
+        if ([rc isEqualToString:@"100"])//会话超时
+        {
+            LoginViewController *loginVC = [[LoginViewController alloc]init];
+            [self.navigationController pushViewController:loginVC animated:YES];
+        }
+        else
+        {
+            [MBManager showBriefMessage:des InView:self.view];
+        }
+    } fail:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
+    
     UIView *chartsView = [[UIView alloc]init];
     chartsView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:chartsView];
@@ -244,18 +298,9 @@
         make.top.equalTo(self.view.mas_top).offset(KRealValue(200));
         make.height.mas_equalTo(KRealValue(280));
     }];
-    
     self.chartView = [[QuotePriceDetailChartView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KRealValue(280))];
-    
     [chartsView addSubview:_chartView];
 }
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:YES];
-    [self.navigationController setNavigationBarHidden:NO animated:NO];
-    
-}
-
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -269,4 +314,6 @@
     [attrStr addAttribute:NSForegroundColorAttributeName value:fontColor range:NSMakeRange(0,length)];
     return attrStr;
 }
+
+
 @end

@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ChartInfoDataObject.h"
 @interface QuotePriceDetailChartView : UIView
-
+@property (nonatomic , strong)NSString *zp;
+//外部调用，刷新数据
+- (void)refreshView:(ChartInfoDataObject *)data;
 @end

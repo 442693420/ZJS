@@ -28,6 +28,8 @@
 #define API_UPDATEPRICEFORONE  [NSString stringWithFormat:@"%@yh_get_newpriceforone%@",MAIN_HOST,MAIN_VERSION]
 //消费查看价格(单个)
 #define API_UPDATEPRICEFORALL  [NSString stringWithFormat:@"%@yh_get_newpriceforsome%@",MAIN_HOST,MAIN_VERSION]
+//详情的图表数据
+#define API_GetChartInfoData  [NSString stringWithFormat:@"%@yh_get_clxq%@",MAIN_HOST,MAIN_VERSION]
 /**************  关注  *******************/
 //关注/取消关注栏目
 #define API_AttentionOffer  [NSString stringWithFormat:@"%@yh_gz%@",MAIN_HOST,MAIN_VERSION]
