@@ -13,6 +13,7 @@ typedef void(^btnClickBlock)(NSInteger index);
 @interface HMPSegmentScrollView : UIView
 -(instancetype)initWithFrame:(CGRect)frame
                   titleArray:(NSArray *)titleArray
+         maxTitleNumInWindow:(NSInteger)maxTitleNumInWindow
             contentViewArray:(NSArray *)contentViewArray
                   clickBlick:(btnClickBlock)block;
 @property (strong,nonatomic)UIScrollView *bgScrollView;

@@ -98,14 +98,14 @@ static NSString *cellIdentifier = @"TableViewCell";
         if (indexPath.section == self.currentBigIndex && i == self.currentMidIndex) {
             [button setTitle:midObj.midclassname forState:UIControlStateNormal];
             [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-            button.titleLabel.font = [UIFont systemFontOfSize:KRealValue(14)];
+            button.titleLabel.font = [UIFont systemFontOfSize:KRealValue(12)];
             button.backgroundColor = [UIColor colorWithHexString:kMainWordColorGray];
             button.layer.masksToBounds = YES;
             button.layer.cornerRadius = KRealValue(30)/2;
         }else{
             [button setTitle:midObj.midclassname forState:UIControlStateNormal];
             [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-            button.titleLabel.font = [UIFont systemFontOfSize:KRealValue(14)];
+            button.titleLabel.font = [UIFont systemFontOfSize:KRealValue(12)];
             button.backgroundColor = [UIColor blackColor];
             button.layer.masksToBounds = YES;
             button.layer.cornerRadius = KRealValue(30)/2;
@@ -173,8 +173,8 @@ static NSString *cellIdentifier = @"TableViewCell";
         _tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
         _tableView.dataSource = self;
         _tableView.delegate = self;
-        _tableView.backgroundColor = [UIColor colorWithHexString:@"#1C1C1C"];
-        _tableView.separatorColor = [UIColor colorWithHexString:@"#1C1C1C"];
+        _tableView.backgroundColor = [UIColor colorWithHexString:kMainColorDark];
+        _tableView.separatorColor = [UIColor colorWithHexString:kMainColorDark];
     }
     return _tableView;
 }

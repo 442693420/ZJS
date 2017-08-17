@@ -9,6 +9,7 @@
 #import "NewsViewController.h"
 #import "HMPSegmentScrollView.h"
 #import "LoginViewController.h"
+#import "NewsDetailViewController.h"
 #import "BigClassObject.h"
 #import "MJRefresh.h"
 #import "NewsTableViewCell.h"
@@ -36,11 +37,13 @@ static NSString *cellIdentifier = @"NewsTableViewCell";
     self.currentIndex = 0;
     start_id = 0;
     sum = 10;
-    [self creatSegmentsUI];
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:NO];
+    self.navigationItem.leftBarButtonItem = nil;//隐藏返回
+    
+    [self creatSegmentsUI];
 }
 - (void)creatSegmentsUI{
     UserObject *userObj = [UserManger getUserInfoDefault];
@@ -90,16 +93,19 @@ static NSString *cellIdentifier = @"NewsTableViewCell";
                 [table registerClass:[NewsTableViewCell class] forCellReuseIdentifier:cellIdentifier];
                 [array addObject:table];
             }
-            self.scView=[[HMPSegmentScrollView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height-64-HMPTabbarHeight) titleArray:midTitleArr contentViewArray:array clickBlick:^(NSInteger index) {
+            self.scView=[[HMPSegmentScrollView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height-64-HMPTabbarHeight) titleArray:midTitleArr maxTitleNumInWindow:3 contentViewArray:array clickBlick:^(NSInteger index) {
                 self.currentIndex = index-1;
                 [self loadListData];
             }];
+            self.scView.segmentToolView.bgScrollViewColor = [UIColor blackColor];
+            self.scView.segmentToolView.titleSelectColor = [UIColor colorWithHexString:@"#FF5E3A"];
+            
             [self.view addSubview:self.scView];
             
             //默认请求
             [self loadListData];
         }
-        if ([rc isEqualToString:@"100"])//会话超时
+        else if ([rc isEqualToString:@"100"])//会话超时
         {
             LoginViewController *loginVC = [[LoginViewController alloc]init];
             [self.navigationController pushViewController:loginVC animated:YES];
@@ -140,7 +146,8 @@ static NSString *cellIdentifier = @"NewsTableViewCell";
                 [self.dataArr addObjectsFromArray:[NewsListObject mj_objectArrayWithKeyValuesArray:msg]];
             }
             [self delayMethod];
-        }if ([rc isEqualToString:@"100"])//会话超时
+        }
+        else if ([rc isEqualToString:@"100"])//会话超时
         {
             LoginViewController *loginVC = [[LoginViewController alloc]init];
             [self.navigationController pushViewController:loginVC animated:YES];
@@ -170,9 +177,9 @@ static NSString *cellIdentifier = @"NewsTableViewCell";
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NewsListObject *obj = self.dataArr[indexPath.row];
-//    QuotePriceChartsDetailViewController *detailVC = [[QuotePriceChartsDetailViewController alloc]init];
-//    detailVC.cellObj = obj;
-//    [self.navigationController pushViewController:detailVC animated:YES];
+    NewsDetailViewController *detailVC = [[NewsDetailViewController alloc]init];
+    detailVC.newsId = obj.ID;
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 -(void)headerRereshing
 {

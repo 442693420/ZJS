@@ -32,12 +32,12 @@ static NSString *kGreenColor = @"FC4667";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.title = @"消费明细";
+    self.navigationItem.title = @"充值记录";
     //KVO
     [self addObserver:self forKeyPath:@"dataArr" options:NSKeyValueObservingOptionNew context:nil];
     //tabelView
     self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-    self.tableView.rowHeight = KRealValue(44);
+    self.tableView.rowHeight = KRealValue(74);
     self.tableView.delegate=self;
     self.tableView.dataSource=self;
     self.tableView.tableFooterView = [[UIView alloc]init];
@@ -80,7 +80,7 @@ static NSString *kGreenColor = @"FC4667";
     params[@"month"] = @"";
     params[@"start_id"] = [NSString stringWithFormat:@"%d",start_id];
     params[@"sum"] = [NSString stringWithFormat:@"%d",sum];
-    [HMPAFNetWorkManager POST:API_CONSUMELIST params:params success:^(NSURLSessionDataTask *task, id responseObject) {
+    [HMPAFNetWorkManager POST:API_RechargeList params:params success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"%@",responseObject);
         if ([responseObject[@"rc"] isEqualToString:@"0"])
         {
@@ -134,16 +134,18 @@ static NSString *kGreenColor = @"FC4667";
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     RechargeObject *obj = [self.dataArr objectAtIndex:indexPath.row];
-//    //价格富文本  充值
-//    NSString *money = [NSString stringWithFormat:@"+%@",obj.je];
-//    NSMutableAttributedString *attri =[[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ 元",money]];
-//    NSDictionary *attrDict = @{NSForegroundColorAttributeName: [UIColor colorWithHexString:kRedColor],
-//                               NSFontAttributeName: [UIFont systemFontOfSize:KRealValue(20)]};
-//    [attri addAttributes:attrDict range:NSMakeRange(0, money.length)];
-//    cell.moneyLab.attributedText = attri;
-//    cell.accessoryType = UITableViewCellAccessoryNone;
-//    
-//    cell.timeLab.text = obj.xfsj;
+    //价格富文本  充值
+    NSString *money = [NSString stringWithFormat:@"+%@",obj.czje];
+    NSMutableAttributedString *attri =[[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ 元",money]];
+    NSDictionary *attrDict = @{NSForegroundColorAttributeName: [UIColor colorWithHexString:kRedColor],
+                               NSFontAttributeName: [UIFont systemFontOfSize:KRealValue(20)]};
+    [attri addAttributes:attrDict range:NSMakeRange(0, money.length)];
+    cell.moneyLab.attributedText = attri;
+    cell.accessoryType = UITableViewCellAccessoryNone;
+    
+    cell.contentLab.text = obj.cznr;
+    cell.typeLab.text = obj.czfs;
+    cell.timeLab.text = obj.czsj;
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

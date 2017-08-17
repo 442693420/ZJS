@@ -10,5 +10,7 @@
 
 @interface RechargeListTableViewCell : UITableViewCell
 @property (nonatomic , strong)UILabel *moneyLab;
+@property (nonatomic , strong)UILabel *contentLab;
+@property (nonatomic , strong)UILabel *typeLab;
 @property (nonatomic , strong)UILabel *timeLab;
 @end

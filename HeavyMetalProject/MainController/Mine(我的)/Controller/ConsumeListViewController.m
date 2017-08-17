@@ -11,13 +11,21 @@
 #import "ConsumeListTableViewCell.h"
 #import "ConsumeObject.h"
 #import "LoginViewController.h"
-@interface ConsumeListViewController ()<UITableViewDelegate,UITableViewDataSource>{
+#import "PickDateView.h"
+@interface ConsumeListViewController ()<UITableViewDelegate,UITableViewDataSource,PickDateViewDelegate>{
     int start_id;
     int sum;
 }
 @property (nonatomic , strong)UITableView *tableView;
 @property (nonatomic , strong)NSMutableArray *dataArr;
 @property (nonatomic , strong)HMPNomalNoDataView *noDataView;
+@property (nonatomic , strong)UIButton *chooseDateBtn;
+
+//pickView
+@property(nonatomic,strong)PickDateView *pickview;
+@property(nonatomic,strong)NSIndexPath *indexPath;
+@property (nonatomic,strong)NSString *year;//查询的年
+@property (nonatomic,strong)NSString *month;//查询的月
 @end
 static NSString *cellIdentifier = @"ConsumeListTableViewCell";
 static NSString *kRedColor = @"18888E";
@@ -31,11 +39,26 @@ static NSString *kGreenColor = @"FC4667";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"消费明细";
+    self.view.backgroundColor = [UIColor blackColor];
     //KVO
     [self addObserver:self forKeyPath:@"dataArr" options:NSKeyValueObservingOptionNew context:nil];
+    
+    [self getDefaultYearMonth];//必须在chooseDateBtn初始化之前加
+    [self.view addSubview:self.chooseDateBtn];
+    [self.chooseDateBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(self.view);
+        make.top.equalTo(self.view.mas_top).offset(64);
+        make.height.mas_equalTo(KRealValue(60));
+    }];
     //tabelView
-    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-    self.tableView.rowHeight = KRealValue(44);
+    self.tableView = [[UITableView alloc]init];
+    [self.view addSubview:self.tableView];
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(self.view);
+        make.top.equalTo(self.chooseDateBtn.mas_bottom);
+        make.bottom.equalTo(self.view.mas_bottom);
+    }];
+    self.tableView.backgroundColor = [UIColor colorWithHexString:kMainColorDark];
     self.tableView.delegate=self;
     self.tableView.dataSource=self;
     self.tableView.tableFooterView = [[UIView alloc]init];
@@ -53,29 +76,51 @@ static NSString *kGreenColor = @"FC4667";
             [self loadListData];
         }
     }];
-    [self.view addSubview:self.tableView];
     //cell加入缓存池
     [self.tableView registerClass:[ConsumeListTableViewCell class] forCellReuseIdentifier:cellIdentifier];
     self.dataArr = [[NSMutableArray alloc]init];
     start_id = 0;
     sum = 10;
+    
     [self.view addSubview:self.noDataView];
     [self.noDataView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.centerX.equalTo(self.view);
         make.width.equalTo(@200);
         make.height.equalTo(@150);
     }];
-    
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
     [self.tableView.header beginRefreshing];
     [self.navigationController setNavigationBarHidden:NO animated:NO];
 }
+- (void)getDefaultYearMonth{
+    //获取当前年月
+    NSCalendar *gregorian = [[NSCalendar alloc]
+                             initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    // 获取当前日期
+    NSDate* dt = [NSDate date];
+    // 定义一个时间字段的旗标，指定将会获取指定年、月、日、时、分、秒的信息
+    unsigned unitFlags = NSCalendarUnitYear |
+    NSCalendarUnitMonth |  NSCalendarUnitDay |
+    NSCalendarUnitHour |  NSCalendarUnitMinute |
+    NSCalendarUnitSecond | NSCalendarUnitWeekday;
+    // 获取不同时间字段的信息
+    NSDateComponents *comp = [gregorian components: unitFlags
+                                          fromDate:dt];
+    self.year = [NSString stringWithFormat:@"%ld",(long)comp.year];
+    self.month = [NSString stringWithFormat:@"%ld",(long)comp.month];
+}
 - (void)loadListData {
+    NSString *month = @"";//格式是201701
+    if (self.month.length == 1) {
+        month = [NSString stringWithFormat:@"%@0%@",self.year,self.month];
+    }else{
+        month = [NSString stringWithFormat:@"%@%@",self.year,self.month];
+    }
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"sid"] = [UserManger getUserInfoDefault].sid;
-    params[@"month"] = @"";
+    params[@"month"] = month;
     params[@"start_id"] = [NSString stringWithFormat:@"%d",start_id];
     params[@"sum"] = [NSString stringWithFormat:@"%d",sum];
     [HMPAFNetWorkManager POST:API_CONSUMELIST params:params success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -116,6 +161,36 @@ static NSString *kGreenColor = @"FC4667";
          [self delayMethod];
      }];
 }
+-(IBAction)chooseDateAction:(id)sender{
+    [_pickview remove];
+    NSMutableArray *yearArr = [[NSMutableArray alloc]init];
+    int temp = 2017; //App上线年份;
+    for (int i = temp; i<temp+1; i++) {
+        NSString *year = [NSString stringWithFormat:@"%d年",i];
+        [yearArr addObject:year];
+    }
+    NSLog(@"%@",yearArr);
+    NSArray *array=@[yearArr,@[@"1月",@"2月",@"3月",@"4月",@"5月",@"6月",@"7月",@"8月",@"9月",@"10月",@"11月",@"12月"]];
+    _pickview=[[PickDateView alloc] initPickviewWithArray:array isHaveNavControler:NO];
+    _pickview.delegate=self;
+    NSString *dateStr = [NSString stringWithFormat:@"%@年%@月",self.year,self.month];
+    _pickview.resultString = dateStr;
+    [_pickview.pickerView selectRow:0 inComponent:0 animated:NO];//年
+    [_pickview.pickerView selectRow:[self.month integerValue]-1 inComponent:1 animated:NO];//月
+    [_pickview show];
+}
+#pragma pickView delegate
+-(void)toobarDonBtnHaveClick:(PickDateView *)pickView resultString:(NSString *)resultString{
+    NSLog(@"%@",resultString);
+    [self.chooseDateBtn setTitle:resultString forState:UIControlStateNormal];
+    self.year = @"2017";
+    //取出月份
+    NSArray *arr = [resultString componentsSeparatedByString:@"年"];
+    NSArray *temp = [[arr lastObject] componentsSeparatedByString:@"月"];
+    self.month = [temp firstObject];
+    [self.tableView.header beginRefreshing];
+}
+
 #pragma tableViewDelegate
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -131,30 +206,41 @@ static NSString *kGreenColor = @"FC4667";
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     ConsumeObject *obj = [self.dataArr objectAtIndex:indexPath.row];
-    //价格富文本 消费
+    cell.open = obj.open;
     
-    NSString *money = [NSString stringWithFormat:@"-%@",obj.count];
-    NSMutableAttributedString *attri =[[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ 元",money]];
-    NSDictionary *attrDict = @{NSForegroundColorAttributeName: [UIColor colorWithHexString:kGreenColor],
-                               NSFontAttributeName: [UIFont systemFontOfSize:KRealValue(20)]};
-    [attri addAttributes:attrDict range:NSMakeRange(0, money.length)];
-    cell.moneyLab.attributedText = attri;
-//    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    cell.timeLab.text = obj.xfsj;
+    if (obj.open) {
+        cell.arrowImgView.image = [UIImage imageNamed:@"upArrowWhite"];
+        cell.bottomView.hidden = NO;
+    }else{
+        cell.arrowImgView.image = [UIImage imageNamed:@"downArrowWhite"];
+        cell.bottomView.hidden = YES;
+    }
+    
+    if ([obj.count integerValue] == 0) {//年费会员
+        cell.moneyLab.text = @"消费总计：年费会员";
+        cell.goldImgView.image = [UIImage imageNamed:@"yearVip"];
+    }else{
+        cell.moneyLab.text = [NSString stringWithFormat:@"消费总计：%@",obj.count];
+        cell.goldImgView.image = [UIImage imageNamed:@"smallGold"];
+    }
+    cell.timeLab.text = [NSString stringWithFormat:@"日期:%@",obj.xfsj];
     cell.infoLab.text = obj.xfnr;
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     ConsumeObject *obj = [self.dataArr objectAtIndex:indexPath.row];
-    //    //价格富文本  1充值 2消费
-    //    if ([obj.type isEqualToString:@"2"]) {
-    //        WXWebViewController *webVC = [[WXWebViewController alloc]init];
-    //        J_UserModel *userObj = [J_BaseObject getUserInfoDefault];
-    //        NSString *urlStr = [NSString stringWithFormat:@"%@&userid=%@&phoneno=%@&unionid=%@",obj.details_page_url,userObj.ID,userObj.tel,userObj.wx_id];
-    //        webVC.urlStr = urlStr;
-    //        webVC.webYype = KVipCenterWebTypeHjqOrderDetail;
-    //        [self.navigationController pushViewController:webVC animated:YES];
-    //    }
+    obj.open = !obj.open;
+    
+    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    ConsumeObject *obj = [self.dataArr objectAtIndex:indexPath.row];
+    CGSize labelSize = [obj.xfnr sizeWithFont:[UIFont systemFontOfSize:KRealValue(12)] constrainedToSize:CGSizeMake(KScreenWidth-KRealValue(40), MAXFLOAT) lineBreakMode:NSLineBreakByCharWrapping];// 不限制高度
+    if (obj.open) {
+        return 40+8+20+8+labelSize.height+8;
+    }else{
+        return KRealValue(40);
+    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -191,6 +277,20 @@ static NSString *kGreenColor = @"FC4667";
     }
     return _noDataView;
 }
-
+-(UIButton *)chooseDateBtn{
+    if (_chooseDateBtn == nil) {
+        _chooseDateBtn = [[UIButton alloc]init];
+        
+        NSString *dateStr = [NSString stringWithFormat:@"%@年%@月",self.year,self.month];
+        [_chooseDateBtn setTitle:dateStr forState:UIControlStateNormal];
+        [_chooseDateBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        _chooseDateBtn.backgroundColor = [UIColor colorWithHexString:kMainColorDark];
+        _chooseDateBtn.titleLabel.font = [UIFont systemFontOfSize:KRealValue(18)];
+        [_chooseDateBtn setImage:[UIImage imageNamed:@"downArrowWhite"] forState:UIControlStateNormal];
+        _chooseDateBtn.imageEdgeInsets = UIEdgeInsetsMake(0,KScreenWidth/2+60,0,0);//top,left,bottom,right
+        [_chooseDateBtn addTarget:self action:@selector(chooseDateAction:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _chooseDateBtn;
+}
 
 @end

@@ -28,7 +28,12 @@
 // 默认带返回按钮
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
     //
-    viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"backArrow"] style:UIBarButtonItemStylePlain target:self action:@selector(backAction)];
+    //返回按钮
+    UIButton *leftButton = [[UIButton alloc]initWithFrame:CGRectMake(0,0,13,22)];
+    [leftButton setImage:[UIImage imageNamed:@"backArrow"] forState:UIControlStateNormal];
+    [leftButton addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc]initWithCustomView:leftButton];
+    viewController.navigationItem.leftBarButtonItem= leftItem;
     [super pushViewController:viewController animated:animated];
     
 }

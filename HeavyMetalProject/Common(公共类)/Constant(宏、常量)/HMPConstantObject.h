@@ -73,6 +73,7 @@ UIKIT_EXTERN NSString *const kMainColorRed;//红色  (报价cell中涨)
 UIKIT_EXTERN NSString *const kMainColorGreen;//绿色  （报价cell中跌)
 UIKIT_EXTERN NSString *const kMainColorOrange;//橙黄色  (报价cell中报价的橙黄色)
 UIKIT_EXTERN NSString *const kChatFillColor;//橙黄色  (chat填充色)
+UIKIT_EXTERN NSString *const kMainColorDark;//深灰色  (个人中心深灰色背景)
 
 
 #pragma mark - 微信支付

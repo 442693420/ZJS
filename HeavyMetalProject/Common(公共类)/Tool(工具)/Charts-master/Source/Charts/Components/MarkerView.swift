@@ -26,29 +26,29 @@ open class MarkerView: NSUIView, IMarker
     open func offsetForDrawing(atPoint point: CGPoint) -> CGPoint
     {
         var offset = self.offset
-        
-        let chart = self.chartView
-        
-        let width = self.bounds.size.width
-        let height = self.bounds.size.height
-        
-        if point.x + offset.x < 0.0
-        {
-            offset.x = -point.x
-        }
-        else if chart != nil && point.x + width + offset.x > chart!.bounds.size.width
-        {
-            offset.x = chart!.bounds.size.width - point.x - width
-        }
-        
-        if point.y + offset.y < 0
-        {
-            offset.y = -point.y
-        }
-        else if chart != nil && point.y + height + offset.y > chart!.bounds.size.height
-        {
-            offset.y = chart!.bounds.size.height - point.y - height
-        }
+        //注释掉之后允许marker越界显示
+//        let chart = self.chartView
+//        
+//        let width = self.bounds.size.width
+//        let height = self.bounds.size.height
+//        
+//        if point.x + offset.x < 0.0
+//        {
+//            offset.x = -point.x
+//        }
+//        else if chart != nil && point.x + width + offset.x > chart!.bounds.size.width
+//        {
+//            offset.x = chart!.bounds.size.width - point.x - width
+//        }
+//        
+//        if point.y + offset.y < 0
+//        {
+//            offset.y = -point.y
+//        }
+//        else if chart != nil && point.y + height + offset.y > chart!.bounds.size.height
+//        {
+//            offset.y = chart!.bounds.size.height - point.y - height
+//        }
         
         return offset
     }
@@ -61,10 +61,9 @@ open class MarkerView: NSUIView, IMarker
     open func draw(context: CGContext, point: CGPoint)
     {
         let offset = self.offsetForDrawing(atPoint: point)
-        
         context.saveGState()
         context.translateBy(x: point.x + offset.x,
-                              y: point.y + offset.y)
+                            y: point.y + offset.y)
         NSUIGraphicsPushContext(context)
         self.nsuiLayer?.render(in: context)
         NSUIGraphicsPopContext()

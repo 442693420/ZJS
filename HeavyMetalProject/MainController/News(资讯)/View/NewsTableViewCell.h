@@ -9,9 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface NewsTableViewCell : UITableViewCell
-@property (nonatomic , strong)UIImageView *imgView;
 @property (nonatomic , strong)UILabel *titleLab;
 @property (nonatomic , strong)UILabel *infoLab;
-@property (nonatomic , strong)UILabel *typeLab;
 @property (nonatomic , strong)UILabel *timeLab;
 @end

@@ -8,7 +8,6 @@
 
 #import "HMPSegmentView.h"
 
-#define MAX_TitleNumInWindow 4
 #define LineHeight 1
 
 @interface HMPSegmentView()
@@ -19,14 +18,19 @@
 @property (nonatomic,strong) UIScrollView *bgScrollView;
 @property (nonatomic,strong) UIView *selectLine;
 @property (nonatomic,assign) CGFloat btn_w;
+@property (nonatomic,assign) NSInteger maxTitleNumInWindow;
 @end
 @implementation HMPSegmentView
 
--(instancetype)initWithFrame:(CGRect)frame titles:(NSArray *)titleArray clickBlick:(btnClickBlock)block{
+-(instancetype)initWithFrame:(CGRect)frame titles:(NSArray *)titleArray  maxTitleNumInWindow:(NSInteger)maxTitleNumInWindow canScroll:(BOOL)canScroll clickBlick:(btnClickBlock)block{
     self = [super initWithFrame:frame];
     if (self) {
-        
-        _btn_w=frame.size.width/MAX_TitleNumInWindow;
+        self.maxTitleNumInWindow = maxTitleNumInWindow;
+        if (canScroll) {
+            _btn_w=frame.size.width/self.maxTitleNumInWindow;
+        }else{
+            _btn_w=frame.size.width/titleArray.count;
+        }
         
         _titles=titleArray;
         _defaultIndex=1;
@@ -59,12 +63,14 @@
                 btn.selected=YES;
                 _titleBtn=btn;
             }
-            //左右分割线
-            UIView *lineView = [[UIView alloc]init];
-            lineView.backgroundColor = [UIColor colorWithHexString:@"#D6D6D6"];
-            lineView.size = CGSizeMake(1, btn.frame.size.height/2);
-            lineView.center = CGPointMake(btn.frame.origin.x+btn.frame.size.width-1,btn.frame.size.height/2);
-            [_bgScrollView addSubview:lineView];
+            if (i != titleArray.count-1) {//最后一个不要
+                //左右分割线
+                UIView *lineView = [[UIView alloc]init];
+                lineView.backgroundColor = [UIColor colorWithHexString:@"#D6D6D6"];
+                lineView.size = CGSizeMake(1, btn.frame.size.height/2);
+                lineView.center = CGPointMake(btn.frame.origin.x+btn.frame.size.width-1,btn.frame.size.height/2);
+                [_bgScrollView addSubview:lineView];
+            }
             self.block=block;
         }
     }
@@ -96,7 +102,7 @@
         _defaultIndex=btn.tag;
     }
     
-    if (_titles.count >= MAX_TitleNumInWindow) {
+    if (_titles.count >= self.maxTitleNumInWindow) {
         //计算偏移量
         CGFloat offsetX=btn.frame.origin.x - 2*_btn_w;
         if (offsetX<0) {

@@ -65,16 +65,34 @@
 		615290871F3853AA0084AF20 /* ChartValueObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 615290861F3853AA0084AF20 /* ChartValueObject.m */; };
 		6152908B1F38542B0084AF20 /* ChartInfoDataObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6152908A1F38542B0084AF20 /* ChartInfoDataObject.m */; };
 		6152908E1F387B120084AF20 /* ChartSeletView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6152908D1F387B120084AF20 /* ChartSeletView.m */; };
+		616A87F21F41D7F300571E83 /* TitleTFView.m in Sources */ = {isa = PBXBuildFile; fileRef = 616A87F11F41D7F300571E83 /* TitleTFView.m */; };
+		616A87F61F41DA1700571E83 /* ChooseBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 616A87F51F41DA1700571E83 /* ChooseBtn.m */; };
+		616A87F91F41DA9800571E83 /* HorizontalChooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 616A87F81F41DA9800571E83 /* HorizontalChooseView.m */; };
+		616A87FC1F41DAB100571E83 /* VerticalChooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 616A87FB1F41DAB100571E83 /* VerticalChooseView.m */; };
+		616A87FF1F41E24600571E83 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 616A87FE1F41E24600571E83 /* SettingViewController.m */; };
 		617BDF441F0B2CCA00645073 /* QuotePriceTableViewCellBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 617BDF431F0B2CCA00645073 /* QuotePriceTableViewCellBtn.m */; };
 		617BDF471F0B69B300645073 /* QuotePriceChartsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 617BDF461F0B69B300645073 /* QuotePriceChartsDetailViewController.m */; };
 		617BE0721F0B723E00645073 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 617BE06F1F0B721200645073 /* Charts.framework */; };
 		617BE0731F0B723E00645073 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 617BE06F1F0B721200645073 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		617BE0791F0B727E00645073 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617BE0781F0B727E00645073 /* File.swift */; };
-		617BE07C1F0B7F7000645073 /* SymbolsValueFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 617BE07B1F0B7F7000645073 /* SymbolsValueFormatter.m */; };
+		619AFF9C1F3DAB1600B7AE36 /* ChartSegmentScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 619AFF9B1F3DAB1600B7AE36 /* ChartSegmentScrollView.m */; };
+		619AFFA01F3DB0DB00B7AE36 /* ChartYLabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 619AFF9F1F3DB0DB00B7AE36 /* ChartYLabView.m */; };
+		619E3F1E1F43E2FB004D25EC /* PickDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 619E3F1D1F43E2FB004D25EC /* PickDateView.m */; };
+		619E3F281F442969004D25EC /* RechargeAndVIPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 619E3F271F442969004D25EC /* RechargeAndVIPViewController.m */; };
+		619E3F2B1F443587004D25EC /* ChooseRechargeContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 619E3F2A1F443587004D25EC /* ChooseRechargeContentView.m */; };
+		619E3F311F443972004D25EC /* RechargeMoneyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 619E3F301F443972004D25EC /* RechargeMoneyView.m */; };
+		619E3F341F443B35004D25EC /* HMPToolManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 619E3F331F443B35004D25EC /* HMPToolManager.m */; };
+		619E3F371F444211004D25EC /* ChangePhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 619E3F361F444211004D25EC /* ChangePhoneViewController.m */; };
+		619E3F401F445DD4004D25EC /* SearchHotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 619E3F3F1F445DD4004D25EC /* SearchHotView.m */; };
 		61A193C11F08BA9500059FE4 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A193C01F08BA9500059FE4 /* SearchViewController.m */; };
 		61A193C41F08BAB300059FE4 /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A193C31F08BAB300059FE4 /* FilterViewController.m */; };
-		61A193C71F08BB1B00059FE4 /* SearchDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A193C61F08BB1B00059FE4 /* SearchDetailViewController.m */; };
 		61A193CA1F08CB2400059FE4 /* FilterButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A193C91F08CB2400059FE4 /* FilterButton.m */; };
+		61A9FCD51F4544410068D4B9 /* QuotePriceStyleSevenView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A9FCD41F4544410068D4B9 /* QuotePriceStyleSevenView.m */; };
+		61A9FCD81F4545280068D4B9 /* QuotePriceStyleSevenTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A9FCD71F4545280068D4B9 /* QuotePriceStyleSevenTableViewCell.m */; };
+		61D0893E1F40252500C094EE /* NewsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D0893D1F40252500C094EE /* NewsDetailViewController.m */; };
+		61D089421F40359B00C094EE /* MyWalletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D089411F40359B00C094EE /* MyWalletViewController.m */; };
+		61D089451F40370900C094EE /* WalletObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D089441F40370900C094EE /* WalletObject.m */; };
+		61D089481F41451400C094EE /* PersonalInfoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D089471F41451400C094EE /* PersonalInfoDetailViewController.m */; };
 		61DEBF9E1F0541AC0084D40C /* UIButton+countDown.m in Sources */ = {isa = PBXBuildFile; fileRef = 61DEBF9D1F0541AC0084D40C /* UIButton+countDown.m */; };
 		61DEBFA11F0542140084D40C /* NSString+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 61DEBFA01F0542140084D40C /* NSString+Common.m */; };
 		61DEBFA61F0542B00084D40C /* MBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 61DEBFA51F0542B00084D40C /* MBManager.m */; };
@@ -263,6 +281,16 @@
 		6152908A1F38542B0084AF20 /* ChartInfoDataObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartInfoDataObject.m; sourceTree = "<group>"; };
 		6152908C1F387B120084AF20 /* ChartSeletView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartSeletView.h; sourceTree = "<group>"; };
 		6152908D1F387B120084AF20 /* ChartSeletView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartSeletView.m; sourceTree = "<group>"; };
+		616A87F01F41D7F300571E83 /* TitleTFView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleTFView.h; sourceTree = "<group>"; };
+		616A87F11F41D7F300571E83 /* TitleTFView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleTFView.m; sourceTree = "<group>"; };
+		616A87F41F41DA1700571E83 /* ChooseBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseBtn.h; sourceTree = "<group>"; };
+		616A87F51F41DA1700571E83 /* ChooseBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseBtn.m; sourceTree = "<group>"; };
+		616A87F71F41DA9800571E83 /* HorizontalChooseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HorizontalChooseView.h; sourceTree = "<group>"; };
+		616A87F81F41DA9800571E83 /* HorizontalChooseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HorizontalChooseView.m; sourceTree = "<group>"; };
+		616A87FA1F41DAB100571E83 /* VerticalChooseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerticalChooseView.h; sourceTree = "<group>"; };
+		616A87FB1F41DAB100571E83 /* VerticalChooseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerticalChooseView.m; sourceTree = "<group>"; };
+		616A87FD1F41E24600571E83 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		616A87FE1F41E24600571E83 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		617BDF421F0B2CCA00645073 /* QuotePriceTableViewCellBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuotePriceTableViewCellBtn.h; sourceTree = "<group>"; };
 		617BDF431F0B2CCA00645073 /* QuotePriceTableViewCellBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuotePriceTableViewCellBtn.m; sourceTree = "<group>"; };
 		617BDF451F0B69B300645073 /* QuotePriceChartsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuotePriceChartsDetailViewController.h; sourceTree = "<group>"; };
@@ -270,16 +298,42 @@
 		617BE0691F0B721200645073 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "Charts-master/Charts.xcodeproj"; sourceTree = "<group>"; };
 		617BE0771F0B727D00645073 /* HeavyMetalProject-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HeavyMetalProject-Bridging-Header.h"; sourceTree = "<group>"; };
 		617BE0781F0B727E00645073 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
-		617BE07A1F0B7F7000645073 /* SymbolsValueFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SymbolsValueFormatter.h; sourceTree = "<group>"; };
-		617BE07B1F0B7F7000645073 /* SymbolsValueFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SymbolsValueFormatter.m; sourceTree = "<group>"; };
+		619AFF9A1F3DAB1600B7AE36 /* ChartSegmentScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartSegmentScrollView.h; sourceTree = "<group>"; };
+		619AFF9B1F3DAB1600B7AE36 /* ChartSegmentScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartSegmentScrollView.m; sourceTree = "<group>"; };
+		619AFF9E1F3DB0DB00B7AE36 /* ChartYLabView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartYLabView.h; sourceTree = "<group>"; };
+		619AFF9F1F3DB0DB00B7AE36 /* ChartYLabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartYLabView.m; sourceTree = "<group>"; };
+		619E3F1C1F43E2FB004D25EC /* PickDateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickDateView.h; sourceTree = "<group>"; };
+		619E3F1D1F43E2FB004D25EC /* PickDateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickDateView.m; sourceTree = "<group>"; };
+		619E3F261F442969004D25EC /* RechargeAndVIPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RechargeAndVIPViewController.h; sourceTree = "<group>"; };
+		619E3F271F442969004D25EC /* RechargeAndVIPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RechargeAndVIPViewController.m; sourceTree = "<group>"; };
+		619E3F291F443587004D25EC /* ChooseRechargeContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseRechargeContentView.h; sourceTree = "<group>"; };
+		619E3F2A1F443587004D25EC /* ChooseRechargeContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseRechargeContentView.m; sourceTree = "<group>"; };
+		619E3F2F1F443972004D25EC /* RechargeMoneyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RechargeMoneyView.h; sourceTree = "<group>"; };
+		619E3F301F443972004D25EC /* RechargeMoneyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RechargeMoneyView.m; sourceTree = "<group>"; };
+		619E3F321F443B35004D25EC /* HMPToolManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMPToolManager.h; sourceTree = "<group>"; };
+		619E3F331F443B35004D25EC /* HMPToolManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMPToolManager.m; sourceTree = "<group>"; };
+		619E3F351F444211004D25EC /* ChangePhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePhoneViewController.h; sourceTree = "<group>"; };
+		619E3F361F444211004D25EC /* ChangePhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePhoneViewController.m; sourceTree = "<group>"; };
+		619E3F3E1F445DD4004D25EC /* SearchHotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchHotView.h; sourceTree = "<group>"; };
+		619E3F3F1F445DD4004D25EC /* SearchHotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchHotView.m; sourceTree = "<group>"; };
 		61A193BF1F08BA9500059FE4 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		61A193C01F08BA9500059FE4 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		61A193C21F08BAB300059FE4 /* FilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterViewController.h; sourceTree = "<group>"; };
 		61A193C31F08BAB300059FE4 /* FilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterViewController.m; sourceTree = "<group>"; };
-		61A193C51F08BB1B00059FE4 /* SearchDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchDetailViewController.h; sourceTree = "<group>"; };
-		61A193C61F08BB1B00059FE4 /* SearchDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchDetailViewController.m; sourceTree = "<group>"; };
 		61A193C81F08CB2400059FE4 /* FilterButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterButton.h; sourceTree = "<group>"; };
 		61A193C91F08CB2400059FE4 /* FilterButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterButton.m; sourceTree = "<group>"; };
+		61A9FCD31F4544410068D4B9 /* QuotePriceStyleSevenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuotePriceStyleSevenView.h; sourceTree = "<group>"; };
+		61A9FCD41F4544410068D4B9 /* QuotePriceStyleSevenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuotePriceStyleSevenView.m; sourceTree = "<group>"; };
+		61A9FCD61F4545280068D4B9 /* QuotePriceStyleSevenTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuotePriceStyleSevenTableViewCell.h; sourceTree = "<group>"; };
+		61A9FCD71F4545280068D4B9 /* QuotePriceStyleSevenTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuotePriceStyleSevenTableViewCell.m; sourceTree = "<group>"; };
+		61D0893C1F40252500C094EE /* NewsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsDetailViewController.h; sourceTree = "<group>"; };
+		61D0893D1F40252500C094EE /* NewsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsDetailViewController.m; sourceTree = "<group>"; };
+		61D089401F40359B00C094EE /* MyWalletViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyWalletViewController.h; sourceTree = "<group>"; };
+		61D089411F40359B00C094EE /* MyWalletViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyWalletViewController.m; sourceTree = "<group>"; };
+		61D089431F40370900C094EE /* WalletObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalletObject.h; sourceTree = "<group>"; };
+		61D089441F40370900C094EE /* WalletObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalletObject.m; sourceTree = "<group>"; };
+		61D089461F41451400C094EE /* PersonalInfoDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalInfoDetailViewController.h; sourceTree = "<group>"; };
+		61D089471F41451400C094EE /* PersonalInfoDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalInfoDetailViewController.m; sourceTree = "<group>"; };
 		61DEBF9C1F0541AC0084D40C /* UIButton+countDown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+countDown.h"; sourceTree = "<group>"; };
 		61DEBF9D1F0541AC0084D40C /* UIButton+countDown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+countDown.m"; sourceTree = "<group>"; };
 		61DEBF9F1F0542140084D40C /* NSString+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Common.h"; sourceTree = "<group>"; };
@@ -509,8 +563,6 @@
 				6105C3EB1F0397F700A96B2A /* CellModelPriceObject.m */,
 				61A193C81F08CB2400059FE4 /* FilterButton.h */,
 				61A193C91F08CB2400059FE4 /* FilterButton.m */,
-				617BE07A1F0B7F7000645073 /* SymbolsValueFormatter.h */,
-				617BE07B1F0B7F7000645073 /* SymbolsValueFormatter.m */,
 				612997B51F2C626400DE5A75 /* DateValueFormatter.h */,
 				612997B61F2C626400DE5A75 /* DateValueFormatter.m */,
 				612997B91F2C629800DE5A75 /* SetValueFormatter.h */,
@@ -686,6 +738,8 @@
 			children = (
 				61EEC2FF1F00B2DB0014E44C /* HMPAFNetWorkManager.h */,
 				61EEC3001F00B2DB0014E44C /* HMPAFNetWorkManager.m */,
+				619E3F321F443B35004D25EC /* HMPToolManager.h */,
+				619E3F331F443B35004D25EC /* HMPToolManager.m */,
 			);
 			path = "Network(网络)";
 			sourceTree = "<group>";
@@ -753,10 +807,20 @@
 				6105C4151F03D20700A96B2A /* LoginWithVerifyCodeViewController.m */,
 				612997CE1F2F0C0400DE5A75 /* ChangePwdViewController.h */,
 				612997CF1F2F0C0400DE5A75 /* ChangePwdViewController.m */,
+				619E3F351F444211004D25EC /* ChangePhoneViewController.h */,
+				619E3F361F444211004D25EC /* ChangePhoneViewController.m */,
 				612997D11F2F0FDF00DE5A75 /* ConsumeListViewController.h */,
 				612997D21F2F0FDF00DE5A75 /* ConsumeListViewController.m */,
 				612997DD1F2F1F6200DE5A75 /* RechargeListViewController.h */,
 				612997DE1F2F1F6200DE5A75 /* RechargeListViewController.m */,
+				61D089401F40359B00C094EE /* MyWalletViewController.h */,
+				61D089411F40359B00C094EE /* MyWalletViewController.m */,
+				61D089461F41451400C094EE /* PersonalInfoDetailViewController.h */,
+				61D089471F41451400C094EE /* PersonalInfoDetailViewController.m */,
+				616A87FD1F41E24600571E83 /* SettingViewController.h */,
+				616A87FE1F41E24600571E83 /* SettingViewController.m */,
+				619E3F261F442969004D25EC /* RechargeAndVIPViewController.h */,
+				619E3F271F442969004D25EC /* RechargeAndVIPViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -772,6 +836,18 @@
 				612997D81F2F149A00DE5A75 /* ConsumeListTableViewCell.m */,
 				612997E01F2F1FB200DE5A75 /* RechargeListTableViewCell.h */,
 				612997E11F2F1FB200DE5A75 /* RechargeListTableViewCell.m */,
+				616A87F01F41D7F300571E83 /* TitleTFView.h */,
+				616A87F11F41D7F300571E83 /* TitleTFView.m */,
+				616A87F41F41DA1700571E83 /* ChooseBtn.h */,
+				616A87F51F41DA1700571E83 /* ChooseBtn.m */,
+				616A87F71F41DA9800571E83 /* HorizontalChooseView.h */,
+				616A87F81F41DA9800571E83 /* HorizontalChooseView.m */,
+				616A87FA1F41DAB100571E83 /* VerticalChooseView.h */,
+				616A87FB1F41DAB100571E83 /* VerticalChooseView.m */,
+				619E3F291F443587004D25EC /* ChooseRechargeContentView.h */,
+				619E3F2A1F443587004D25EC /* ChooseRechargeContentView.m */,
+				619E3F2F1F443972004D25EC /* RechargeMoneyView.h */,
+				619E3F301F443972004D25EC /* RechargeMoneyView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -791,6 +867,8 @@
 			children = (
 				61EEC3151F00B62C0014E44C /* NewsViewController.h */,
 				61EEC3161F00B62C0014E44C /* NewsViewController.m */,
+				61D0893C1F40252500C094EE /* NewsDetailViewController.h */,
+				61D0893D1F40252500C094EE /* NewsDetailViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -823,8 +901,6 @@
 				61A193C01F08BA9500059FE4 /* SearchViewController.m */,
 				61A193C21F08BAB300059FE4 /* FilterViewController.h */,
 				61A193C31F08BAB300059FE4 /* FilterViewController.m */,
-				61A193C51F08BB1B00059FE4 /* SearchDetailViewController.h */,
-				61A193C61F08BB1B00059FE4 /* SearchDetailViewController.m */,
 				617BDF451F0B69B300645073 /* QuotePriceChartsDetailViewController.h */,
 				617BDF461F0B69B300645073 /* QuotePriceChartsDetailViewController.m */,
 			);
@@ -848,6 +924,8 @@
 				612805541F01F77500C31B18 /* QuotePriceStyleFiveTableViewCell.m */,
 				612805561F01F77F00C31B18 /* QuotePriceStyleSixTableViewCell.h */,
 				612805571F01F77F00C31B18 /* QuotePriceStyleSixTableViewCell.m */,
+				61A9FCD61F4545280068D4B9 /* QuotePriceStyleSevenTableViewCell.h */,
+				61A9FCD71F4545280068D4B9 /* QuotePriceStyleSevenTableViewCell.m */,
 				617BDF421F0B2CCA00645073 /* QuotePriceTableViewCellBtn.h */,
 				617BDF431F0B2CCA00645073 /* QuotePriceTableViewCellBtn.m */,
 				614B7BEC1F209FA60028800E /* QuotePriceStyleOneView.h */,
@@ -862,6 +940,8 @@
 				614B7BFA1F209FD60028800E /* QuotePriceStyleFiveView.m */,
 				614B7BFC1F209FE00028800E /* QuotePriceStyleSixView.h */,
 				614B7BFD1F209FE00028800E /* QuotePriceStyleSixView.m */,
+				61A9FCD31F4544410068D4B9 /* QuotePriceStyleSevenView.h */,
+				61A9FCD41F4544410068D4B9 /* QuotePriceStyleSevenView.m */,
 				612997BF1F2C6D0300DE5A75 /* QuotePriceDetailChartView.h */,
 				612997C01F2C6D0300DE5A75 /* QuotePriceDetailChartView.m */,
 				612997E91F2F349200DE5A75 /* ShowPriceView.h */,
@@ -872,6 +952,12 @@
 				614476251F3030F2001E0558 /* ShowAllPriceView.m */,
 				6152908C1F387B120084AF20 /* ChartSeletView.h */,
 				6152908D1F387B120084AF20 /* ChartSeletView.m */,
+				619AFF9A1F3DAB1600B7AE36 /* ChartSegmentScrollView.h */,
+				619AFF9B1F3DAB1600B7AE36 /* ChartSegmentScrollView.m */,
+				619AFF9E1F3DB0DB00B7AE36 /* ChartYLabView.h */,
+				619AFF9F1F3DB0DB00B7AE36 /* ChartYLabView.m */,
+				619E3F3E1F445DD4004D25EC /* SearchHotView.h */,
+				619E3F3F1F445DD4004D25EC /* SearchHotView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -887,6 +973,8 @@
 				612997DB1F2F1AE500DE5A75 /* ConsumeObject.m */,
 				612997E31F2F1FDA00DE5A75 /* RechargeObject.h */,
 				612997E41F2F1FDA00DE5A75 /* RechargeObject.m */,
+				61D089431F40370900C094EE /* WalletObject.h */,
+				61D089441F40370900C094EE /* WalletObject.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -902,6 +990,8 @@
 				61EEC34E1F0125CC0014E44C /* HMPSegmentScrollView.m */,
 				612997D41F2F111A00DE5A75 /* HMPNomalNoDataView.h */,
 				612997D51F2F111A00DE5A75 /* HMPNomalNoDataView.m */,
+				619E3F1C1F43E2FB004D25EC /* PickDateView.h */,
+				619E3F1D1F43E2FB004D25EC /* PickDateView.m */,
 			);
 			path = "BaseVC(父类)";
 			sourceTree = "<group>";
@@ -1133,12 +1223,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				6105C3E91F03971E00A96B2A /* CellModelObject.m in Sources */,
+				61D0893E1F40252500C094EE /* NewsDetailViewController.m in Sources */,
 				6128055F1F02700D00C31B18 /* MidClassObject.m in Sources */,
 				61DEBFA61F0542B00084D40C /* MBManager.m in Sources */,
 				612997C11F2C6D0300DE5A75 /* QuotePriceDetailChartView.m in Sources */,
-				61A193C71F08BB1B00059FE4 /* SearchDetailViewController.m in Sources */,
 				61EEC2BE1F00A6E40014E44C /* ViewController.m in Sources */,
 				612997BB1F2C629800DE5A75 /* SetValueFormatter.m in Sources */,
+				619E3F371F444211004D25EC /* ChangePhoneViewController.m in Sources */,
 				6128054C1F01F74E00C31B18 /* QuotePriceStyleTwoTableViewCell.m in Sources */,
 				612997DC1F2F1AE500DE5A75 /* ConsumeObject.m in Sources */,
 				61EEC31D1F00B6520014E44C /* AttentionViewController.m in Sources */,
@@ -1148,23 +1239,32 @@
 				61EEC3201F00B6660014E44C /* MineViewController.m in Sources */,
 				612997D61F2F111A00DE5A75 /* HMPNomalNoDataView.m in Sources */,
 				617BDF471F0B69B300645073 /* QuotePriceChartsDetailViewController.m in Sources */,
-				617BE07C1F0B7F7000645073 /* SymbolsValueFormatter.m in Sources */,
+				616A87FC1F41DAB100571E83 /* VerticalChooseView.m in Sources */,
+				616A87FF1F41E24600571E83 /* SettingViewController.m in Sources */,
 				6152908E1F387B120084AF20 /* ChartSeletView.m in Sources */,
 				6105C3F51F03A32400A96B2A /* RegistViewController.m in Sources */,
+				619AFFA01F3DB0DB00B7AE36 /* ChartYLabView.m in Sources */,
 				61EEC34F1F0125CC0014E44C /* HMPSegmentScrollView.m in Sources */,
 				61EEC2EF1F00B0E90014E44C /* HMPTabBar.m in Sources */,
 				61EEC32E1F00BC0D0014E44C /* BaseNavigationController.m in Sources */,
+				61D089451F40370900C094EE /* WalletObject.m in Sources */,
 				6128055C1F026F8600C31B18 /* BigClassObject.m in Sources */,
 				61EEC2EC1F00AFE80014E44C /* HMPTabBarController.m in Sources */,
+				61D089481F41451400C094EE /* PersonalInfoDetailViewController.m in Sources */,
 				612997CC1F2EDB3500DE5A75 /* NewsListObject.m in Sources */,
 				61EEC3581F014DF00014E44C /* HMPNaviSegmentView.m in Sources */,
+				61A9FCD81F4545280068D4B9 /* QuotePriceStyleSevenTableViewCell.m in Sources */,
 				61EEC3141F00B61D0014E44C /* QuotePriceViewController.m in Sources */,
 				61EEC2BB1F00A6E40014E44C /* AppDelegate.m in Sources */,
 				61EEC3171F00B62C0014E44C /* NewsViewController.m in Sources */,
+				616A87F21F41D7F300571E83 /* TitleTFView.m in Sources */,
 				614B7BEE1F209FA60028800E /* QuotePriceStyleOneView.m in Sources */,
+				619E3F401F445DD4004D25EC /* SearchHotView.m in Sources */,
 				6128054F1F01F75D00C31B18 /* QuotePriceStyleThreeTableViewCell.m in Sources */,
+				61D089421F40359B00C094EE /* MyWalletViewController.m in Sources */,
 				612997EB1F2F349200DE5A75 /* ShowPriceView.m in Sources */,
 				614B7BF51F209FC10028800E /* QuotePriceStyleThreeView.m in Sources */,
+				619AFF9C1F3DAB1600B7AE36 /* ChartSegmentScrollView.m in Sources */,
 				614B7BFB1F209FD60028800E /* QuotePriceStyleFiveView.m in Sources */,
 				6105C3EF1F03A09000A96B2A /* MineTitleView.m in Sources */,
 				61EEC3011F00B2DB0014E44C /* HMPAFNetWorkManager.m in Sources */,
@@ -1179,27 +1279,35 @@
 				612805521F01F76800C31B18 /* QuotePriceStyleFourTableViewCell.m in Sources */,
 				61A193CA1F08CB2400059FE4 /* FilterButton.m in Sources */,
 				612997E21F2F1FB200DE5A75 /* RechargeListTableViewCell.m in Sources */,
+				619E3F311F443972004D25EC /* RechargeMoneyView.m in Sources */,
 				612997E81F2F2E6200DE5A75 /* ShowPriceAlertView.m in Sources */,
+				61A9FCD51F4544410068D4B9 /* QuotePriceStyleSevenView.m in Sources */,
 				61EEC3241F00B6B50014E44C /* UserObject.m in Sources */,
 				6105C4161F03D20700A96B2A /* LoginWithVerifyCodeViewController.m in Sources */,
+				619E3F1E1F43E2FB004D25EC /* PickDateView.m in Sources */,
 				61DEBFAC1F054AAC0084D40C /* RegistProtocolButton.m in Sources */,
 				61DEBF9E1F0541AC0084D40C /* UIButton+countDown.m in Sources */,
+				619E3F2B1F443587004D25EC /* ChooseRechargeContentView.m in Sources */,
 				612997C81F2C782000DE5A75 /* NewsTableViewCell.m in Sources */,
 				612997D91F2F149A00DE5A75 /* ConsumeListTableViewCell.m in Sources */,
 				612997D01F2F0C0400DE5A75 /* ChangePwdViewController.m in Sources */,
 				6152908B1F38542B0084AF20 /* ChartInfoDataObject.m in Sources */,
 				61EEC34C1F0125820014E44C /* HMPSegmentView.m in Sources */,
 				617BE0791F0B727E00645073 /* File.swift in Sources */,
+				616A87F91F41DA9800571E83 /* HorizontalChooseView.m in Sources */,
+				619E3F281F442969004D25EC /* RechargeAndVIPViewController.m in Sources */,
 				61A193C11F08BA9500059FE4 /* SearchViewController.m in Sources */,
 				614476261F3030F2001E0558 /* ShowAllPriceView.m in Sources */,
 				61EEC2B81F00A6E40014E44C /* main.m in Sources */,
 				61EEC3311F00F2000014E44C /* UIView+Frame.m in Sources */,
+				616A87F61F41DA1700571E83 /* ChooseBtn.m in Sources */,
 				612997B71F2C626400DE5A75 /* DateValueFormatter.m in Sources */,
 				612805551F01F77500C31B18 /* QuotePriceStyleFiveTableViewCell.m in Sources */,
 				61EEC2F21F00B13A0014E44C /* HMPTabBarButton.m in Sources */,
 				617BDF441F0B2CCA00645073 /* QuotePriceTableViewCellBtn.m in Sources */,
 				6105C3EC1F0397F700A96B2A /* CellModelPriceObject.m in Sources */,
 				6105C4131F03D1FB00A96B2A /* LoginWithPwdViewController.m in Sources */,
+				619E3F341F443B35004D25EC /* HMPToolManager.m in Sources */,
 				614B7BF81F209FCB0028800E /* QuotePriceStyleFourView.m in Sources */,
 				612997DF1F2F1F6200DE5A75 /* RechargeListViewController.m in Sources */,
 				61EEC3271F00B6FA0014E44C /* UserManger.m in Sources */,

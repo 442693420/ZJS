@@ -15,4 +15,7 @@
 @property (nonatomic , copy)NSString *count;
 @property (nonatomic , copy)NSString *xfnr;
 @property (nonatomic , copy)NSString *xfsj;
+
+@property (nonatomic, assign) BOOL open;
+
 @end

@@ -48,12 +48,13 @@ static NSInteger const CCTabBarTag = 10000;
         [btn setTitleColor:[UIColor colorWithHexString:@"0x716d68"] forState:UIControlStateNormal];
         [btn setTitleColor:[UIColor colorWithHexString:@"0x424242"] forState:UIControlStateSelected];
         [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
-        //我的需要未读小红点,其他按钮直接隐藏
-        if (i!=2) {
-            btn.redUnreadLab.hidden = YES;
-        }else{
-            [btn refreshRedUnreadLab];
-        }
+        //暂时全部隐藏小红点
+        btn.redUnreadLab.hidden = YES;
+//        if (i!=2) {
+//            btn.redUnreadLab.hidden = YES;
+//        }else{
+//            [btn refreshRedUnreadLab];
+//        }
         [self addSubview:btn];
         // 子控件的个数
         NSInteger subViewsCount = 1;

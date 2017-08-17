@@ -70,7 +70,7 @@
 -(UIView *)infoBackView{
     if (_infoBackView == nil) {
         _infoBackView = [[UIView alloc]init];
-        _infoBackView.backgroundColor = [UIColor colorWithHexString:@"#1C1C1C"];
+        _infoBackView.backgroundColor = [UIColor colorWithHexString:kMainColorDark];
     }
     return _infoBackView;
 }

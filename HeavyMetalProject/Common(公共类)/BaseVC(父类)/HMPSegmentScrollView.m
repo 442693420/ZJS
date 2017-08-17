@@ -16,6 +16,7 @@
 
 -(instancetype)initWithFrame:(CGRect)frame
                   titleArray:(NSArray *)titleArray
+         maxTitleNumInWindow:(NSInteger)maxTitleNumInWindow
             contentViewArray:(NSArray *)contentViewArray
                   clickBlick:(btnClickBlock)block{
     if (self = [super initWithFrame:frame]) {
@@ -23,7 +24,7 @@
         _allIndex = titleArray.count;
         [self addSubview:self.bgScrollView];
         
-        _segmentToolView = [[HMPSegmentView alloc] initWithFrame:CGRectMake(0, 0, MainScreen_W, KRealValue(44)) titles:titleArray clickBlick:^void(NSInteger index) {
+        _segmentToolView = [[HMPSegmentView alloc] initWithFrame:CGRectMake(0, 0, MainScreen_W, KRealValue(44)) titles:titleArray maxTitleNumInWindow:maxTitleNumInWindow canScroll:YES clickBlick:^void(NSInteger index) {
         NSLog(@"-----%ld",index);
             if (self.block) {
                 self.block(index);

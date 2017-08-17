@@ -55,6 +55,7 @@ NSString *const kMainColorRed = @"#FF463C";//红色  (报价cell中涨)
 NSString *const kMainColorGreen = @"#4CDA64";//绿色  (报价cell中跌)
 NSString *const kMainColorOrange = @"#FF8C00";//橙黄色  (报价cell中报价的橙黄色)
 NSString *const kChatFillColor = @"#D06121";//橙黄色  (chat填充色)
+NSString *const kMainColorDark = @"#1C1C1C";//深灰色  (个人中心深灰色背景)
 
 
 #pragma mark - 微信支付

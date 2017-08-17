@@ -49,11 +49,12 @@ typedef void(^btnClickBlock)(NSInteger index);
  *
  *  @param frame      frame
  *  @param titleArray 传入数组
+ *  @param maxTitleNumInWindow      屏幕中最多展示多少个
+ *  @param canScroll      是不是可滑动，不可滑动就在width固定的情况下均分
  *  @param block      点击后的回调
- *
  *  @return
  */
--(instancetype)initWithFrame:(CGRect)frame titles:(NSArray *)titleArray clickBlick:(btnClickBlock)block;
+-(instancetype)initWithFrame:(CGRect)frame titles:(NSArray *)titleArray  maxTitleNumInWindow:(NSInteger)maxTitleNumInWindow canScroll:(BOOL)canScroll clickBlick:(btnClickBlock)block;
 
 
 //外部调用

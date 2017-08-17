@@ -276,7 +276,7 @@
 -(UIButton *)wxBtn{
     if (_wxBtn == nil) {
         _wxBtn = [[UIButton alloc]init];
-        [_wxBtn setImage:[UIImage imageNamed:@"weixin"] forState:UIControlStateNormal];
+        [_wxBtn setImage:[UIImage imageNamed:@"bigWXLogo"] forState:UIControlStateNormal];
     }
     return _wxBtn;
 }

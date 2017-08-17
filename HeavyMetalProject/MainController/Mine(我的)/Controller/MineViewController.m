@@ -8,10 +8,15 @@
 
 #import "MineViewController.h"
 #import "LoginViewController.h"
-#import "ChangePwdViewController.h"
+#import "SettingViewController.h"
 #import "ConsumeListViewController.h"
+#import "MyWalletViewController.h"
+#import "PersonalInfoDetailViewController.h"
 #import "MineTitleView.h"
-
+//分享
+#import <ShareSDK/ShareSDK.h>
+#import <ShareSDKUI/ShareSDK+SSUI.h>
+#import <ShareSDKUI/SSUIShareActionSheetStyle.h>
 @interface MineViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     NSInteger sum_unRead;//消息未读数量
@@ -59,7 +64,7 @@ static NSString *cellIdentifier = @"TableViewCell";
 }
 - (void)reloadTableviewData{
     UserObject *userObj = [UserManger getUserInfoDefault];
-    [self.titleView.titleImgView sd_setImageWithURL:[NSURL URLWithString:userObj.head_Img] placeholderImage:[UIImage imageNamed:@""]];
+    [self.titleView.titleImgView sd_setImageWithURL:[NSURL URLWithString:userObj.head_Img] placeholderImage:[UIImage imageNamed:@"defaultImg"]];
     self.titleView.nickNameLab.text = userObj.nickname;
     self.titleView.infoLab.text = [NSString stringWithFormat:@"我的金币数额:%@个",userObj.gold];
     NSArray *sec0 = @[@"绑定手机号",@"分享给朋友"];
@@ -108,9 +113,7 @@ static NSString *cellIdentifier = @"TableViewCell";
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     return 10;
 }
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return KRealValue(60);
-}
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -118,6 +121,13 @@ static NSString *cellIdentifier = @"TableViewCell";
     NSArray *arr = [self.dataArr objectAtIndex:indexPath.section];
     NSString *titleStr = arr[indexPath.row];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    if (indexPath.section == 0) {
+        if (indexPath.row == 0) {
+            UserObject *userObj = [UserManger getUserInfoDefault];
+            titleStr = [NSString stringWithFormat:@"%@ %@",arr[indexPath.row],userObj.tel];
+            cell.accessoryType = UITableViewCellAccessoryNone;
+        }
+    }
     cell.textLabel.text = titleStr;
     cell.textLabel.font = [UIFont systemFontOfSize:KRealValue(14)];
     cell.textLabel.textColor = [UIColor whiteColor];
@@ -127,13 +137,24 @@ static NSString *cellIdentifier = @"TableViewCell";
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     switch (indexPath.section) {
         case 0://绑定手机号，分享到朋友
-            
+            switch (indexPath.row) {
+                case 1:
+                {
+                    [self shareAction];
+                }
+                    break;
+                default:
+                    break;
+            }
             break;
         case 1://我的钱包，消费记录
         {
             switch (indexPath.row) {
                 case 0:
-                    
+                {
+                    MyWalletViewController *walletInfoVC = [[MyWalletViewController alloc]init];
+                    [self.navigationController pushViewController:walletInfoVC animated:YES];
+                }
                     break;
                 case 1:
                 {
@@ -152,13 +173,13 @@ static NSString *cellIdentifier = @"TableViewCell";
             switch (indexPath.row) {
                 case 0:
                 {
-                    ChangePwdViewController *changePwdVC = [[ChangePwdViewController alloc]init];
-                    [self.navigationController pushViewController:changePwdVC animated:YES];
+                    SettingViewController *settingVC = [[SettingViewController alloc]init];
+                    [self.navigationController pushViewController:settingVC animated:YES];
                 }
                     break;
                 case 1:
                 {
-                   
+                    
                     
                 }
                     break;
@@ -205,8 +226,8 @@ static NSString *cellIdentifier = @"TableViewCell";
 #pragma mark private-method
 //个人资料详情
 - (void)infoBackViewClick{
-    //    J_PersonalMsgViewController *viewController = [[J_PersonalMsgViewController alloc]init];
-    //    [self.navigationController pushViewController:viewController animated:YES];
+    PersonalInfoDetailViewController *viewController = [[PersonalInfoDetailViewController alloc]init];
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 //我的消息
 - (IBAction)messageBtnClick:(id)sender{
@@ -219,69 +240,60 @@ static NSString *cellIdentifier = @"TableViewCell";
     [self.navigationController pushViewController:viewController
                                          animated:YES];
 }
-//- (void)loadLoginDataparamar:(NSMutableDictionary *)params {
-//    [J_AFNetWorkManager POST:API_LOGIN params:params success:^(NSURLSessionDataTask *task, id responseObject) {
-//        [MBManager hideAlert];
-//        NSLog(@"%@",responseObject);
-//        J_UserModel *model = [J_UserModel mj_objectWithKeyValues:responseObject];
-//        if ([model.rc isEqualToString:@"0"]) {
-//            [J_BaseObject saveUserInfoDefault:model];
-//
-//            //频道信息保存(全局)
-//            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];//做一个NSUserdefaults对象
-//            NSDictionary *pdDic;
-//            if ([model.pdid isEqualToString:@""]||model.pdid.length == 0) {//未登录状态下和未创建私人频道时，默认保存为城市频道
-//                //把频道信息保存到全局
-//                pdDic = @{@"pd_id":@"2",@"pd_type":@"2",@"pd_name":@"城市频道"};
-//            }else{
-//                //把频道信息保存到全局
-//                pdDic = @{@"pd_id":model.pdid,@"pd_type":@"2",@"pd_name":model.pdid};
-//            }
-//            [defaults setObject:pdDic forKey:kPdInfo];
-//            [defaults synchronize];
-//
-//            J_UserModel *userObj = [J_BaseObject getUserInfoDefault];
-//
-//            [JPUSHService setAlias:userObj.ID callbackSelector:nil object:nil];
-//            //建立socket连接
-//            if ([[SooonerSocketManager shareInstance] isConnected]) {
-//                //注册
-//                NSMutableDictionary *mdicLoginInfo = [[NSMutableDictionary alloc] init];
-//                [mdicLoginInfo setObject:@"rooodad" forKey:@"sp"];
-//
-//                NSMutableDictionary *mdicUserInfo = [[NSMutableDictionary alloc] init];
-//                [mdicUserInfo setObject:model.ID forKey:@"id"];
-//                [mdicUserInfo setObject:model.name forKey:@"name"];
-//                [mdicUserInfo setObject:model.head_img forKey:@"hImg"];
-//                [mdicUserInfo setObject:model.sid forKey:@"sid"];
-//                [mdicLoginInfo setObject:mdicUserInfo forKey:@"user"];
-//                [[SooonerSocketManager shareInstance] regist:mdicLoginInfo withACK:^(NSArray *data) {
-//                    if (data.count && [[data firstObject] isEqualToString:@"ok"]) {
-//
-//                    }else{
-//
-//                    }
-//                }];
-//            }else{
-//                [[SooonerSocketManager shareInstance] connect:kIMConnectURL];
-//            }
-//            //检测并创建聊天记录文件夹(包含audio文件夹和db文件夹) 以userID 命名
-//            [SessionDBManager creatSessionTableViewDicPath];
-//            //刷新互动部分未读消息
-//            [self refreshHuDongRedView];
-//
-//            //登陆成功，刷新
-//            [self loginInnotification];
-//        }
-//        else{
-//            [MBManager showBriefAlert:model.des];
-//        }
-//    } fail:^(NSURLSessionDataTask *task, NSError *error) {
-//        [MBManager hideAlert];
-//        [MBManager showBriefAlert:@"网络异常"];
-//
-//    }];
-//}
+//分享
+-(void)shareAction{
+    //1、创建分享参数
+    NSArray* imageArray = @[[UIImage imageNamed:@"bigWXLogo"]];
+    //                （注意：图片必须要在Xcode左边目录里面，名称必须要传正确，如果要分享网络图片，可以这样传iamge参数 images:@[@"http://mob.com/Assets/images/logo.png?v=20150320"]）
+    if (imageArray) {
+        NSString *shareurl = [NSString stringWithFormat:@"www.baidu.com"];
+        //为了防止string转URL失败，中文要转码，然后过滤一下空格
+        shareurl = [shareurl stringByReplacingOccurrencesOfString:@" " withString:@""];
+        shareurl = [shareurl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSURL *url = [[NSURL alloc]initWithString:shareurl];
+        NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
+        NSString *contentText = [NSString stringWithFormat:@"xxxxx"];
+        [shareParams SSDKSetupShareParamsByText:contentText
+                                         images:imageArray
+                                            url:url
+                                          title:@"标题XXX"
+                                           type:SSDKContentTypeAuto];
+        [SSUIShareActionSheetStyle setShareActionSheetStyle:ShareActionSheetStyleSimple];
+        //2、分享（可以弹出我们的分享菜单和编辑界面）
+        [ShareSDK showShareActionSheet:nil //要显示菜单的视图, iPad版中此参数作为弹出菜单的参照视图，只有传这个才可以弹出我们的分享菜单，可以传分享的按钮对象或者自己创建小的view 对象，iPhone可以传nil不会影响
+                                 items:nil
+                           shareParams:shareParams
+                   onShareStateChanged:^(SSDKResponseState state, SSDKPlatformType platformType, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error, BOOL end) {
+                       
+                       switch (state) {
+                           case SSDKResponseStateSuccess:
+                           {
+                               UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"分享成功"
+                                                                                   message:nil
+                                                                                  delegate:nil
+                                                                         cancelButtonTitle:@"确定"
+                                                                         otherButtonTitles:nil];
+                               [alertView show];
+                               break;
+                           }
+                           case SSDKResponseStateFail:
+                           {
+                               UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"分享失败"
+                                                                               message:[NSString stringWithFormat:@"%@",error]
+                                                                              delegate:nil
+                                                                     cancelButtonTitle:@"OK"
+                                                                     otherButtonTitles:nil, nil];
+                               [alert show];
+                               break;
+                           }
+                           default:
+                               break;
+                       }
+                   }
+         ];
+    }
+    
+}
 #pragma mark getter and setter
 -(MineTitleView *)titleView{
     if (_titleView == nil) {
@@ -292,6 +304,9 @@ static NSString *cellIdentifier = @"TableViewCell";
         [_titleView.infoBackView addGestureRecognizer:infoBackViewClick];
         //我的消息
         [_titleView.messageBtn addTarget:self action:@selector(messageBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+        //暂时隐藏消息和红点
+        _titleView.messageBtn.hidden = YES;
+        _titleView.messageUnreadPointView.hidden = YES;
     }
     return _titleView;
 }
@@ -300,8 +315,9 @@ static NSString *cellIdentifier = @"TableViewCell";
         _tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
         _tableView.dataSource = self;
         _tableView.delegate = self;
-        _tableView.backgroundColor = [UIColor colorWithHexString:@"#1C1C1C"];
-        _tableView.separatorColor = [UIColor colorWithHexString:@"#1C1C1C"];
+        _tableView.backgroundColor = [UIColor colorWithHexString:kMainColorDark];
+        _tableView.separatorColor = [UIColor colorWithHexString:kMainColorDark];
+        _tableView.rowHeight = KRealValue(60);
     }
     return _tableView;
 }

@@ -9,7 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @interface ConsumeListTableViewCell : UITableViewCell
-@property (nonatomic , strong)UILabel *moneyLab;
-@property (nonatomic , strong)UILabel *infoLab;
+@property (nonatomic, assign) BOOL open;
+
+@property (nonatomic , strong)UIView *topView;
+@property (nonatomic , strong)UIView *bottomView;
+
 @property (nonatomic , strong)UILabel *timeLab;
+@property (nonatomic , strong)UILabel *moneyLab;
+@property (nonatomic , strong)UIImageView *goldImgView;
+@property (nonatomic , strong)UIImageView *arrowImgView;
+@property (nonatomic , strong)UILabel *infoLab;
 @end

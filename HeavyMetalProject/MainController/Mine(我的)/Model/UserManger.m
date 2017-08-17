@@ -13,6 +13,12 @@
     NSLog(@"%@",user);
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSDictionary *userDic = user.mj_keyValues;
+    for (int i = 0; i < [userDic allKeys].count; i++) {//遍历去一下null
+        NSString *key = [[userDic allKeys] objectAtIndex:i];
+        if ([[userDic objectForKey:key] isEqualToString:@"<null>"]) {
+            [userDic setValue:@"" forKey:key];
+        }
+    }
     [defaults setObject:userDic forKey:kUserInfoDefault];
     [defaults synchronize];
 }

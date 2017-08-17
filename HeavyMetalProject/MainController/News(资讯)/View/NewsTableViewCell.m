@@ -18,39 +18,25 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.backgroundColor = [UIColor blackColor];
-        [self addSubview:self.imgView];
         [self addSubview:self.titleLab];
         [self addSubview:self.infoLab];
-        [self addSubview:self.typeLab];
         [self addSubview:self.timeLab];
         
-        [self.imgView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.mas_left).offset(KRealValue(8));
-            make.width.mas_equalTo(KRealValue(140));
-            make.height.mas_equalTo(KRealValue(100));
-            make.centerY.equalTo(self.mas_centerY);
-        }];
         [self.titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.imgView.mas_right).offset(KRealValue(8));
-            make.top.equalTo(self.imgView.mas_top);
+            make.left.equalTo(self.mas_left).offset(KRealValue(20));
+            make.top.equalTo(self.mas_top).offset(KRealValue(8));
             make.right.equalTo(self.mas_right).offset(-KRealValue(8));
             make.height.mas_equalTo(KRealValue(30));
         }];
         [self.infoLab mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.equalTo(self.titleLab);
             make.top.equalTo(self.titleLab.mas_bottom);
-            make.bottom.equalTo(self.timeLab.mas_top);
-        }];
-        [self.typeLab mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.imgView.mas_right).offset(KRealValue(8));
-            make.bottom.equalTo(self.imgView.mas_bottom);
-            make.width.mas_equalTo(KRealValue(80));
             make.height.mas_equalTo(KRealValue(30));
+            make.centerY.equalTo(self.mas_centerY);
         }];
         [self.timeLab mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.typeLab.mas_right).offset(KRealValue(8));
             make.right.equalTo(self.mas_right).offset(-KRealValue(8));
-            make.bottom.equalTo(self.imgView.mas_bottom);
+            make.bottom.equalTo(self.mas_bottom).offset(-KRealValue(8));
             make.height.mas_equalTo(KRealValue(30));
         }];
 
@@ -63,17 +49,9 @@
     // Configure the view for the selected state
 }
 #pragma mark getter and setter
--(UIImageView *)imgView{
-    if (_imgView == nil) {
-        _imgView = [[UIImageView alloc]init];
-        _imgView.backgroundColor = [UIColor redColor];
-    }
-    return _imgView;
-}
 -(UILabel *)titleLab{
     if (_titleLab == nil) {
         _titleLab = [[UILabel alloc]init];
-        _titleLab.text = @"标题";
         _titleLab.font = [UIFont systemFontOfSize:16];
         _titleLab.textColor = [UIColor whiteColor];
         _titleLab.numberOfLines = 0;
@@ -85,23 +63,13 @@
         _infoLab = [[UILabel alloc]init];
         _infoLab.numberOfLines = 0;
         _infoLab.font = [UIFont systemFontOfSize:14];
-        _infoLab.textColor = [UIColor whiteColor];
+        _infoLab.textColor = [UIColor lightTextColor];
     }
     return _infoLab;
-}
--(UILabel *)typeLab{
-    if (_typeLab == nil) {
-        _typeLab = [[UILabel alloc]init];
-        _typeLab.text = @"类型";
-        _typeLab.font = [UIFont systemFontOfSize:12];
-        _typeLab.backgroundColor = [UIColor yellowColor];
-    }
-    return _typeLab;
 }
 -(UILabel *)timeLab{
     if (_timeLab == nil) {
         _timeLab = [[UILabel alloc]init];
-        _timeLab.text = @"2017-07-29";
         _timeLab.font = [UIFont systemFontOfSize:12];
         _timeLab.textColor = [UIColor darkGrayColor];
     }

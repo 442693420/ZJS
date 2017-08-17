@@ -23,6 +23,7 @@
 #import "QuotePriceStyleFourTableViewCell.h"
 #import "QuotePriceStyleFiveTableViewCell.h"
 #import "QuotePriceStyleSixTableViewCell.h"
+#import "QuotePriceStyleSevenTableViewCell.h"
 #import "QuotePriceTableViewCellBtn.h"
 
 #import "BigClassObject.h"
@@ -61,6 +62,7 @@ static NSString *cellIdentifier3 = @"QuotePriceStyleThreeTableViewCell";
 static NSString *cellIdentifier4 = @"QuotePriceStyleFourTableViewCell";
 static NSString *cellIdentifier5 = @"QuotePriceStyleFiveTableViewCell";
 static NSString *cellIdentifier6 = @"QuotePriceStyleSixTableViewCell";
+static NSString *cellIdentifier7 = @"QuotePriceStyleSevenTableViewCell";
 
 @implementation QuotePriceViewController
 - (void)dealloc{
@@ -74,13 +76,13 @@ static NSString *cellIdentifier6 = @"QuotePriceStyleSixTableViewCell";
     //iOS7新增属性
     self.automaticallyAdjustsScrollViewInsets=NO;
     //搜索按钮
-    UIButton *searchBtn = [[UIButton alloc]initWithFrame:CGRectMake(KRealValue(10), 20+(KRealValue(44-24))/2, KRealValue(24), KRealValue(24))];
+    UIButton *searchBtn = [[UIButton alloc]initWithFrame:CGRectMake(KRealValue(10), 20+(KRealValue(44-29))/2, KRealValue(29), KRealValue(29))];
     [searchBtn setImage:[UIImage imageNamed:@"search"] forState:UIControlStateNormal];
     [searchBtn addTarget:self action:@selector(searchBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:searchBtn];
     
     //筛选按钮
-    UIButton *filterBtn = [[UIButton alloc]initWithFrame:CGRectMake(KScreenWidth-KRealValue(10)-KRealValue(24), 20+(KRealValue(44-24))/2, KRealValue(24), KRealValue(24))];
+    UIButton *filterBtn = [[UIButton alloc]initWithFrame:CGRectMake(KScreenWidth-KRealValue(10)-KRealValue(29), 20+(KRealValue(44-29))/2, KRealValue(29), KRealValue(29))];
     [filterBtn setImage:[UIImage imageNamed:@"filter"] forState:UIControlStateNormal];
     [filterBtn addTarget:self action:@selector(filterBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:filterBtn];
@@ -165,7 +167,7 @@ static NSString *cellIdentifier6 = @"QuotePriceStyleSixTableViewCell";
             self.currentSmallIndex = 0;
             [self loadListData];
         }
-        if ([rc isEqualToString:@"100"])//会话超时
+        else if ([rc isEqualToString:@"100"])//会话超时
         {
             LoginViewController *loginVC = [[LoginViewController alloc]init];
             [self.navigationController pushViewController:loginVC animated:YES];
@@ -209,13 +211,14 @@ static NSString *cellIdentifier6 = @"QuotePriceStyleSixTableViewCell";
         [table registerClass:[QuotePriceStyleFourTableViewCell class] forCellReuseIdentifier:cellIdentifier4];
         [table registerClass:[QuotePriceStyleFiveTableViewCell class] forCellReuseIdentifier:cellIdentifier5];
         [table registerClass:[QuotePriceStyleSixTableViewCell class] forCellReuseIdentifier:cellIdentifier6];
+        [table registerClass:[QuotePriceStyleSevenTableViewCell class] forCellReuseIdentifier:cellIdentifier7];
         [array addObject:table];
     }
     NSMutableArray *smallTitleArr = [[NSMutableArray alloc]init];
     for (SmallClassObject *smallObj in smallArr) {
         [smallTitleArr addObject:smallObj.smlclassname];
     }
-    HMPSegmentScrollView *scView=[[HMPSegmentScrollView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height-64-HMPTabbarHeight) titleArray:smallTitleArr contentViewArray:array clickBlick:^(NSInteger index) {
+    HMPSegmentScrollView *scView=[[HMPSegmentScrollView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height-64-HMPTabbarHeight) titleArray:smallTitleArr maxTitleNumInWindow:4 contentViewArray:array clickBlick:^(NSInteger index) {
         self.currentSmallIndex = index-1;
         [self loadListData];
     }];
@@ -239,7 +242,6 @@ static NSString *cellIdentifier6 = @"QuotePriceStyleSixTableViewCell";
         NSLog(@"%@",responseObject);
         NSDictionary *dic = (NSDictionary *)responseObject;
         NSString *rc = dic[@"rc"];
-        NSString *des = dic[@"des"];
         NSArray *msg = dic[@"msg"];
         if ([rc isEqualToString:@"0"])
         {
@@ -258,14 +260,14 @@ static NSString *cellIdentifier6 = @"QuotePriceStyleSixTableViewCell";
                 }
             }
             [self delayMethod];
-        }if ([rc isEqualToString:@"100"])//会话超时
+        }
+        else if ([rc isEqualToString:@"100"])//会话超时
         {
             LoginViewController *loginVC = [[LoginViewController alloc]init];
             [self.navigationController pushViewController:loginVC animated:YES];
         }
         else
         {
-            //            [MBManager showBriefMessage:des InView:self.view];
             [self delayMethod];
         }
     } fail:^(NSURLSessionDataTask *task, NSError *error) {
@@ -283,14 +285,16 @@ static NSString *cellIdentifier6 = @"QuotePriceStyleSixTableViewCell";
     QuotePriceStyleFourTableViewCell *cell4 = (QuotePriceStyleFourTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier4];
     QuotePriceStyleFiveTableViewCell *cell5 = (QuotePriceStyleFiveTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier5];
     QuotePriceStyleSixTableViewCell *cell6 = (QuotePriceStyleSixTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier6];
-    
+    QuotePriceStyleSevenTableViewCell *cell7 = (QuotePriceStyleSevenTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier7];
+
     cell1.selectionStyle = UITableViewCellSelectionStyleNone;
     cell2.selectionStyle = UITableViewCellSelectionStyleNone;
     cell3.selectionStyle = UITableViewCellSelectionStyleNone;
     cell4.selectionStyle = UITableViewCellSelectionStyleNone;
     cell5.selectionStyle = UITableViewCellSelectionStyleNone;
     cell6.selectionStyle = UITableViewCellSelectionStyleNone;
-    
+    cell7.selectionStyle = UITableViewCellSelectionStyleNone;
+
     CellModelObject *obj = self.dataArr[indexPath.row];
     switch ([obj.styletype integerValue]) {
         case 1:
@@ -316,7 +320,8 @@ static NSString *cellIdentifier6 = @"QuotePriceStyleSixTableViewCell";
                     cell1.cellView.oldPriceLab.attributedText = [self cellUpDownAttributedString:oldPriceStr colorContent:obj.stylecontent.zd1 color:[UIColor colorWithHexString:kMainColorRed]];
                     cell1.cellView.nowPriceLab.attributedText = [self cellUpDownAttributedString:nowPriceLab colorContent:obj.stylecontent.zd2 color:[UIColor colorWithHexString:kMainColorRed]];
                     cell1.cellView.countPriceLab.attributedText = [self cellUpDownAttributedString:countPriceLab colorContent:obj.stylecontent.zd3 color:[UIColor colorWithHexString:kMainColorRed]];
-                }else{
+                }
+                else{
                     cell1.cellView.upDownPriceLab.backgroundColor = [UIColor colorWithHexString:kMainColorGreen];
                     cell1.cellView.upDownPriceLab.text = [NSString stringWithFormat:@"↓%.2f",[[obj.stylecontent.zd4 substringFromIndex:1] floatValue]];
                     
@@ -354,7 +359,7 @@ static NSString *cellIdentifier6 = @"QuotePriceStyleSixTableViewCell";
                 NSString *nowPriceLab = [NSString stringWithFormat:@"%@ %@",obj.stylecontent.zd2,obj.stylecontent.dw];
                 //涨跌值
                 NSString *type = [obj.stylecontent.zd3 substringWithRange:NSMakeRange(0, 1)];
-                if ([type isEqualToString:@"-"]) {
+                if (![type isEqualToString:@"-"]) {
                     cell2.cellView.upDownPriceLab.backgroundColor = [UIColor colorWithHexString:kMainColorRed];
                     cell2.cellView.upDownPriceLab.text = [NSString stringWithFormat:@"↑%.2f",[obj.stylecontent.zd3 floatValue]];
                     
@@ -399,7 +404,7 @@ static NSString *cellIdentifier6 = @"QuotePriceStyleSixTableViewCell";
                 
                 //涨跌值
                 NSString *type = [obj.stylecontent.zd3 substringWithRange:NSMakeRange(0, 1)];
-                if ([type isEqualToString:@"-"]) {
+                if (![type isEqualToString:@"-"]) {
                     cell3.cellView.upDownPriceLab.backgroundColor = [UIColor colorWithHexString:kMainColorRed];
                     cell3.cellView.upDownPriceLab.text = [NSString stringWithFormat:@"↑%.2f",[obj.stylecontent.zd3 floatValue]];
                     
@@ -443,7 +448,7 @@ static NSString *cellIdentifier6 = @"QuotePriceStyleSixTableViewCell";
                 
                 //涨跌值
                 NSString *type = [obj.stylecontent.zd2 substringWithRange:NSMakeRange(0, 1)];
-                if ([type isEqualToString:@"-"]) {
+                if (![type isEqualToString:@"-"]) {
                     cell4.cellView.upDownPriceLab.backgroundColor = [UIColor colorWithHexString:kMainColorRed];
                     cell4.cellView.upDownPriceLab.text = [NSString stringWithFormat:@"↑%.2f",[obj.stylecontent.zd2 floatValue]];
                     
@@ -485,7 +490,7 @@ static NSString *cellIdentifier6 = @"QuotePriceStyleSixTableViewCell";
                 NSString *orderPriceLab = [NSString stringWithFormat:@"%@ %@",obj.stylecontent.zd2,obj.stylecontent.dw];
                 //涨跌值
                 NSString *type = [obj.stylecontent.zd3 substringWithRange:NSMakeRange(0, 1)];
-                if ([type isEqualToString:@"-"]) {
+                if (![type isEqualToString:@"-"]) {
                     cell5.cellView.upDownPriceLab.backgroundColor = [UIColor colorWithHexString:kMainColorRed];
                     cell5.cellView.upDownPriceLab.text = [NSString stringWithFormat:@"↑%.2f",[obj.stylecontent.zd3 floatValue]];
                     
@@ -528,7 +533,7 @@ static NSString *cellIdentifier6 = @"QuotePriceStyleSixTableViewCell";
                 NSString *stockStr = [NSString stringWithFormat:@"%@ %@",obj.stylecontent.zd1,obj.stylecontent.dw];
                 //涨跌值
                 NSString *type = [obj.stylecontent.zd2 substringWithRange:NSMakeRange(0, 1)];
-                if ([type isEqualToString:@"-"]) {
+                if (![type isEqualToString:@"-"]) {
                     cell6.cellView.upDownstockLab.backgroundColor = [UIColor colorWithHexString:kMainColorRed];
                     cell6.cellView.upDownstockLab.text = [NSString stringWithFormat:@"↑%.2f",[obj.stylecontent.zd2 floatValue]];
                     
@@ -552,6 +557,51 @@ static NSString *cellIdentifier6 = @"QuotePriceStyleSixTableViewCell";
             cell6.cellView.showPriceBtn.clid = obj.clid;
             [ cell6.cellView.attentionBtn addTarget:self action:@selector(attentionBntClick:) forControlEvents:UIControlEventTouchUpInside];
             return cell6;
+        }
+            break;
+        case 7:
+        {
+            cell7.cellView.nameLab.text = [NSString stringWithFormat:@"%@|%@|%@", obj.clname,obj.clph,obj.clgg];
+            cell7.cellView.timeLab.text = obj.rq;
+            if ([obj.needupd isEqualToString:@"1"]) {//是否点击更新价格
+                cell7.cellView.priceBgView.hidden = YES;
+                cell7.cellView.showPriceBtn.hidden = NO;
+                [cell7.cellView.showPriceBtn addTarget:self action:@selector(showPriceBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+            }else{
+                cell7.cellView.priceBgView.hidden = NO;
+                cell7.cellView.showPriceBtn.hidden = YES;
+                
+                NSString *oldPriceStr = [NSString stringWithFormat:@"%@ %@",obj.stylecontent.zd1,obj.stylecontent.dw];
+                NSString *nowPriceLab = [NSString stringWithFormat:@"%@ %@",obj.stylecontent.zd2,obj.stylecontent.dw];
+
+                //涨跌值
+                NSString *type = [obj.stylecontent.zd3 substringWithRange:NSMakeRange(0, 1)];
+                if (![type isEqualToString:@"-"]) {
+                    cell7.cellView.upDownPriceLab.backgroundColor = [UIColor colorWithHexString:kMainColorRed];
+                    cell7.cellView.upDownPriceLab.text = [NSString stringWithFormat:@"↑%.2f",[obj.stylecontent.zd3 floatValue]];
+                    
+                    cell7.cellView.oldPriceLab.attributedText = [self cellUpDownAttributedString:oldPriceStr colorContent:obj.stylecontent.zd1 color:[UIColor colorWithHexString:kMainColorRed]];
+                    cell7.cellView.nowPriceLab.attributedText = [self cellUpDownAttributedString:nowPriceLab colorContent:obj.stylecontent.zd2 color:[UIColor colorWithHexString:kMainColorRed]];
+                }else{
+                    cell7.cellView.upDownPriceLab.backgroundColor = [UIColor colorWithHexString:kMainColorGreen];
+                    cell7.cellView.upDownPriceLab.text = [NSString stringWithFormat:@"↓%.2f",[[obj.stylecontent.zd3 substringFromIndex:1] floatValue]];
+                    
+                    cell7.cellView.oldPriceLab.attributedText = [self cellUpDownAttributedString:oldPriceStr colorContent:obj.stylecontent.zd1 color:[UIColor colorWithHexString:kMainColorGreen]];
+                    cell7.cellView.nowPriceLab.attributedText = [self cellUpDownAttributedString:nowPriceLab colorContent:obj.stylecontent.zd2 color:[UIColor colorWithHexString:kMainColorGreen]];
+                }
+            }
+            if ([obj.isgz isEqualToString:@"0"]) {
+                [ cell7.cellView.attentionBtn setImage:[UIImage imageNamed:@"attention_no"] forState:UIControlStateNormal];
+            }else{
+                [ cell7.cellView.attentionBtn setImage:[UIImage imageNamed:@"attention_yes"] forState:UIControlStateNormal];
+            }
+            cell7.cellView.attentionBtn.cellIndexPath = indexPath;
+            cell7.cellView.attentionBtn.clid = obj.clid;
+            cell7.cellView.attentionBtn.isgz = obj.isgz;
+            cell7.cellView.showPriceBtn.cellIndexPath = indexPath;
+            cell7.cellView.showPriceBtn.clid = obj.clid;
+            [ cell7.cellView.attentionBtn addTarget:self action:@selector(attentionBntClick:) forControlEvents:UIControlEventTouchUpInside];
+            return cell7;
         }
             break;
         default:
@@ -597,6 +647,12 @@ static NSString *cellIdentifier6 = @"QuotePriceStyleSixTableViewCell";
             {
                 QuotePriceStyleSixTableViewCell *cell6 = (QuotePriceStyleSixTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
                 [self showPriceBtnClick:cell6.cellView.showPriceBtn];
+            }
+                break;
+            case 7:
+            {
+                QuotePriceStyleSevenTableViewCell *cell7 = (QuotePriceStyleSevenTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+                [self showPriceBtnClick:cell7.cellView.showPriceBtn];
             }
                 break;
             default:
@@ -677,7 +733,7 @@ static NSString *cellIdentifier6 = @"QuotePriceStyleSixTableViewCell";
             UITableView *tabelView = [segmentView viewWithTag:kTableViewTag+self.currentSmallIndex];
             [tabelView reloadRowsAtIndexPaths:@[btn.cellIndexPath] withRowAnimation:UITableViewRowAnimationNone];
         }
-        if ([rc isEqualToString:@"100"])//会话超时
+        else if ([rc isEqualToString:@"100"])//会话超时
         {
             LoginViewController *loginVC = [[LoginViewController alloc]init];
             [self.navigationController pushViewController:loginVC animated:YES];
@@ -731,7 +787,7 @@ static NSString *cellIdentifier6 = @"QuotePriceStyleSixTableViewCell";
                     UITableView *tabelView = [segmentView viewWithTag:kTableViewTag+self.currentSmallIndex];
                     [tabelView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
                 }
-                if ([rc isEqualToString:@"100"])//会话超时
+                else if ([rc isEqualToString:@"100"])//会话超时
                 {
                     LoginViewController *loginVC = [[LoginViewController alloc]init];
                     [self.navigationController pushViewController:loginVC animated:YES];
@@ -767,7 +823,7 @@ static NSString *cellIdentifier6 = @"QuotePriceStyleSixTableViewCell";
                     //重新获取并刷新数据
                     [self loadListData];
                 }
-                if ([rc isEqualToString:@"100"])//会话超时
+                else if ([rc isEqualToString:@"100"])//会话超时
                 {
                     LoginViewController *loginVC = [[LoginViewController alloc]init];
                     [self.navigationController pushViewController:loginVC animated:YES];

@@ -25,7 +25,13 @@
 }
 - (NSString *)stringForValue:(double)value axis:(ChartAxisBase *)axis
 {
-    return _arr[(NSInteger)value];
+    if (value > 0 && value < _arr.count) {
+        return _arr[(NSInteger)value];
+    }else{
+        return _arr[0];
+    }
+//    return _arr[(NSInteger)value];
+
 }
 
 @end

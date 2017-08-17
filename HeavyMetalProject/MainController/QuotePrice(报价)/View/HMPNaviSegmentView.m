@@ -8,7 +8,7 @@
 
 #import "HMPNaviSegmentView.h"
 
-#define MAX_TitleNumInWindow 4
+#define MAX_TitleNumInWindow 3
 #define ButtonMargin 3 //按钮上下左右空隙
 
 @interface HMPNaviSegmentView()

@@ -7,6 +7,7 @@
 //
 
 #import "ChartSeletView.h"
+
 @interface ChartSeletView()
 @property (nonatomic , strong)UIImageView *labBgImgView;
 @property (nonatomic , strong)UIImageView *pointView;
