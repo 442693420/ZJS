@@ -89,6 +89,7 @@
 		61A193CA1F08CB2400059FE4 /* FilterButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A193C91F08CB2400059FE4 /* FilterButton.m */; };
 		61A9FCD51F4544410068D4B9 /* QuotePriceStyleSevenView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A9FCD41F4544410068D4B9 /* QuotePriceStyleSevenView.m */; };
 		61A9FCD81F4545280068D4B9 /* QuotePriceStyleSevenTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A9FCD71F4545280068D4B9 /* QuotePriceStyleSevenTableViewCell.m */; };
+		61A9FCDB1F458B620068D4B9 /* NoAttentionDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A9FCDA1F458B620068D4B9 /* NoAttentionDataView.m */; };
 		61D0893E1F40252500C094EE /* NewsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D0893D1F40252500C094EE /* NewsDetailViewController.m */; };
 		61D089421F40359B00C094EE /* MyWalletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D089411F40359B00C094EE /* MyWalletViewController.m */; };
 		61D089451F40370900C094EE /* WalletObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 61D089441F40370900C094EE /* WalletObject.m */; };
@@ -326,6 +327,8 @@
 		61A9FCD41F4544410068D4B9 /* QuotePriceStyleSevenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuotePriceStyleSevenView.m; sourceTree = "<group>"; };
 		61A9FCD61F4545280068D4B9 /* QuotePriceStyleSevenTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuotePriceStyleSevenTableViewCell.h; sourceTree = "<group>"; };
 		61A9FCD71F4545280068D4B9 /* QuotePriceStyleSevenTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuotePriceStyleSevenTableViewCell.m; sourceTree = "<group>"; };
+		61A9FCD91F458B620068D4B9 /* NoAttentionDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoAttentionDataView.h; sourceTree = "<group>"; };
+		61A9FCDA1F458B620068D4B9 /* NoAttentionDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoAttentionDataView.m; sourceTree = "<group>"; };
 		61D0893C1F40252500C094EE /* NewsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsDetailViewController.h; sourceTree = "<group>"; };
 		61D0893D1F40252500C094EE /* NewsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsDetailViewController.m; sourceTree = "<group>"; };
 		61D089401F40359B00C094EE /* MyWalletViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyWalletViewController.h; sourceTree = "<group>"; };
@@ -776,6 +779,8 @@
 		61EEC3081F00B60B0014E44C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				61A9FCD91F458B620068D4B9 /* NoAttentionDataView.h */,
+				61A9FCDA1F458B620068D4B9 /* NoAttentionDataView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1233,6 +1238,7 @@
 				6128054C1F01F74E00C31B18 /* QuotePriceStyleTwoTableViewCell.m in Sources */,
 				612997DC1F2F1AE500DE5A75 /* ConsumeObject.m in Sources */,
 				61EEC31D1F00B6520014E44C /* AttentionViewController.m in Sources */,
+				61A9FCDB1F458B620068D4B9 /* NoAttentionDataView.m in Sources */,
 				614B7BFE1F209FE00028800E /* QuotePriceStyleSixView.m in Sources */,
 				615290871F3853AA0084AF20 /* ChartValueObject.m in Sources */,
 				612997E51F2F1FDA00DE5A75 /* RechargeObject.m in Sources */,

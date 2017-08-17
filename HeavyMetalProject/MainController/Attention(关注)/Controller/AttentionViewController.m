@@ -16,6 +16,7 @@
 #import "MJRefresh.h"
 #import "ShowPriceView.h"
 #import "ShowAllPriceView.h"
+#import "NoAttentionDataView.h"
 
 #import "QuotePriceStyleOneTableViewCell.h"
 #import "QuotePriceStyleTwoTableViewCell.h"
@@ -37,6 +38,9 @@ typedef NS_ENUM(NSInteger , KShowPriceViewType) {
     KShowPriceViewTypeForOne = 0,//针对单个商品的刷新
     KShowPriceViewTypeForAll = 1,//针对当前三级分类的刷新
 };
+@property (nonatomic , strong)HMPSegmentScrollView *scView;//分栏
+@property (nonatomic , strong)NoAttentionDataView *noDataView;
+
 @property (nonatomic , strong)ShowPriceView *showPriceView;//查看价格的询问View
 @property (nonatomic , strong)ShowAllPriceView *showAllPriceView;//底部一次性支付并显示价格信息的View
 
@@ -61,6 +65,7 @@ static NSString *cellIdentifier7 = @"QuotePriceStyleSevenTableViewCell";
 
 - (void)dealloc{
     [self removeObserver:self forKeyPath:@"refreshArr"];
+    [self removeObserver:self forKeyPath:@"dataArr"];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -89,6 +94,13 @@ static NSString *cellIdentifier7 = @"QuotePriceStyleSevenTableViewCell";
         make.left.right.equalTo(self.view);
         make.bottom.equalTo(self.view.mas_bottom).offset(-KRealValue(HMPTabbarHeight));
         make.height.mas_equalTo(KRealValue(40));
+    }];
+    
+    [self.view addSubview:self.noDataView];
+    [self.noDataView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.centerX.equalTo(self.view);
+        make.width.equalTo(@200);
+        make.height.equalTo(@150);
     }];
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -172,12 +184,12 @@ static NSString *cellIdentifier7 = @"QuotePriceStyleSevenTableViewCell";
     for (SmallClassObject *smallObj in smallArr) {
         [smallTitleArr addObject:smallObj.smlclassname];
     }
-    HMPSegmentScrollView *scView=[[HMPSegmentScrollView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height-64-HMPTabbarHeight) titleArray:smallTitleArr maxTitleNumInWindow:4 contentViewArray:array clickBlick:^(NSInteger index) {
+    self.scView =[[HMPSegmentScrollView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height-64-HMPTabbarHeight) titleArray:smallTitleArr maxTitleNumInWindow:4 contentViewArray:array clickBlick:^(NSInteger index) {
         self.currentSmallIndex = index-1;
         [self loadListData];
     }];
-    scView.tag = kSegmentUITag;
-    [self.view addSubview:scView];
+    self.scView.tag = kSegmentUITag;
+    [self.view addSubview:self.scView];
     //加载默认数据
     [self loadListData];
 }
@@ -663,14 +675,18 @@ static NSString *cellIdentifier7 = @"QuotePriceStyleSevenTableViewCell";
         NSArray *msg = dic[@"msg"];
         if ([rc isEqualToString:@"0"])
         {
-            //重新获取栏目返分组
-            [self getSegmentArr];
-            
-//            [self.dataArr removeObjectAtIndex:btn.cellIndexPath.row];
-//            //刷新
-//            UIView *segmentView = [self.view viewWithTag:kSegmentUITag];
-//            UITableView *tabelView = [segmentView viewWithTag:kTableViewTag+self.currentSmallIndex];
-//            [tabelView reloadData];
+            if (self.dataArr.count == 1) {
+                //如果取消关注后，当前目类下数量为0，则切换到全部，并刷新
+                [self getSegmentArr];
+                [self.scView.segmentToolView bgScrollWithIndex:0];
+            }else{
+                [self.dataArr removeObjectAtIndex:btn.cellIndexPath.row];
+                //刷新
+                UIView *segmentView = [self.view viewWithTag:kSegmentUITag];
+                UITableView *tabelView = [segmentView viewWithTag:kTableViewTag+self.currentSmallIndex];
+                [tabelView reloadData];
+            }
+
         }
         else if ([rc isEqualToString:@"100"])//会话超时
         {
@@ -783,6 +799,7 @@ static NSString *cellIdentifier7 = @"QuotePriceStyleSevenTableViewCell";
 - (void)installMovieNotificationObservers {
     //KVO
     [self addObserver:self forKeyPath:@"refreshArr" options:NSKeyValueObservingOptionNew context:nil];
+    [self addObserver:self forKeyPath:@"dataArr" options:NSKeyValueObservingOptionNew context:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -798,20 +815,34 @@ static NSString *cellIdentifier7 = @"QuotePriceStyleSevenTableViewCell";
 }
 #pragma mark-----KVO回调----
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context{
-    if (![keyPath isEqualToString:@"refreshArr"]) {
-        return;
+    if ([keyPath isEqualToString:@"refreshArr"]) {
+        if ([self.refreshArr count]==0) {//没有需要刷新数据
+            self.showAllPriceView.hidden = YES;
+            return;
+        }
+        //有数据
+        self.showAllPriceView.hidden = NO;
+        [self.view bringSubviewToFront:self.showAllPriceView];
+        //刷新
+        self.showAllPriceView.numLab.text = [NSString stringWithFormat:@"(%lu项)",(unsigned long)self.refreshArr.count];
+    }else if ([keyPath isEqualToString:@"dataArr"]){
+        if (self.currentSmallIndex == 0) {//如果当前选中的是全部
+            if (self.dataArr.count == 0) {
+                self.noDataView.hidden = NO;
+                [self.view bringSubviewToFront:self.noDataView];
+            }else{
+                self.noDataView.hidden = YES;
+            }
+        }
     }
-    if ([self.refreshArr count]==0) {//没有需要刷新数据
-        self.showAllPriceView.hidden = YES;
-        return;
-    }
-    //有数据
-    self.showAllPriceView.hidden = NO;
-    [self.view bringSubviewToFront:self.showAllPriceView];
-    //刷新
-    self.showAllPriceView.numLab.text = [NSString stringWithFormat:@"(%lu项)",(unsigned long)self.refreshArr.count];
 }
 #pragma mark getter and setter
+-(NoAttentionDataView *)noDataView{
+    if (_noDataView == nil) {
+        _noDataView = [[NoAttentionDataView alloc]init];
+    }
+    return _noDataView;
+}
 -(ShowPriceView *)showPriceView
 {
     if(_showPriceView == nil){
